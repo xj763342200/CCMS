@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CCMS.iml" filepath="$PROJECT_DIR$/.idea/CCMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CCMS-ClientServer/CCMSClientServer.iml" filepath="$PROJECT_DIR$/CCMS-ClientServer/CCMSClientServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CCMS-CommonServer/CCMSCommonServer.iml" filepath="$PROJECT_DIR$/CCMS-CommonServer/CCMSCommonServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CCMS-EurekaServer/CCMSEurekaServer.iml" filepath="$PROJECT_DIR$/CCMS-EurekaServer/CCMSEurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CCMS-EurekaServer/CreditCardManagementSystem_EurekaServer.iml" filepath="$PROJECT_DIR$/CCMS-EurekaServer/CreditCardManagementSystem_EurekaServer.iml" />
+    </modules>
+  </component>
+</project>
