@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.RepaymentDetailMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.RepaymentDetail">
+    <id column="REPAYMENT_DETAIL_ID" jdbcType="DECIMAL" property="repaymentDetailId" />
+    <result column="CARD_NUMBER" jdbcType="DECIMAL" property="cardNumber" />
+    <result column="REPAYMENT_MONEY" jdbcType="DECIMAL" property="repaymentMoney" />
+    <result column="REPAYMENT_DATE" jdbcType="TIMESTAMP" property="repaymentDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    REPAYMENT_DETAIL_ID, CARD_NUMBER, REPAYMENT_MONEY, REPAYMENT_DATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zl.domain.RepaymentDetailExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from REPAYMENT_DETAIL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from REPAYMENT_DETAIL
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from REPAYMENT_DETAIL
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.domain.RepaymentDetailExample">
+    delete from REPAYMENT_DETAIL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.RepaymentDetail">
+    insert into REPAYMENT_DETAIL (REPAYMENT_DETAIL_ID, CARD_NUMBER, REPAYMENT_MONEY, 
+      REPAYMENT_DATE)
+    values (#{repaymentDetailId,jdbcType=DECIMAL}, #{cardNumber,jdbcType=DECIMAL}, #{repaymentMoney,jdbcType=DECIMAL}, 
+      #{repaymentDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.RepaymentDetail">
+    insert into REPAYMENT_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="repaymentDetailId != null">
+        REPAYMENT_DETAIL_ID,
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER,
+      </if>
+      <if test="repaymentMoney != null">
+        REPAYMENT_MONEY,
+      </if>
+      <if test="repaymentDate != null">
+        REPAYMENT_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="repaymentDetailId != null">
+        #{repaymentDetailId,jdbcType=DECIMAL},
+      </if>
+      <if test="cardNumber != null">
+        #{cardNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentMoney != null">
+        #{repaymentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentDate != null">
+        #{repaymentDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.domain.RepaymentDetailExample" resultType="java.lang.Long">
+    select count(*) from REPAYMENT_DETAIL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update REPAYMENT_DETAIL
+    <set>
+      <if test="record.repaymentDetailId != null">
+        REPAYMENT_DETAIL_ID = #{record.repaymentDetailId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cardNumber != null">
+        CARD_NUMBER = #{record.cardNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="record.repaymentMoney != null">
+        REPAYMENT_MONEY = #{record.repaymentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.repaymentDate != null">
+        REPAYMENT_DATE = #{record.repaymentDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update REPAYMENT_DETAIL
+    set REPAYMENT_DETAIL_ID = #{record.repaymentDetailId,jdbcType=DECIMAL},
+      CARD_NUMBER = #{record.cardNumber,jdbcType=DECIMAL},
+      REPAYMENT_MONEY = #{record.repaymentMoney,jdbcType=DECIMAL},
+      REPAYMENT_DATE = #{record.repaymentDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.RepaymentDetail">
+    update REPAYMENT_DETAIL
+    <set>
+      <if test="cardNumber != null">
+        CARD_NUMBER = #{cardNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentMoney != null">
+        REPAYMENT_MONEY = #{repaymentMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentDate != null">
+        REPAYMENT_DATE = #{repaymentDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.RepaymentDetail">
+    update REPAYMENT_DETAIL
+    set CARD_NUMBER = #{cardNumber,jdbcType=DECIMAL},
+      REPAYMENT_MONEY = #{repaymentMoney,jdbcType=DECIMAL},
+      REPAYMENT_DATE = #{repaymentDate,jdbcType=TIMESTAMP}
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+  </update>
+</mapper>

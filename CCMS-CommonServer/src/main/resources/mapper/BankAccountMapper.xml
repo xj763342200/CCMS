@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.BankAccountMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.BankAccount">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="REALNAME" jdbcType="VARCHAR" property="realname" />
+    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="BANK_CARD_NUMBER" jdbcType="VARCHAR" property="bankCardNumber" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="PWD" jdbcType="VARCHAR" property="pwd" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="IF_DELETE" jdbcType="DECIMAL" property="ifDelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, REALNAME, BALANCE, ID_CARD, BANK_CARD_NUMBER, PHONE, PWD, CREATETIME, UPDATETIME, 
+    IF_DELETE
+  </sql>
+  <select id="selectByExample" parameterType="com.zl.domain.BankAccountExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BANK_ACCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BANK_ACCOUNT
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from BANK_ACCOUNT
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.domain.BankAccountExample">
+    delete from BANK_ACCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.BankAccount">
+    insert into BANK_ACCOUNT (ID, REALNAME, BALANCE, 
+      ID_CARD, BANK_CARD_NUMBER, PHONE, 
+      PWD, CREATETIME, UPDATETIME, 
+      IF_DELETE)
+    values (#{id,jdbcType=DECIMAL}, #{realname,jdbcType=VARCHAR}, #{balance,jdbcType=DECIMAL}, 
+      #{idCard,jdbcType=VARCHAR}, #{bankCardNumber,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{pwd,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{ifDelete,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.BankAccount">
+    insert into BANK_ACCOUNT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="realname != null">
+        REALNAME,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="bankCardNumber != null">
+        BANK_CARD_NUMBER,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="pwd != null">
+        PWD,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME,
+      </if>
+      <if test="ifDelete != null">
+        IF_DELETE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null">
+        #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifDelete != null">
+        #{ifDelete,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.domain.BankAccountExample" resultType="java.lang.Long">
+    select count(*) from BANK_ACCOUNT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update BANK_ACCOUNT
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.realname != null">
+        REALNAME = #{record.realname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balance != null">
+        BALANCE = #{record.balance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.idCard != null">
+        ID_CARD = #{record.idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCardNumber != null">
+        BANK_CARD_NUMBER = #{record.bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pwd != null">
+        PWD = #{record.pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatetime != null">
+        UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ifDelete != null">
+        IF_DELETE = #{record.ifDelete,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update BANK_ACCOUNT
+    set ID = #{record.id,jdbcType=DECIMAL},
+      REALNAME = #{record.realname,jdbcType=VARCHAR},
+      BALANCE = #{record.balance,jdbcType=DECIMAL},
+      ID_CARD = #{record.idCard,jdbcType=VARCHAR},
+      BANK_CARD_NUMBER = #{record.bankCardNumber,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      PWD = #{record.pwd,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
+      IF_DELETE = #{record.ifDelete,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.BankAccount">
+    update BANK_ACCOUNT
+    <set>
+      <if test="realname != null">
+        REALNAME = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        BALANCE = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNumber != null">
+        BANK_CARD_NUMBER = #{bankCardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        PWD = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifDelete != null">
+        IF_DELETE = #{ifDelete,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.BankAccount">
+    update BANK_ACCOUNT
+    set REALNAME = #{realname,jdbcType=VARCHAR},
+      BALANCE = #{balance,jdbcType=DECIMAL},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      BANK_CARD_NUMBER = #{bankCardNumber,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      PWD = #{pwd,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      IF_DELETE = #{ifDelete,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.CardInformationMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.CardInformation">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="CARD_ID" jdbcType="DECIMAL" property="cardId" />
+    <result column="CARD_STATE" jdbcType="DECIMAL" property="cardState" />
+    <result column="CARDHOLDER" jdbcType="VARCHAR" property="cardholder" />
+    <result column="CARD_KIND" jdbcType="DECIMAL" property="cardKind" />
+    <result column="LORD_VICE" jdbcType="DECIMAL" property="lordVice" />
+    <result column="ACCOUNT_ID" jdbcType="DECIMAL" property="accountId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, CARD_ID, CARD_STATE, CARDHOLDER, CARD_KIND, LORD_VICE, ACCOUNT_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.zl.domain.CardInformationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CARD_INFORMATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARD_INFORMATION
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from CARD_INFORMATION
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.domain.CardInformationExample">
+    delete from CARD_INFORMATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.CardInformation">
+    insert into CARD_INFORMATION (ID, CARD_ID, CARD_STATE, 
+      CARDHOLDER, CARD_KIND, LORD_VICE, 
+      ACCOUNT_ID)
+    values (#{id,jdbcType=DECIMAL}, #{cardId,jdbcType=DECIMAL}, #{cardState,jdbcType=DECIMAL}, 
+      #{cardholder,jdbcType=VARCHAR}, #{cardKind,jdbcType=DECIMAL}, #{lordVice,jdbcType=DECIMAL}, 
+      #{accountId,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.CardInformation">
+    insert into CARD_INFORMATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="cardId != null">
+        CARD_ID,
+      </if>
+      <if test="cardState != null">
+        CARD_STATE,
+      </if>
+      <if test="cardholder != null">
+        CARDHOLDER,
+      </if>
+      <if test="cardKind != null">
+        CARD_KIND,
+      </if>
+      <if test="lordVice != null">
+        LORD_VICE,
+      </if>
+      <if test="accountId != null">
+        ACCOUNT_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="cardId != null">
+        #{cardId,jdbcType=DECIMAL},
+      </if>
+      <if test="cardState != null">
+        #{cardState,jdbcType=DECIMAL},
+      </if>
+      <if test="cardholder != null">
+        #{cardholder,jdbcType=VARCHAR},
+      </if>
+      <if test="cardKind != null">
+        #{cardKind,jdbcType=DECIMAL},
+      </if>
+      <if test="lordVice != null">
+        #{lordVice,jdbcType=DECIMAL},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.domain.CardInformationExample" resultType="java.lang.Long">
+    select count(*) from CARD_INFORMATION
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CARD_INFORMATION
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cardId != null">
+        CARD_ID = #{record.cardId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cardState != null">
+        CARD_STATE = #{record.cardState,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cardholder != null">
+        CARDHOLDER = #{record.cardholder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardKind != null">
+        CARD_KIND = #{record.cardKind,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lordVice != null">
+        LORD_VICE = #{record.lordVice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.accountId != null">
+        ACCOUNT_ID = #{record.accountId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CARD_INFORMATION
+    set ID = #{record.id,jdbcType=DECIMAL},
+      CARD_ID = #{record.cardId,jdbcType=DECIMAL},
+      CARD_STATE = #{record.cardState,jdbcType=DECIMAL},
+      CARDHOLDER = #{record.cardholder,jdbcType=VARCHAR},
+      CARD_KIND = #{record.cardKind,jdbcType=DECIMAL},
+      LORD_VICE = #{record.lordVice,jdbcType=DECIMAL},
+      ACCOUNT_ID = #{record.accountId,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.CardInformation">
+    update CARD_INFORMATION
+    <set>
+      <if test="cardId != null">
+        CARD_ID = #{cardId,jdbcType=DECIMAL},
+      </if>
+      <if test="cardState != null">
+        CARD_STATE = #{cardState,jdbcType=DECIMAL},
+      </if>
+      <if test="cardholder != null">
+        CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
+      </if>
+      <if test="cardKind != null">
+        CARD_KIND = #{cardKind,jdbcType=DECIMAL},
+      </if>
+      <if test="lordVice != null">
+        LORD_VICE = #{lordVice,jdbcType=DECIMAL},
+      </if>
+      <if test="accountId != null">
+        ACCOUNT_ID = #{accountId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.CardInformation">
+    update CARD_INFORMATION
+    set CARD_ID = #{cardId,jdbcType=DECIMAL},
+      CARD_STATE = #{cardState,jdbcType=DECIMAL},
+      CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
+      CARD_KIND = #{cardKind,jdbcType=DECIMAL},
+      LORD_VICE = #{lordVice,jdbcType=DECIMAL},
+      ACCOUNT_ID = #{accountId,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

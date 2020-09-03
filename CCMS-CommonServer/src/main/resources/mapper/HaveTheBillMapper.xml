@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.HaveTheBillMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.HaveTheBill">
+    <id column="BILL_ID" jdbcType="DECIMAL" property="billId" />
+    <result column="NOWMONTH" jdbcType="TIMESTAMP" property="nowmonth" />
+    <result column="ALLPAYMONEY" jdbcType="DECIMAL" property="allpaymoney" />
+    <result column="NOWLOWPAYMENT" jdbcType="DECIMAL" property="nowlowpayment" />
+    <result column="MONTHLY_BILL_DAY" jdbcType="TIMESTAMP" property="monthlyBillDay" />
+    <result column="BILL_TYPE" jdbcType="DECIMAL" property="billType" />
+    <result column="BILL_STATE" jdbcType="DECIMAL" property="billState" />
+    <result column="BILL_DETAILS_ID" jdbcType="DECIMAL" property="billDetailsId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    BILL_ID, NOWMONTH, ALLPAYMONEY, NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, BILL_STATE, 
+    BILL_DETAILS_ID
+  </sql>
+  <select id="selectByExample" parameterType="com.zl.domain.HaveTheBillExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from HAVE_THE_BILL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HAVE_THE_BILL
+    where BILL_ID = #{billId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from HAVE_THE_BILL
+    where BILL_ID = #{billId,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.domain.HaveTheBillExample">
+    delete from HAVE_THE_BILL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.HaveTheBill">
+    insert into HAVE_THE_BILL (BILL_ID, NOWMONTH, ALLPAYMONEY, 
+      NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, 
+      BILL_STATE, BILL_DETAILS_ID)
+    values (#{billId,jdbcType=DECIMAL}, #{nowmonth,jdbcType=TIMESTAMP}, #{allpaymoney,jdbcType=DECIMAL}, 
+      #{nowlowpayment,jdbcType=DECIMAL}, #{monthlyBillDay,jdbcType=TIMESTAMP}, #{billType,jdbcType=DECIMAL}, 
+      #{billState,jdbcType=DECIMAL}, #{billDetailsId,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.HaveTheBill">
+    insert into HAVE_THE_BILL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        BILL_ID,
+      </if>
+      <if test="nowmonth != null">
+        NOWMONTH,
+      </if>
+      <if test="allpaymoney != null">
+        ALLPAYMONEY,
+      </if>
+      <if test="nowlowpayment != null">
+        NOWLOWPAYMENT,
+      </if>
+      <if test="monthlyBillDay != null">
+        MONTHLY_BILL_DAY,
+      </if>
+      <if test="billType != null">
+        BILL_TYPE,
+      </if>
+      <if test="billState != null">
+        BILL_STATE,
+      </if>
+      <if test="billDetailsId != null">
+        BILL_DETAILS_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        #{billId,jdbcType=DECIMAL},
+      </if>
+      <if test="nowmonth != null">
+        #{nowmonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="allpaymoney != null">
+        #{allpaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nowlowpayment != null">
+        #{nowlowpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyBillDay != null">
+        #{monthlyBillDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billType != null">
+        #{billType,jdbcType=DECIMAL},
+      </if>
+      <if test="billState != null">
+        #{billState,jdbcType=DECIMAL},
+      </if>
+      <if test="billDetailsId != null">
+        #{billDetailsId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.domain.HaveTheBillExample" resultType="java.lang.Long">
+    select count(*) from HAVE_THE_BILL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update HAVE_THE_BILL
+    <set>
+      <if test="record.billId != null">
+        BILL_ID = #{record.billId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nowmonth != null">
+        NOWMONTH = #{record.nowmonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.allpaymoney != null">
+        ALLPAYMONEY = #{record.allpaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nowlowpayment != null">
+        NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="record.monthlyBillDay != null">
+        MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.billType != null">
+        BILL_TYPE = #{record.billType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.billState != null">
+        BILL_STATE = #{record.billState,jdbcType=DECIMAL},
+      </if>
+      <if test="record.billDetailsId != null">
+        BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update HAVE_THE_BILL
+    set BILL_ID = #{record.billId,jdbcType=DECIMAL},
+      NOWMONTH = #{record.nowmonth,jdbcType=TIMESTAMP},
+      ALLPAYMONEY = #{record.allpaymoney,jdbcType=DECIMAL},
+      NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=DECIMAL},
+      MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=TIMESTAMP},
+      BILL_TYPE = #{record.billType,jdbcType=DECIMAL},
+      BILL_STATE = #{record.billState,jdbcType=DECIMAL},
+      BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.HaveTheBill">
+    update HAVE_THE_BILL
+    <set>
+      <if test="nowmonth != null">
+        NOWMONTH = #{nowmonth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="allpaymoney != null">
+        ALLPAYMONEY = #{allpaymoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nowlowpayment != null">
+        NOWLOWPAYMENT = #{nowlowpayment,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyBillDay != null">
+        MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billType != null">
+        BILL_TYPE = #{billType,jdbcType=DECIMAL},
+      </if>
+      <if test="billState != null">
+        BILL_STATE = #{billState,jdbcType=DECIMAL},
+      </if>
+      <if test="billDetailsId != null">
+        BILL_DETAILS_ID = #{billDetailsId,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where BILL_ID = #{billId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.HaveTheBill">
+    update HAVE_THE_BILL
+    set NOWMONTH = #{nowmonth,jdbcType=TIMESTAMP},
+      ALLPAYMONEY = #{allpaymoney,jdbcType=DECIMAL},
+      NOWLOWPAYMENT = #{nowlowpayment,jdbcType=DECIMAL},
+      MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=TIMESTAMP},
+      BILL_TYPE = #{billType,jdbcType=DECIMAL},
+      BILL_STATE = #{billState,jdbcType=DECIMAL},
+      BILL_DETAILS_ID = #{billDetailsId,jdbcType=DECIMAL}
+    where BILL_ID = #{billId,jdbcType=DECIMAL}
+  </update>
+</mapper>
