@@ -3,8 +3,10 @@ package com.zl.dao;
 import com.zl.domain.RepaymentDetail;
 import com.zl.domain.RepaymentDetailExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface RepaymentDetailMapper {
     long countByExample(RepaymentDetailExample example);
 

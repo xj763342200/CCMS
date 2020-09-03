@@ -3,8 +3,10 @@ package com.zl.dao;
 import com.zl.domain.CreditCard;
 import com.zl.domain.CreditCardExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface CreditCardMapper {
     long countByExample(CreditCardExample example);
 

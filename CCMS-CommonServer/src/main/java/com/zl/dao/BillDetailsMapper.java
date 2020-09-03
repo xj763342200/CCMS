@@ -3,8 +3,10 @@ package com.zl.dao;
 import com.zl.domain.BillDetails;
 import com.zl.domain.BillDetailsExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface BillDetailsMapper {
     long countByExample(BillDetailsExample example);
 

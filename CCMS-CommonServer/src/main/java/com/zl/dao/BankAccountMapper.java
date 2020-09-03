@@ -3,8 +3,10 @@ package com.zl.dao;
 import com.zl.domain.BankAccount;
 import com.zl.domain.BankAccountExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface BankAccountMapper {
     long countByExample(BankAccountExample example);
 

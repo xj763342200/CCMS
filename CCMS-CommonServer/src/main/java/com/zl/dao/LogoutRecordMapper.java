@@ -3,8 +3,10 @@ package com.zl.dao;
 import com.zl.domain.LogoutRecord;
 import com.zl.domain.LogoutRecordExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface LogoutRecordMapper {
     long countByExample(LogoutRecordExample example);
 

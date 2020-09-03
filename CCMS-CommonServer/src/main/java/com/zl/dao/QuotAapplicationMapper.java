@@ -3,8 +3,10 @@ package com.zl.dao;
 import com.zl.domain.QuotAapplication;
 import com.zl.domain.QuotAapplicationExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface QuotAapplicationMapper {
     long countByExample(QuotAapplicationExample example);
 

@@ -3,8 +3,10 @@ package com.zl.dao;
 import com.zl.domain.CardInformation;
 import com.zl.domain.CardInformationExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface CardInformationMapper {
     long countByExample(CardInformationExample example);
 
