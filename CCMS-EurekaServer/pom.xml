@@ -11,8 +11,9 @@
     </parent>
 
     <groupId>com.zl</groupId>
-    <artifactId>CCMS_EurekaServer</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>CCMS-EurekaServer</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>

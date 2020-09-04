@@ -1,6 +1,5 @@
 package com.zl.controller;
 
-import com.zl.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
