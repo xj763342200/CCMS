@@ -2,7 +2,6 @@ package com.zl.domain;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class AccountInformationExample {
@@ -416,73 +415,63 @@ public class AccountInformationExample {
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsIsNull() {
-            addCriterion("MONTHLY_BILLS is null");
+        public Criteria andBillIdIsNull() {
+            addCriterion("BILL_ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsIsNotNull() {
-            addCriterion("MONTHLY_BILLS is not null");
+        public Criteria andBillIdIsNotNull() {
+            addCriterion("BILL_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsEqualTo(String value) {
-            addCriterion("MONTHLY_BILLS =", value, "monthlyBills");
+        public Criteria andBillIdEqualTo(Integer value) {
+            addCriterion("BILL_ID =", value, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsNotEqualTo(String value) {
-            addCriterion("MONTHLY_BILLS <>", value, "monthlyBills");
+        public Criteria andBillIdNotEqualTo(Integer value) {
+            addCriterion("BILL_ID <>", value, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsGreaterThan(String value) {
-            addCriterion("MONTHLY_BILLS >", value, "monthlyBills");
+        public Criteria andBillIdGreaterThan(Integer value) {
+            addCriterion("BILL_ID >", value, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsGreaterThanOrEqualTo(String value) {
-            addCriterion("MONTHLY_BILLS >=", value, "monthlyBills");
+        public Criteria andBillIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("BILL_ID >=", value, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsLessThan(String value) {
-            addCriterion("MONTHLY_BILLS <", value, "monthlyBills");
+        public Criteria andBillIdLessThan(Integer value) {
+            addCriterion("BILL_ID <", value, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsLessThanOrEqualTo(String value) {
-            addCriterion("MONTHLY_BILLS <=", value, "monthlyBills");
+        public Criteria andBillIdLessThanOrEqualTo(Integer value) {
+            addCriterion("BILL_ID <=", value, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsLike(String value) {
-            addCriterion("MONTHLY_BILLS like", value, "monthlyBills");
+        public Criteria andBillIdIn(List<Integer> values) {
+            addCriterion("BILL_ID in", values, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsNotLike(String value) {
-            addCriterion("MONTHLY_BILLS not like", value, "monthlyBills");
+        public Criteria andBillIdNotIn(List<Integer> values) {
+            addCriterion("BILL_ID not in", values, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsIn(List<String> values) {
-            addCriterion("MONTHLY_BILLS in", values, "monthlyBills");
+        public Criteria andBillIdBetween(Integer value1, Integer value2) {
+            addCriterion("BILL_ID between", value1, value2, "billId");
             return (Criteria) this;
         }
 
-        public Criteria andMonthlyBillsNotIn(List<String> values) {
-            addCriterion("MONTHLY_BILLS not in", values, "monthlyBills");
-            return (Criteria) this;
-        }
-
-        public Criteria andMonthlyBillsBetween(String value1, String value2) {
-            addCriterion("MONTHLY_BILLS between", value1, value2, "monthlyBills");
-            return (Criteria) this;
-        }
-
-        public Criteria andMonthlyBillsNotBetween(String value1, String value2) {
-            addCriterion("MONTHLY_BILLS not between", value1, value2, "monthlyBills");
+        public Criteria andBillIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("BILL_ID not between", value1, value2, "billId");
             return (Criteria) this;
         }
 
@@ -496,52 +485,52 @@ public class AccountInformationExample {
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateEqualTo(Date value) {
+        public Criteria andNowaccountdateEqualTo(Integer value) {
             addCriterion("NOWACCOUNTDATE =", value, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateNotEqualTo(Date value) {
+        public Criteria andNowaccountdateNotEqualTo(Integer value) {
             addCriterion("NOWACCOUNTDATE <>", value, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateGreaterThan(Date value) {
+        public Criteria andNowaccountdateGreaterThan(Integer value) {
             addCriterion("NOWACCOUNTDATE >", value, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateGreaterThanOrEqualTo(Date value) {
+        public Criteria andNowaccountdateGreaterThanOrEqualTo(Integer value) {
             addCriterion("NOWACCOUNTDATE >=", value, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateLessThan(Date value) {
+        public Criteria andNowaccountdateLessThan(Integer value) {
             addCriterion("NOWACCOUNTDATE <", value, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateLessThanOrEqualTo(Date value) {
+        public Criteria andNowaccountdateLessThanOrEqualTo(Integer value) {
             addCriterion("NOWACCOUNTDATE <=", value, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateIn(List<Date> values) {
+        public Criteria andNowaccountdateIn(List<Integer> values) {
             addCriterion("NOWACCOUNTDATE in", values, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateNotIn(List<Date> values) {
+        public Criteria andNowaccountdateNotIn(List<Integer> values) {
             addCriterion("NOWACCOUNTDATE not in", values, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateBetween(Date value1, Date value2) {
+        public Criteria andNowaccountdateBetween(Integer value1, Integer value2) {
             addCriterion("NOWACCOUNTDATE between", value1, value2, "nowaccountdate");
             return (Criteria) this;
         }
 
-        public Criteria andNowaccountdateNotBetween(Date value1, Date value2) {
+        public Criteria andNowaccountdateNotBetween(Integer value1, Integer value2) {
             addCriterion("NOWACCOUNTDATE not between", value1, value2, "nowaccountdate");
             return (Criteria) this;
         }
@@ -556,52 +545,62 @@ public class AccountInformationExample {
             return (Criteria) this;
         }
 
-        public Criteria andCardIdEqualTo(Integer value) {
+        public Criteria andCardIdEqualTo(String value) {
             addCriterion("CARD_ID =", value, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdNotEqualTo(Integer value) {
+        public Criteria andCardIdNotEqualTo(String value) {
             addCriterion("CARD_ID <>", value, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdGreaterThan(Integer value) {
+        public Criteria andCardIdGreaterThan(String value) {
             addCriterion("CARD_ID >", value, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCardIdGreaterThanOrEqualTo(String value) {
             addCriterion("CARD_ID >=", value, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdLessThan(Integer value) {
+        public Criteria andCardIdLessThan(String value) {
             addCriterion("CARD_ID <", value, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdLessThanOrEqualTo(Integer value) {
+        public Criteria andCardIdLessThanOrEqualTo(String value) {
             addCriterion("CARD_ID <=", value, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdIn(List<Integer> values) {
+        public Criteria andCardIdLike(String value) {
+            addCriterion("CARD_ID like", value, "cardId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardIdNotLike(String value) {
+            addCriterion("CARD_ID not like", value, "cardId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardIdIn(List<String> values) {
             addCriterion("CARD_ID in", values, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdNotIn(List<Integer> values) {
+        public Criteria andCardIdNotIn(List<String> values) {
             addCriterion("CARD_ID not in", values, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdBetween(Integer value1, Integer value2) {
+        public Criteria andCardIdBetween(String value1, String value2) {
             addCriterion("CARD_ID between", value1, value2, "cardId");
             return (Criteria) this;
         }
 
-        public Criteria andCardIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andCardIdNotBetween(String value1, String value2) {
             addCriterion("CARD_ID not between", value1, value2, "cardId");
             return (Criteria) this;
         }

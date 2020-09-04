@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.RermissionMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.Rermission">
-    <id column="ID" jdbcType="DECIMAL" property="id" />
-    <result column="PARENT_ID" jdbcType="DECIMAL" property="parentId" />
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="PARENT_ID" jdbcType="NUMERIC" property="parentId" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="ENNAME" jdbcType="VARCHAR" property="enname" />
     <result column="URL" jdbcType="VARCHAR" property="url" />
@@ -88,11 +88,11 @@
     select 
     <include refid="Base_Column_List" />
     from PERMISSION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from PERMISSION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.RermissionExample">
     delete from PERMISSION
@@ -104,7 +104,7 @@
     insert into PERMISSION (ID, PARENT_ID, NAME, 
       ENNAME, URL, DESCRIPTION
       )
-    values (#{id,jdbcType=DECIMAL}, #{parentId,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=NUMERIC}, #{parentId,jdbcType=NUMERIC}, #{name,jdbcType=VARCHAR}, 
       #{enname,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
       )
   </insert>
@@ -132,10 +132,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=DECIMAL},
+        #{id,jdbcType=NUMERIC},
       </if>
       <if test="parentId != null">
-        #{parentId,jdbcType=DECIMAL},
+        #{parentId,jdbcType=NUMERIC},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -161,10 +161,10 @@
     update PERMISSION
     <set>
       <if test="record.id != null">
-        ID = #{record.id,jdbcType=DECIMAL},
+        ID = #{record.id,jdbcType=NUMERIC},
       </if>
       <if test="record.parentId != null">
-        PARENT_ID = #{record.parentId,jdbcType=DECIMAL},
+        PARENT_ID = #{record.parentId,jdbcType=NUMERIC},
       </if>
       <if test="record.name != null">
         NAME = #{record.name,jdbcType=VARCHAR},
@@ -185,8 +185,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update PERMISSION
-    set ID = #{record.id,jdbcType=DECIMAL},
-      PARENT_ID = #{record.parentId,jdbcType=DECIMAL},
+    set ID = #{record.id,jdbcType=NUMERIC},
+      PARENT_ID = #{record.parentId,jdbcType=NUMERIC},
       NAME = #{record.name,jdbcType=VARCHAR},
       ENNAME = #{record.enname,jdbcType=VARCHAR},
       URL = #{record.url,jdbcType=VARCHAR},
@@ -199,7 +199,7 @@
     update PERMISSION
     <set>
       <if test="parentId != null">
-        PARENT_ID = #{parentId,jdbcType=DECIMAL},
+        PARENT_ID = #{parentId,jdbcType=NUMERIC},
       </if>
       <if test="name != null">
         NAME = #{name,jdbcType=VARCHAR},
@@ -214,15 +214,15 @@
         DESCRIPTION = #{description,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.Rermission">
     update PERMISSION
-    set PARENT_ID = #{parentId,jdbcType=DECIMAL},
+    set PARENT_ID = #{parentId,jdbcType=NUMERIC},
       NAME = #{name,jdbcType=VARCHAR},
       ENNAME = #{enname,jdbcType=VARCHAR},
       URL = #{url,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
 </mapper>

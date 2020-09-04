@@ -4,10 +4,8 @@ import com.zl.domain.staging;
 import com.zl.domain.stagingExample;
 import java.math.BigDecimal;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface stagingMapper {
     long countByExample(stagingExample example);
 

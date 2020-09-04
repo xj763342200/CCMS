@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.QuotAapplicationMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.QuotAapplication">
-    <id column="QUOT_ID" jdbcType="DECIMAL" property="quotId" />
-    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <id column="QUOT_ID" jdbcType="NUMERIC" property="quotId" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
     <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
-    <result column="FACILITY_EXTENT" jdbcType="DECIMAL" property="facilityExtent" />
-    <result column="TEMPORARY_LINES" jdbcType="DECIMAL" property="temporaryLines" />
+    <result column="FACILITY_EXTENT" jdbcType="NUMERIC" property="facilityExtent" />
+    <result column="TEMPORARY_LINES" jdbcType="NUMERIC" property="temporaryLines" />
     <result column="SETTLING_TIME" jdbcType="TIMESTAMP" property="settlingTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -88,11 +88,11 @@
     select 
     <include refid="Base_Column_List" />
     from QUOT_AAPPLICATION
-    where QUOT_ID = #{quotId,jdbcType=DECIMAL}
+    where QUOT_ID = #{quotId,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from QUOT_AAPPLICATION
-    where QUOT_ID = #{quotId,jdbcType=DECIMAL}
+    where QUOT_ID = #{quotId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.QuotAapplicationExample">
     delete from QUOT_AAPPLICATION
@@ -104,8 +104,8 @@
     insert into QUOT_AAPPLICATION (QUOT_ID, USER_ID, CARD_NUMBER, 
       FACILITY_EXTENT, TEMPORARY_LINES, SETTLING_TIME
       )
-    values (#{quotId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{cardNumber,jdbcType=VARCHAR}, 
-      #{facilityExtent,jdbcType=DECIMAL}, #{temporaryLines,jdbcType=DECIMAL}, #{settlingTime,jdbcType=TIMESTAMP}
+    values (#{quotId,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, 
+      #{facilityExtent,jdbcType=NUMERIC}, #{temporaryLines,jdbcType=NUMERIC}, #{settlingTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.QuotAapplication">
@@ -132,19 +132,19 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="quotId != null">
-        #{quotId,jdbcType=DECIMAL},
+        #{quotId,jdbcType=NUMERIC},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="facilityExtent != null">
-        #{facilityExtent,jdbcType=DECIMAL},
+        #{facilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="temporaryLines != null">
-        #{temporaryLines,jdbcType=DECIMAL},
+        #{temporaryLines,jdbcType=NUMERIC},
       </if>
       <if test="settlingTime != null">
         #{settlingTime,jdbcType=TIMESTAMP},
@@ -161,19 +161,19 @@
     update QUOT_AAPPLICATION
     <set>
       <if test="record.quotId != null">
-        QUOT_ID = #{record.quotId,jdbcType=DECIMAL},
+        QUOT_ID = #{record.quotId,jdbcType=NUMERIC},
       </if>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
       <if test="record.cardNumber != null">
         CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="record.facilityExtent != null">
-        FACILITY_EXTENT = #{record.facilityExtent,jdbcType=DECIMAL},
+        FACILITY_EXTENT = #{record.facilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="record.temporaryLines != null">
-        TEMPORARY_LINES = #{record.temporaryLines,jdbcType=DECIMAL},
+        TEMPORARY_LINES = #{record.temporaryLines,jdbcType=NUMERIC},
       </if>
       <if test="record.settlingTime != null">
         SETTLING_TIME = #{record.settlingTime,jdbcType=TIMESTAMP},
@@ -185,11 +185,11 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update QUOT_AAPPLICATION
-    set QUOT_ID = #{record.quotId,jdbcType=DECIMAL},
-      USER_ID = #{record.userId,jdbcType=DECIMAL},
+    set QUOT_ID = #{record.quotId,jdbcType=NUMERIC},
+      USER_ID = #{record.userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
-      FACILITY_EXTENT = #{record.facilityExtent,jdbcType=DECIMAL},
-      TEMPORARY_LINES = #{record.temporaryLines,jdbcType=DECIMAL},
+      FACILITY_EXTENT = #{record.facilityExtent,jdbcType=NUMERIC},
+      TEMPORARY_LINES = #{record.temporaryLines,jdbcType=NUMERIC},
       SETTLING_TIME = #{record.settlingTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -199,30 +199,30 @@
     update QUOT_AAPPLICATION
     <set>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=DECIMAL},
+        USER_ID = #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="facilityExtent != null">
-        FACILITY_EXTENT = #{facilityExtent,jdbcType=DECIMAL},
+        FACILITY_EXTENT = #{facilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="temporaryLines != null">
-        TEMPORARY_LINES = #{temporaryLines,jdbcType=DECIMAL},
+        TEMPORARY_LINES = #{temporaryLines,jdbcType=NUMERIC},
       </if>
       <if test="settlingTime != null">
         SETTLING_TIME = #{settlingTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where QUOT_ID = #{quotId,jdbcType=DECIMAL}
+    where QUOT_ID = #{quotId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.QuotAapplication">
     update QUOT_AAPPLICATION
-    set USER_ID = #{userId,jdbcType=DECIMAL},
+    set USER_ID = #{userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
-      FACILITY_EXTENT = #{facilityExtent,jdbcType=DECIMAL},
-      TEMPORARY_LINES = #{temporaryLines,jdbcType=DECIMAL},
+      FACILITY_EXTENT = #{facilityExtent,jdbcType=NUMERIC},
+      TEMPORARY_LINES = #{temporaryLines,jdbcType=NUMERIC},
       SETTLING_TIME = #{settlingTime,jdbcType=TIMESTAMP}
-    where QUOT_ID = #{quotId,jdbcType=DECIMAL}
+    where QUOT_ID = #{quotId,jdbcType=NUMERIC}
   </update>
 </mapper>

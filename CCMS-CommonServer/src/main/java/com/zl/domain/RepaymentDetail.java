@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class RepaymentDetail implements Serializable {
-    private Long repaymentDetailId;
+    private Integer repaymentDetailId;
 
-    private Long cardNumber;
+    private String cardNumber;
 
     private BigDecimal repaymentMoney;
 
@@ -15,20 +15,20 @@ public class RepaymentDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getRepaymentDetailId() {
+    public Integer getRepaymentDetailId() {
         return repaymentDetailId;
     }
 
-    public void setRepaymentDetailId(Long repaymentDetailId) {
+    public void setRepaymentDetailId(Integer repaymentDetailId) {
         this.repaymentDetailId = repaymentDetailId;
     }
 
-    public Long getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(Long cardNumber) {
-        this.cardNumber = cardNumber;
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber == null ? null : cardNumber.trim();
     }
 
     public BigDecimal getRepaymentMoney() {

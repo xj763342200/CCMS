@@ -3,10 +3,8 @@ package com.zl.dao;
 import com.zl.domain.Rermission;
 import com.zl.domain.RermissionExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface RermissionMapper {
     long countByExample(RermissionExample example);
 

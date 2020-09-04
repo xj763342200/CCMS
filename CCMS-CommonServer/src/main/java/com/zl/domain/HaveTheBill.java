@@ -2,41 +2,42 @@ package com.zl.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class HaveTheBill implements Serializable {
-    private Long billId;
+    private Integer billId;
 
-    private Date nowmonth;
+    private String nowmonth;
 
     private BigDecimal allpaymoney;
 
     private BigDecimal nowlowpayment;
 
-    private Date monthlyBillDay;
+    private Short monthlyBillDay;
 
     private Short billType;
 
     private Short billState;
 
-    private Long billDetailsId;
+    private Integer billDetailsId;
+
+    private Integer accountId;
 
     private static final long serialVersionUID = 1L;
 
-    public Long getBillId() {
+    public Integer getBillId() {
         return billId;
     }
 
-    public void setBillId(Long billId) {
+    public void setBillId(Integer billId) {
         this.billId = billId;
     }
 
-    public Date getNowmonth() {
+    public String getNowmonth() {
         return nowmonth;
     }
 
-    public void setNowmonth(Date nowmonth) {
-        this.nowmonth = nowmonth;
+    public void setNowmonth(String nowmonth) {
+        this.nowmonth = nowmonth == null ? null : nowmonth.trim();
     }
 
     public BigDecimal getAllpaymoney() {
@@ -55,11 +56,11 @@ public class HaveTheBill implements Serializable {
         this.nowlowpayment = nowlowpayment;
     }
 
-    public Date getMonthlyBillDay() {
+    public Short getMonthlyBillDay() {
         return monthlyBillDay;
     }
 
-    public void setMonthlyBillDay(Date monthlyBillDay) {
+    public void setMonthlyBillDay(Short monthlyBillDay) {
         this.monthlyBillDay = monthlyBillDay;
     }
 
@@ -79,12 +80,20 @@ public class HaveTheBill implements Serializable {
         this.billState = billState;
     }
 
-    public Long getBillDetailsId() {
+    public Integer getBillDetailsId() {
         return billDetailsId;
     }
 
-    public void setBillDetailsId(Long billDetailsId) {
+    public void setBillDetailsId(Integer billDetailsId) {
         this.billDetailsId = billDetailsId;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
     }
 
     @Override
@@ -101,6 +110,7 @@ public class HaveTheBill implements Serializable {
         sb.append(", billType=").append(billType);
         sb.append(", billState=").append(billState);
         sb.append(", billDetailsId=").append(billDetailsId);
+        sb.append(", accountId=").append(accountId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

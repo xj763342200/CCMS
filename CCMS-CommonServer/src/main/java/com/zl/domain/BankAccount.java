@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class BankAccount implements Serializable {
-    private Long id;
+    private Integer bankAccountId;
 
     private String realname;
 
@@ -27,12 +27,12 @@ public class BankAccount implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
+    public Integer getBankAccountId() {
+        return bankAccountId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBankAccountId(Integer bankAccountId) {
+        this.bankAccountId = bankAccountId;
     }
 
     public String getRealname() {
@@ -113,7 +113,7 @@ public class BankAccount implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
+        sb.append(", bankAccountId=").append(bankAccountId);
         sb.append(", realname=").append(realname);
         sb.append(", balance=").append(balance);
         sb.append(", idCard=").append(idCard);

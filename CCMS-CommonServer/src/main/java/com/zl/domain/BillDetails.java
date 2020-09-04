@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class BillDetails implements Serializable {
-    private Long billDetailsId;
+    private Integer billDetailsId;
 
     private Date tradeDate;
 
@@ -23,11 +23,11 @@ public class BillDetails implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getBillDetailsId() {
+    public Integer getBillDetailsId() {
         return billDetailsId;
     }
 
-    public void setBillDetailsId(Long billDetailsId) {
+    public void setBillDetailsId(Integer billDetailsId) {
         this.billDetailsId = billDetailsId;
     }
 

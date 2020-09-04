@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.CardManagementMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.CardManagement">
-    <id column="CARD_ID" jdbcType="DECIMAL" property="cardId" />
-    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <id column="CARD_ID" jdbcType="NUMERIC" property="cardId" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
     <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
-    <result column="PHONE" jdbcType="DECIMAL" property="phone" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
-    <result column="TEMPORARY" jdbcType="DECIMAL" property="temporary" />
-    <result column="RESIDUE_TEMPORARY_LINES" jdbcType="DECIMAL" property="residueTemporaryLines" />
-    <result column="FACILITY_EXTENT" jdbcType="DECIMAL" property="facilityExtent" />
-    <result column="RESIDUE_FACILITY_EXTENT" jdbcType="DECIMAL" property="residueFacilityExtent" />
-    <result column="KIND" jdbcType="DECIMAL" property="kind" />
-    <result column="CARD_STATE" jdbcType="DECIMAL" property="cardState" />
-    <result column="ACTIVATE" jdbcType="DECIMAL" property="activate" />
+    <result column="TEMPORARY" jdbcType="NUMERIC" property="temporary" />
+    <result column="RESIDUE_TEMPORARY_LINES" jdbcType="NUMERIC" property="residueTemporaryLines" />
+    <result column="FACILITY_EXTENT" jdbcType="NUMERIC" property="facilityExtent" />
+    <result column="RESIDUE_FACILITY_EXTENT" jdbcType="NUMERIC" property="residueFacilityExtent" />
+    <result column="KIND" jdbcType="NUMERIC" property="kind" />
+    <result column="CARD_STATE" jdbcType="NUMERIC" property="cardState" />
+    <result column="ACTIVATE" jdbcType="NUMERIC" property="activate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -95,19 +95,11 @@
     select 
     <include refid="Base_Column_List" />
     from CARD_MANAGEMENT
-    where CARD_ID = #{cardId,jdbcType=DECIMAL}
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
   </select>
-
-  <select id="selectByPrimaryKeyList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from CARD_MANAGEMENT
-    where USER_ID = #{userId,jdbcType=DECIMAL}
-  </select>
-
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from CARD_MANAGEMENT
-    where CARD_ID = #{cardId,jdbcType=DECIMAL}
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.CardManagementExample">
     delete from CARD_MANAGEMENT
@@ -121,11 +113,11 @@
       RESIDUE_TEMPORARY_LINES, FACILITY_EXTENT, 
       RESIDUE_FACILITY_EXTENT, KIND, CARD_STATE, 
       ACTIVATE)
-    values (#{cardId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{cardNumber,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=DECIMAL}, #{password,jdbcType=VARCHAR}, #{temporary,jdbcType=DECIMAL}, 
-      #{residueTemporaryLines,jdbcType=DECIMAL}, #{facilityExtent,jdbcType=DECIMAL}, 
-      #{residueFacilityExtent,jdbcType=DECIMAL}, #{kind,jdbcType=DECIMAL}, #{cardState,jdbcType=DECIMAL}, 
-      #{activate,jdbcType=DECIMAL})
+    values (#{cardId,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{temporary,jdbcType=NUMERIC}, 
+      #{residueTemporaryLines,jdbcType=NUMERIC}, #{facilityExtent,jdbcType=NUMERIC}, 
+      #{residueFacilityExtent,jdbcType=NUMERIC}, #{kind,jdbcType=NUMERIC}, #{cardState,jdbcType=NUMERIC}, 
+      #{activate,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.CardManagement">
     insert into CARD_MANAGEMENT
@@ -169,40 +161,40 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="cardId != null">
-        #{cardId,jdbcType=DECIMAL},
+        #{cardId,jdbcType=NUMERIC},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
-        #{phone,jdbcType=DECIMAL},
+        #{phone,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
       <if test="temporary != null">
-        #{temporary,jdbcType=DECIMAL},
+        #{temporary,jdbcType=NUMERIC},
       </if>
       <if test="residueTemporaryLines != null">
-        #{residueTemporaryLines,jdbcType=DECIMAL},
+        #{residueTemporaryLines,jdbcType=NUMERIC},
       </if>
       <if test="facilityExtent != null">
-        #{facilityExtent,jdbcType=DECIMAL},
+        #{facilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="residueFacilityExtent != null">
-        #{residueFacilityExtent,jdbcType=DECIMAL},
+        #{residueFacilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="kind != null">
-        #{kind,jdbcType=DECIMAL},
+        #{kind,jdbcType=NUMERIC},
       </if>
       <if test="cardState != null">
-        #{cardState,jdbcType=DECIMAL},
+        #{cardState,jdbcType=NUMERIC},
       </if>
       <if test="activate != null">
-        #{activate,jdbcType=DECIMAL},
+        #{activate,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -216,40 +208,40 @@
     update CARD_MANAGEMENT
     <set>
       <if test="record.cardId != null">
-        CARD_ID = #{record.cardId,jdbcType=DECIMAL},
+        CARD_ID = #{record.cardId,jdbcType=NUMERIC},
       </if>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
       <if test="record.cardNumber != null">
         CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null">
-        PHONE = #{record.phone,jdbcType=DECIMAL},
+        PHONE = #{record.phone,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null">
         PASSWORD = #{record.password,jdbcType=VARCHAR},
       </if>
       <if test="record.temporary != null">
-        TEMPORARY = #{record.temporary,jdbcType=DECIMAL},
+        TEMPORARY = #{record.temporary,jdbcType=NUMERIC},
       </if>
       <if test="record.residueTemporaryLines != null">
-        RESIDUE_TEMPORARY_LINES = #{record.residueTemporaryLines,jdbcType=DECIMAL},
+        RESIDUE_TEMPORARY_LINES = #{record.residueTemporaryLines,jdbcType=NUMERIC},
       </if>
       <if test="record.facilityExtent != null">
-        FACILITY_EXTENT = #{record.facilityExtent,jdbcType=DECIMAL},
+        FACILITY_EXTENT = #{record.facilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="record.residueFacilityExtent != null">
-        RESIDUE_FACILITY_EXTENT = #{record.residueFacilityExtent,jdbcType=DECIMAL},
+        RESIDUE_FACILITY_EXTENT = #{record.residueFacilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="record.kind != null">
-        KIND = #{record.kind,jdbcType=DECIMAL},
+        KIND = #{record.kind,jdbcType=NUMERIC},
       </if>
       <if test="record.cardState != null">
-        CARD_STATE = #{record.cardState,jdbcType=DECIMAL},
+        CARD_STATE = #{record.cardState,jdbcType=NUMERIC},
       </if>
       <if test="record.activate != null">
-        ACTIVATE = #{record.activate,jdbcType=DECIMAL},
+        ACTIVATE = #{record.activate,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -258,18 +250,18 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update CARD_MANAGEMENT
-    set CARD_ID = #{record.cardId,jdbcType=DECIMAL},
-      USER_ID = #{record.userId,jdbcType=DECIMAL},
+    set CARD_ID = #{record.cardId,jdbcType=NUMERIC},
+      USER_ID = #{record.userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
-      PHONE = #{record.phone,jdbcType=DECIMAL},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
       PASSWORD = #{record.password,jdbcType=VARCHAR},
-      TEMPORARY = #{record.temporary,jdbcType=DECIMAL},
-      RESIDUE_TEMPORARY_LINES = #{record.residueTemporaryLines,jdbcType=DECIMAL},
-      FACILITY_EXTENT = #{record.facilityExtent,jdbcType=DECIMAL},
-      RESIDUE_FACILITY_EXTENT = #{record.residueFacilityExtent,jdbcType=DECIMAL},
-      KIND = #{record.kind,jdbcType=DECIMAL},
-      CARD_STATE = #{record.cardState,jdbcType=DECIMAL},
-      ACTIVATE = #{record.activate,jdbcType=DECIMAL}
+      TEMPORARY = #{record.temporary,jdbcType=NUMERIC},
+      RESIDUE_TEMPORARY_LINES = #{record.residueTemporaryLines,jdbcType=NUMERIC},
+      FACILITY_EXTENT = #{record.facilityExtent,jdbcType=NUMERIC},
+      RESIDUE_FACILITY_EXTENT = #{record.residueFacilityExtent,jdbcType=NUMERIC},
+      KIND = #{record.kind,jdbcType=NUMERIC},
+      CARD_STATE = #{record.cardState,jdbcType=NUMERIC},
+      ACTIVATE = #{record.activate,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -278,54 +270,54 @@
     update CARD_MANAGEMENT
     <set>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=DECIMAL},
+        USER_ID = #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
-        PHONE = #{phone,jdbcType=DECIMAL},
+        PHONE = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         PASSWORD = #{password,jdbcType=VARCHAR},
       </if>
       <if test="temporary != null">
-        TEMPORARY = #{temporary,jdbcType=DECIMAL},
+        TEMPORARY = #{temporary,jdbcType=NUMERIC},
       </if>
       <if test="residueTemporaryLines != null">
-        RESIDUE_TEMPORARY_LINES = #{residueTemporaryLines,jdbcType=DECIMAL},
+        RESIDUE_TEMPORARY_LINES = #{residueTemporaryLines,jdbcType=NUMERIC},
       </if>
       <if test="facilityExtent != null">
-        FACILITY_EXTENT = #{facilityExtent,jdbcType=DECIMAL},
+        FACILITY_EXTENT = #{facilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="residueFacilityExtent != null">
-        RESIDUE_FACILITY_EXTENT = #{residueFacilityExtent,jdbcType=DECIMAL},
+        RESIDUE_FACILITY_EXTENT = #{residueFacilityExtent,jdbcType=NUMERIC},
       </if>
       <if test="kind != null">
-        KIND = #{kind,jdbcType=DECIMAL},
+        KIND = #{kind,jdbcType=NUMERIC},
       </if>
       <if test="cardState != null">
-        CARD_STATE = #{cardState,jdbcType=DECIMAL},
+        CARD_STATE = #{cardState,jdbcType=NUMERIC},
       </if>
       <if test="activate != null">
-        ACTIVATE = #{activate,jdbcType=DECIMAL},
+        ACTIVATE = #{activate,jdbcType=NUMERIC},
       </if>
     </set>
-    where CARD_ID = #{cardId,jdbcType=DECIMAL}
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.CardManagement">
     update CARD_MANAGEMENT
-    set USER_ID = #{userId,jdbcType=DECIMAL},
+    set USER_ID = #{userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=DECIMAL},
+      PHONE = #{phone,jdbcType=VARCHAR},
       PASSWORD = #{password,jdbcType=VARCHAR},
-      TEMPORARY = #{temporary,jdbcType=DECIMAL},
-      RESIDUE_TEMPORARY_LINES = #{residueTemporaryLines,jdbcType=DECIMAL},
-      FACILITY_EXTENT = #{facilityExtent,jdbcType=DECIMAL},
-      RESIDUE_FACILITY_EXTENT = #{residueFacilityExtent,jdbcType=DECIMAL},
-      KIND = #{kind,jdbcType=DECIMAL},
-      CARD_STATE = #{cardState,jdbcType=DECIMAL},
-      ACTIVATE = #{activate,jdbcType=DECIMAL}
-    where CARD_ID = #{cardId,jdbcType=DECIMAL}
+      TEMPORARY = #{temporary,jdbcType=NUMERIC},
+      RESIDUE_TEMPORARY_LINES = #{residueTemporaryLines,jdbcType=NUMERIC},
+      FACILITY_EXTENT = #{facilityExtent,jdbcType=NUMERIC},
+      RESIDUE_FACILITY_EXTENT = #{residueFacilityExtent,jdbcType=NUMERIC},
+      KIND = #{kind,jdbcType=NUMERIC},
+      CARD_STATE = #{cardState,jdbcType=NUMERIC},
+      ACTIVATE = #{activate,jdbcType=NUMERIC}
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
   </update>
 </mapper>

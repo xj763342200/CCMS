@@ -2,19 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.stagingMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.staging">
-    <id column="ID" jdbcType="DECIMAL" property="id" />
-    <result column="TOTALMONEY" jdbcType="DECIMAL" property="totalmoney" />
-    <result column="TOTALMONTH" jdbcType="DECIMAL" property="totalmonth" />
-    <result column="RATE" jdbcType="DECIMAL" property="rate" />
-    <result column="MONTHSEND" jdbcType="DECIMAL" property="monthsend" />
-    <result column="ENDSEND_MONTHNUM" jdbcType="DECIMAL" property="endsendMonthnum" />
-    <result column="REMINDNUM" jdbcType="DECIMAL" property="remindnum" />
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="TOTALMONEY" jdbcType="NUMERIC" property="totalmoney" />
+    <result column="TOTALMONTH" jdbcType="NUMERIC" property="totalmonth" />
+    <result column="RATE" jdbcType="NUMERIC" property="rate" />
+    <result column="MONTHSEND" jdbcType="NUMERIC" property="monthsend" />
+    <result column="ENDSEND_MONTHNUM" jdbcType="NUMERIC" property="endsendMonthnum" />
+    <result column="REMINDNUM" jdbcType="NUMERIC" property="remindnum" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
-    <result column="IF_DELETE" jdbcType="DECIMAL" property="ifDelete" />
-    <result column="CRED_ID" jdbcType="DECIMAL" property="credId" />
-    <result column="SURPLUSMONEY" jdbcType="DECIMAL" property="surplusmoney" />
-    <result column="SURPLUSMONTH" jdbcType="DECIMAL" property="surplusmonth" />
+    <result column="IF_DELETE" jdbcType="NUMERIC" property="ifDelete" />
+    <result column="CRED_ID" jdbcType="NUMERIC" property="credId" />
+    <result column="SURPLUSMONEY" jdbcType="NUMERIC" property="surplusmoney" />
+    <result column="SURPLUSMONTH" jdbcType="NUMERIC" property="surplusmonth" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -96,11 +96,11 @@
     select 
     <include refid="Base_Column_List" />
     from STAGING
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
     delete from STAGING
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.stagingExample">
     delete from STAGING
@@ -114,11 +114,11 @@
       REMINDNUM, CREATETIME, UPDATETIME, 
       IF_DELETE, CRED_ID, SURPLUSMONEY, 
       SURPLUSMONTH)
-    values (#{id,jdbcType=DECIMAL}, #{totalmoney,jdbcType=DECIMAL}, #{totalmonth,jdbcType=DECIMAL}, 
-      #{rate,jdbcType=DECIMAL}, #{monthsend,jdbcType=DECIMAL}, #{endsendMonthnum,jdbcType=DECIMAL}, 
-      #{remindnum,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
-      #{ifDelete,jdbcType=DECIMAL}, #{credId,jdbcType=DECIMAL}, #{surplusmoney,jdbcType=DECIMAL}, 
-      #{surplusmonth,jdbcType=DECIMAL})
+    values (#{id,jdbcType=NUMERIC}, #{totalmoney,jdbcType=NUMERIC}, #{totalmonth,jdbcType=NUMERIC}, 
+      #{rate,jdbcType=NUMERIC}, #{monthsend,jdbcType=NUMERIC}, #{endsendMonthnum,jdbcType=NUMERIC}, 
+      #{remindnum,jdbcType=NUMERIC}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{ifDelete,jdbcType=NUMERIC}, #{credId,jdbcType=NUMERIC}, #{surplusmoney,jdbcType=NUMERIC}, 
+      #{surplusmonth,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.staging">
     insert into STAGING
@@ -165,25 +165,25 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=DECIMAL},
+        #{id,jdbcType=NUMERIC},
       </if>
       <if test="totalmoney != null">
-        #{totalmoney,jdbcType=DECIMAL},
+        #{totalmoney,jdbcType=NUMERIC},
       </if>
       <if test="totalmonth != null">
-        #{totalmonth,jdbcType=DECIMAL},
+        #{totalmonth,jdbcType=NUMERIC},
       </if>
       <if test="rate != null">
-        #{rate,jdbcType=DECIMAL},
+        #{rate,jdbcType=NUMERIC},
       </if>
       <if test="monthsend != null">
-        #{monthsend,jdbcType=DECIMAL},
+        #{monthsend,jdbcType=NUMERIC},
       </if>
       <if test="endsendMonthnum != null">
-        #{endsendMonthnum,jdbcType=DECIMAL},
+        #{endsendMonthnum,jdbcType=NUMERIC},
       </if>
       <if test="remindnum != null">
-        #{remindnum,jdbcType=DECIMAL},
+        #{remindnum,jdbcType=NUMERIC},
       </if>
       <if test="createtime != null">
         #{createtime,jdbcType=TIMESTAMP},
@@ -192,16 +192,16 @@
         #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="ifDelete != null">
-        #{ifDelete,jdbcType=DECIMAL},
+        #{ifDelete,jdbcType=NUMERIC},
       </if>
       <if test="credId != null">
-        #{credId,jdbcType=DECIMAL},
+        #{credId,jdbcType=NUMERIC},
       </if>
       <if test="surplusmoney != null">
-        #{surplusmoney,jdbcType=DECIMAL},
+        #{surplusmoney,jdbcType=NUMERIC},
       </if>
       <if test="surplusmonth != null">
-        #{surplusmonth,jdbcType=DECIMAL},
+        #{surplusmonth,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -215,25 +215,25 @@
     update STAGING
     <set>
       <if test="record.id != null">
-        ID = #{record.id,jdbcType=DECIMAL},
+        ID = #{record.id,jdbcType=NUMERIC},
       </if>
       <if test="record.totalmoney != null">
-        TOTALMONEY = #{record.totalmoney,jdbcType=DECIMAL},
+        TOTALMONEY = #{record.totalmoney,jdbcType=NUMERIC},
       </if>
       <if test="record.totalmonth != null">
-        TOTALMONTH = #{record.totalmonth,jdbcType=DECIMAL},
+        TOTALMONTH = #{record.totalmonth,jdbcType=NUMERIC},
       </if>
       <if test="record.rate != null">
-        RATE = #{record.rate,jdbcType=DECIMAL},
+        RATE = #{record.rate,jdbcType=NUMERIC},
       </if>
       <if test="record.monthsend != null">
-        MONTHSEND = #{record.monthsend,jdbcType=DECIMAL},
+        MONTHSEND = #{record.monthsend,jdbcType=NUMERIC},
       </if>
       <if test="record.endsendMonthnum != null">
-        ENDSEND_MONTHNUM = #{record.endsendMonthnum,jdbcType=DECIMAL},
+        ENDSEND_MONTHNUM = #{record.endsendMonthnum,jdbcType=NUMERIC},
       </if>
       <if test="record.remindnum != null">
-        REMINDNUM = #{record.remindnum,jdbcType=DECIMAL},
+        REMINDNUM = #{record.remindnum,jdbcType=NUMERIC},
       </if>
       <if test="record.createtime != null">
         CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
@@ -242,16 +242,16 @@
         UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.ifDelete != null">
-        IF_DELETE = #{record.ifDelete,jdbcType=DECIMAL},
+        IF_DELETE = #{record.ifDelete,jdbcType=NUMERIC},
       </if>
       <if test="record.credId != null">
-        CRED_ID = #{record.credId,jdbcType=DECIMAL},
+        CRED_ID = #{record.credId,jdbcType=NUMERIC},
       </if>
       <if test="record.surplusmoney != null">
-        SURPLUSMONEY = #{record.surplusmoney,jdbcType=DECIMAL},
+        SURPLUSMONEY = #{record.surplusmoney,jdbcType=NUMERIC},
       </if>
       <if test="record.surplusmonth != null">
-        SURPLUSMONTH = #{record.surplusmonth,jdbcType=DECIMAL},
+        SURPLUSMONTH = #{record.surplusmonth,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -260,19 +260,19 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update STAGING
-    set ID = #{record.id,jdbcType=DECIMAL},
-      TOTALMONEY = #{record.totalmoney,jdbcType=DECIMAL},
-      TOTALMONTH = #{record.totalmonth,jdbcType=DECIMAL},
-      RATE = #{record.rate,jdbcType=DECIMAL},
-      MONTHSEND = #{record.monthsend,jdbcType=DECIMAL},
-      ENDSEND_MONTHNUM = #{record.endsendMonthnum,jdbcType=DECIMAL},
-      REMINDNUM = #{record.remindnum,jdbcType=DECIMAL},
+    set ID = #{record.id,jdbcType=NUMERIC},
+      TOTALMONEY = #{record.totalmoney,jdbcType=NUMERIC},
+      TOTALMONTH = #{record.totalmonth,jdbcType=NUMERIC},
+      RATE = #{record.rate,jdbcType=NUMERIC},
+      MONTHSEND = #{record.monthsend,jdbcType=NUMERIC},
+      ENDSEND_MONTHNUM = #{record.endsendMonthnum,jdbcType=NUMERIC},
+      REMINDNUM = #{record.remindnum,jdbcType=NUMERIC},
       CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
       UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
-      IF_DELETE = #{record.ifDelete,jdbcType=DECIMAL},
-      CRED_ID = #{record.credId,jdbcType=DECIMAL},
-      SURPLUSMONEY = #{record.surplusmoney,jdbcType=DECIMAL},
-      SURPLUSMONTH = #{record.surplusmonth,jdbcType=DECIMAL}
+      IF_DELETE = #{record.ifDelete,jdbcType=NUMERIC},
+      CRED_ID = #{record.credId,jdbcType=NUMERIC},
+      SURPLUSMONEY = #{record.surplusmoney,jdbcType=NUMERIC},
+      SURPLUSMONTH = #{record.surplusmonth,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -281,22 +281,22 @@
     update STAGING
     <set>
       <if test="totalmoney != null">
-        TOTALMONEY = #{totalmoney,jdbcType=DECIMAL},
+        TOTALMONEY = #{totalmoney,jdbcType=NUMERIC},
       </if>
       <if test="totalmonth != null">
-        TOTALMONTH = #{totalmonth,jdbcType=DECIMAL},
+        TOTALMONTH = #{totalmonth,jdbcType=NUMERIC},
       </if>
       <if test="rate != null">
-        RATE = #{rate,jdbcType=DECIMAL},
+        RATE = #{rate,jdbcType=NUMERIC},
       </if>
       <if test="monthsend != null">
-        MONTHSEND = #{monthsend,jdbcType=DECIMAL},
+        MONTHSEND = #{monthsend,jdbcType=NUMERIC},
       </if>
       <if test="endsendMonthnum != null">
-        ENDSEND_MONTHNUM = #{endsendMonthnum,jdbcType=DECIMAL},
+        ENDSEND_MONTHNUM = #{endsendMonthnum,jdbcType=NUMERIC},
       </if>
       <if test="remindnum != null">
-        REMINDNUM = #{remindnum,jdbcType=DECIMAL},
+        REMINDNUM = #{remindnum,jdbcType=NUMERIC},
       </if>
       <if test="createtime != null">
         CREATETIME = #{createtime,jdbcType=TIMESTAMP},
@@ -305,34 +305,34 @@
         UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="ifDelete != null">
-        IF_DELETE = #{ifDelete,jdbcType=DECIMAL},
+        IF_DELETE = #{ifDelete,jdbcType=NUMERIC},
       </if>
       <if test="credId != null">
-        CRED_ID = #{credId,jdbcType=DECIMAL},
+        CRED_ID = #{credId,jdbcType=NUMERIC},
       </if>
       <if test="surplusmoney != null">
-        SURPLUSMONEY = #{surplusmoney,jdbcType=DECIMAL},
+        SURPLUSMONEY = #{surplusmoney,jdbcType=NUMERIC},
       </if>
       <if test="surplusmonth != null">
-        SURPLUSMONTH = #{surplusmonth,jdbcType=DECIMAL},
+        SURPLUSMONTH = #{surplusmonth,jdbcType=NUMERIC},
       </if>
     </set>
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.staging">
     update STAGING
-    set TOTALMONEY = #{totalmoney,jdbcType=DECIMAL},
-      TOTALMONTH = #{totalmonth,jdbcType=DECIMAL},
-      RATE = #{rate,jdbcType=DECIMAL},
-      MONTHSEND = #{monthsend,jdbcType=DECIMAL},
-      ENDSEND_MONTHNUM = #{endsendMonthnum,jdbcType=DECIMAL},
-      REMINDNUM = #{remindnum,jdbcType=DECIMAL},
+    set TOTALMONEY = #{totalmoney,jdbcType=NUMERIC},
+      TOTALMONTH = #{totalmonth,jdbcType=NUMERIC},
+      RATE = #{rate,jdbcType=NUMERIC},
+      MONTHSEND = #{monthsend,jdbcType=NUMERIC},
+      ENDSEND_MONTHNUM = #{endsendMonthnum,jdbcType=NUMERIC},
+      REMINDNUM = #{remindnum,jdbcType=NUMERIC},
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      IF_DELETE = #{ifDelete,jdbcType=DECIMAL},
-      CRED_ID = #{credId,jdbcType=DECIMAL},
-      SURPLUSMONEY = #{surplusmoney,jdbcType=DECIMAL},
-      SURPLUSMONTH = #{surplusmonth,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+      IF_DELETE = #{ifDelete,jdbcType=NUMERIC},
+      CRED_ID = #{credId,jdbcType=NUMERIC},
+      SURPLUSMONEY = #{surplusmoney,jdbcType=NUMERIC},
+      SURPLUSMONTH = #{surplusmonth,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
 </mapper>

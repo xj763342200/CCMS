@@ -2,7 +2,6 @@ package com.zl.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class AccountInformation implements Serializable {
     private Integer accountId;
@@ -15,11 +14,11 @@ public class AccountInformation implements Serializable {
 
     private BigDecimal cashAvailability;
 
-    private String monthlyBills;
+    private Integer billId;
 
-    private Date nowaccountdate;
+    private Integer nowaccountdate;
 
-    private Integer cardId;
+    private String cardId;
 
     private Short paymentType;
 
@@ -67,28 +66,28 @@ public class AccountInformation implements Serializable {
         this.cashAvailability = cashAvailability;
     }
 
-    public String getMonthlyBills() {
-        return monthlyBills;
+    public Integer getBillId() {
+        return billId;
     }
 
-    public void setMonthlyBills(String monthlyBills) {
-        this.monthlyBills = monthlyBills == null ? null : monthlyBills.trim();
+    public void setBillId(Integer billId) {
+        this.billId = billId;
     }
 
-    public Date getNowaccountdate() {
+    public Integer getNowaccountdate() {
         return nowaccountdate;
     }
 
-    public void setNowaccountdate(Date nowaccountdate) {
+    public void setNowaccountdate(Integer nowaccountdate) {
         this.nowaccountdate = nowaccountdate;
     }
 
-    public Integer getCardId() {
+    public String getCardId() {
         return cardId;
     }
 
-    public void setCardId(Integer cardId) {
-        this.cardId = cardId;
+    public void setCardId(String cardId) {
+        this.cardId = cardId == null ? null : cardId.trim();
     }
 
     public Short getPaymentType() {
@@ -118,7 +117,7 @@ public class AccountInformation implements Serializable {
         sb.append(", creditTotal=").append(creditTotal);
         sb.append(", creditable=").append(creditable);
         sb.append(", cashAvailability=").append(cashAvailability);
-        sb.append(", monthlyBills=").append(monthlyBills);
+        sb.append(", billId=").append(billId);
         sb.append(", nowaccountdate=").append(nowaccountdate);
         sb.append(", cardId=").append(cardId);
         sb.append(", paymentType=").append(paymentType);

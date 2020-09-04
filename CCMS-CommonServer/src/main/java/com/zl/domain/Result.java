@@ -1,29 +1,42 @@
 package com.zl.domain;
 
-public class Result<T> {
+import java.util.HashMap;
+import java.util.Map;
 
-    private Integer code;
+public class Result {
+
+    //状态码   100-成功    200-失败
+    private int code;
+    //提示信息
     private String msg;
-    private T data;
 
-    public Result() {
+    //用户要返回给浏览器的数据
+    private Map<String, Object> extend = new HashMap<String, Object>();
+
+    public static Result success(){
+        Result result = new Result();
+        result.setCode(100);
+        result.setMsg("处理成功！");
+        return result;
     }
 
-    public Result(T data) {
-        this.data = data;
+    public static Result fail(){
+        Result result = new Result();
+        result.setCode(200);
+        result.setMsg("处理失败！");
+        return result;
     }
 
-    public Result(Integer code, String msg, T data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
+    public Result add(String key,Object value){
+        this.getExtend().put(key, value);
+        return this;
     }
 
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
@@ -35,11 +48,13 @@ public class Result<T> {
         this.msg = msg;
     }
 
-    public T getData() {
-        return data;
+    public Map<String, Object> getExtend() {
+        return extend;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setExtend(Map<String, Object> extend) {
+        this.extend = extend;
     }
+
+
 }

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.LogoutRecordMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.LogoutRecord">
-    <id column="LOGOUT_ID" jdbcType="DECIMAL" property="logoutId" />
-    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <id column="LOGOUT_ID" jdbcType="NUMERIC" property="logoutId" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
     <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
     <result column="LOGOUT_DATE" jdbcType="TIMESTAMP" property="logoutDate" />
     <result column="REMARK" jdbcType="VARCHAR" property="remark" />
@@ -87,11 +87,11 @@
     select 
     <include refid="Base_Column_List" />
     from LOGOUT_RECORD
-    where LOGOUT_ID = #{logoutId,jdbcType=DECIMAL}
+    where LOGOUT_ID = #{logoutId,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from LOGOUT_RECORD
-    where LOGOUT_ID = #{logoutId,jdbcType=DECIMAL}
+    where LOGOUT_ID = #{logoutId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.LogoutRecordExample">
     delete from LOGOUT_RECORD
@@ -102,7 +102,7 @@
   <insert id="insert" parameterType="com.zl.domain.LogoutRecord">
     insert into LOGOUT_RECORD (LOGOUT_ID, USER_ID, CARD_NUMBER, 
       LOGOUT_DATE, REMARK)
-    values (#{logoutId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{cardNumber,jdbcType=VARCHAR}, 
+    values (#{logoutId,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, 
       #{logoutDate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.LogoutRecord">
@@ -126,10 +126,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="logoutId != null">
-        #{logoutId,jdbcType=DECIMAL},
+        #{logoutId,jdbcType=NUMERIC},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         #{cardNumber,jdbcType=VARCHAR},
@@ -152,10 +152,10 @@
     update LOGOUT_RECORD
     <set>
       <if test="record.logoutId != null">
-        LOGOUT_ID = #{record.logoutId,jdbcType=DECIMAL},
+        LOGOUT_ID = #{record.logoutId,jdbcType=NUMERIC},
       </if>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
       <if test="record.cardNumber != null">
         CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
@@ -173,8 +173,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update LOGOUT_RECORD
-    set LOGOUT_ID = #{record.logoutId,jdbcType=DECIMAL},
-      USER_ID = #{record.userId,jdbcType=DECIMAL},
+    set LOGOUT_ID = #{record.logoutId,jdbcType=NUMERIC},
+      USER_ID = #{record.userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
       LOGOUT_DATE = #{record.logoutDate,jdbcType=TIMESTAMP},
       REMARK = #{record.remark,jdbcType=VARCHAR}
@@ -186,7 +186,7 @@
     update LOGOUT_RECORD
     <set>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=DECIMAL},
+        USER_ID = #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
@@ -198,14 +198,14 @@
         REMARK = #{remark,jdbcType=VARCHAR},
       </if>
     </set>
-    where LOGOUT_ID = #{logoutId,jdbcType=DECIMAL}
+    where LOGOUT_ID = #{logoutId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.LogoutRecord">
     update LOGOUT_RECORD
-    set USER_ID = #{userId,jdbcType=DECIMAL},
+    set USER_ID = #{userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
       LOGOUT_DATE = #{logoutDate,jdbcType=TIMESTAMP},
       REMARK = #{remark,jdbcType=VARCHAR}
-    where LOGOUT_ID = #{logoutId,jdbcType=DECIMAL}
+    where LOGOUT_ID = #{logoutId,jdbcType=NUMERIC}
   </update>
 </mapper>

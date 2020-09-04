@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.RepaymentDetailMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.RepaymentDetail">
-    <id column="REPAYMENT_DETAIL_ID" jdbcType="DECIMAL" property="repaymentDetailId" />
-    <result column="CARD_NUMBER" jdbcType="DECIMAL" property="cardNumber" />
-    <result column="REPAYMENT_MONEY" jdbcType="DECIMAL" property="repaymentMoney" />
+    <id column="REPAYMENT_DETAIL_ID" jdbcType="NUMERIC" property="repaymentDetailId" />
+    <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
+    <result column="REPAYMENT_MONEY" jdbcType="NUMERIC" property="repaymentMoney" />
     <result column="REPAYMENT_DATE" jdbcType="TIMESTAMP" property="repaymentDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -82,15 +82,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from REPAYMENT_DETAIL
-    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=NUMERIC}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from REPAYMENT_DETAIL
-    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.RepaymentDetailExample">
     delete from REPAYMENT_DETAIL
@@ -101,7 +101,7 @@
   <insert id="insert" parameterType="com.zl.domain.RepaymentDetail">
     insert into REPAYMENT_DETAIL (REPAYMENT_DETAIL_ID, CARD_NUMBER, REPAYMENT_MONEY, 
       REPAYMENT_DATE)
-    values (#{repaymentDetailId,jdbcType=DECIMAL}, #{cardNumber,jdbcType=DECIMAL}, #{repaymentMoney,jdbcType=DECIMAL}, 
+    values (#{repaymentDetailId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, #{repaymentMoney,jdbcType=NUMERIC}, 
       #{repaymentDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.RepaymentDetail">
@@ -122,13 +122,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="repaymentDetailId != null">
-        #{repaymentDetailId,jdbcType=DECIMAL},
+        #{repaymentDetailId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
-        #{cardNumber,jdbcType=DECIMAL},
+        #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="repaymentMoney != null">
-        #{repaymentMoney,jdbcType=DECIMAL},
+        #{repaymentMoney,jdbcType=NUMERIC},
       </if>
       <if test="repaymentDate != null">
         #{repaymentDate,jdbcType=TIMESTAMP},
@@ -145,13 +145,13 @@
     update REPAYMENT_DETAIL
     <set>
       <if test="record.repaymentDetailId != null">
-        REPAYMENT_DETAIL_ID = #{record.repaymentDetailId,jdbcType=DECIMAL},
+        REPAYMENT_DETAIL_ID = #{record.repaymentDetailId,jdbcType=NUMERIC},
       </if>
       <if test="record.cardNumber != null">
-        CARD_NUMBER = #{record.cardNumber,jdbcType=DECIMAL},
+        CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="record.repaymentMoney != null">
-        REPAYMENT_MONEY = #{record.repaymentMoney,jdbcType=DECIMAL},
+        REPAYMENT_MONEY = #{record.repaymentMoney,jdbcType=NUMERIC},
       </if>
       <if test="record.repaymentDate != null">
         REPAYMENT_DATE = #{record.repaymentDate,jdbcType=TIMESTAMP},
@@ -163,9 +163,9 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update REPAYMENT_DETAIL
-    set REPAYMENT_DETAIL_ID = #{record.repaymentDetailId,jdbcType=DECIMAL},
-      CARD_NUMBER = #{record.cardNumber,jdbcType=DECIMAL},
-      REPAYMENT_MONEY = #{record.repaymentMoney,jdbcType=DECIMAL},
+    set REPAYMENT_DETAIL_ID = #{record.repaymentDetailId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
+      REPAYMENT_MONEY = #{record.repaymentMoney,jdbcType=NUMERIC},
       REPAYMENT_DATE = #{record.repaymentDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -175,22 +175,22 @@
     update REPAYMENT_DETAIL
     <set>
       <if test="cardNumber != null">
-        CARD_NUMBER = #{cardNumber,jdbcType=DECIMAL},
+        CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="repaymentMoney != null">
-        REPAYMENT_MONEY = #{repaymentMoney,jdbcType=DECIMAL},
+        REPAYMENT_MONEY = #{repaymentMoney,jdbcType=NUMERIC},
       </if>
       <if test="repaymentDate != null">
         REPAYMENT_DATE = #{repaymentDate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.RepaymentDetail">
     update REPAYMENT_DETAIL
-    set CARD_NUMBER = #{cardNumber,jdbcType=DECIMAL},
-      REPAYMENT_MONEY = #{repaymentMoney,jdbcType=DECIMAL},
+    set CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
+      REPAYMENT_MONEY = #{repaymentMoney,jdbcType=NUMERIC},
       REPAYMENT_DATE = #{repaymentDate,jdbcType=TIMESTAMP}
-    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=DECIMAL}
+    where REPAYMENT_DETAIL_ID = #{repaymentDetailId,jdbcType=NUMERIC}
   </update>
 </mapper>

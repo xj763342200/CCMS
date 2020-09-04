@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.SupportingRecordMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.SupportingRecord">
-    <id column="SUPPORTING_ID" jdbcType="DECIMAL" property="supportingId" />
-    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <id column="SUPPORTING_ID" jdbcType="NUMERIC" property="supportingId" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
     <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
-    <result column="PHONE" jdbcType="DECIMAL" property="phone" />
+    <result column="PHONE" jdbcType="NUMERIC" property="phone" />
     <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
     <result column="REPLACE_DATE" jdbcType="TIMESTAMP" property="replaceDate" />
   </resultMap>
@@ -88,11 +88,11 @@
     select 
     <include refid="Base_Column_List" />
     from SUPPORTING_RECORD
-    where SUPPORTING_ID = #{supportingId,jdbcType=DECIMAL}
+    where SUPPORTING_ID = #{supportingId,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from SUPPORTING_RECORD
-    where SUPPORTING_ID = #{supportingId,jdbcType=DECIMAL}
+    where SUPPORTING_ID = #{supportingId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.SupportingRecordExample">
     delete from SUPPORTING_RECORD
@@ -104,8 +104,8 @@
     insert into SUPPORTING_RECORD (SUPPORTING_ID, USER_ID, CARD_NUMBER, 
       PHONE, ADDRESS, REPLACE_DATE
       )
-    values (#{supportingId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{cardNumber,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=DECIMAL}, #{address,jdbcType=VARCHAR}, #{replaceDate,jdbcType=TIMESTAMP}
+    values (#{supportingId,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=NUMERIC}, #{address,jdbcType=VARCHAR}, #{replaceDate,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.SupportingRecord">
@@ -132,16 +132,16 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="supportingId != null">
-        #{supportingId,jdbcType=DECIMAL},
+        #{supportingId,jdbcType=NUMERIC},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
-        #{phone,jdbcType=DECIMAL},
+        #{phone,jdbcType=NUMERIC},
       </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
@@ -161,16 +161,16 @@
     update SUPPORTING_RECORD
     <set>
       <if test="record.supportingId != null">
-        SUPPORTING_ID = #{record.supportingId,jdbcType=DECIMAL},
+        SUPPORTING_ID = #{record.supportingId,jdbcType=NUMERIC},
       </if>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
       <if test="record.cardNumber != null">
         CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null">
-        PHONE = #{record.phone,jdbcType=DECIMAL},
+        PHONE = #{record.phone,jdbcType=NUMERIC},
       </if>
       <if test="record.address != null">
         ADDRESS = #{record.address,jdbcType=VARCHAR},
@@ -185,10 +185,10 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update SUPPORTING_RECORD
-    set SUPPORTING_ID = #{record.supportingId,jdbcType=DECIMAL},
-      USER_ID = #{record.userId,jdbcType=DECIMAL},
+    set SUPPORTING_ID = #{record.supportingId,jdbcType=NUMERIC},
+      USER_ID = #{record.userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
-      PHONE = #{record.phone,jdbcType=DECIMAL},
+      PHONE = #{record.phone,jdbcType=NUMERIC},
       ADDRESS = #{record.address,jdbcType=VARCHAR},
       REPLACE_DATE = #{record.replaceDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -199,13 +199,13 @@
     update SUPPORTING_RECORD
     <set>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=DECIMAL},
+        USER_ID = #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
-        PHONE = #{phone,jdbcType=DECIMAL},
+        PHONE = #{phone,jdbcType=NUMERIC},
       </if>
       <if test="address != null">
         ADDRESS = #{address,jdbcType=VARCHAR},
@@ -214,15 +214,15 @@
         REPLACE_DATE = #{replaceDate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where SUPPORTING_ID = #{supportingId,jdbcType=DECIMAL}
+    where SUPPORTING_ID = #{supportingId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.SupportingRecord">
     update SUPPORTING_RECORD
-    set USER_ID = #{userId,jdbcType=DECIMAL},
+    set USER_ID = #{userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=DECIMAL},
+      PHONE = #{phone,jdbcType=NUMERIC},
       ADDRESS = #{address,jdbcType=VARCHAR},
       REPLACE_DATE = #{replaceDate,jdbcType=TIMESTAMP}
-    where SUPPORTING_ID = #{supportingId,jdbcType=DECIMAL}
+    where SUPPORTING_ID = #{supportingId,jdbcType=NUMERIC}
   </update>
 </mapper>

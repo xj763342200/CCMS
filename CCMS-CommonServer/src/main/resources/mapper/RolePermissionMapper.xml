@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.RolePermissionMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.RolePermission">
-    <id column="ID" jdbcType="DECIMAL" property="id" />
-    <result column="ROLE_ID" jdbcType="DECIMAL" property="roleId" />
-    <result column="PERMISSION_ID" jdbcType="DECIMAL" property="permissionId" />
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="ROLE_ID" jdbcType="NUMERIC" property="roleId" />
+    <result column="PERMISSION_ID" jdbcType="NUMERIC" property="permissionId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,11 +85,11 @@
     select 
     <include refid="Base_Column_List" />
     from ROLE_PERMISSION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ROLE_PERMISSION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.RolePermissionExample">
     delete from ROLE_PERMISSION
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.zl.domain.RolePermission">
     insert into ROLE_PERMISSION (ID, ROLE_ID, PERMISSION_ID
       )
-    values (#{id,jdbcType=DECIMAL}, #{roleId,jdbcType=DECIMAL}, #{permissionId,jdbcType=DECIMAL}
+    values (#{id,jdbcType=NUMERIC}, #{roleId,jdbcType=NUMERIC}, #{permissionId,jdbcType=NUMERIC}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.RolePermission">
@@ -118,13 +118,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=DECIMAL},
+        #{id,jdbcType=NUMERIC},
       </if>
       <if test="roleId != null">
-        #{roleId,jdbcType=DECIMAL},
+        #{roleId,jdbcType=NUMERIC},
       </if>
       <if test="permissionId != null">
-        #{permissionId,jdbcType=DECIMAL},
+        #{permissionId,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -138,13 +138,13 @@
     update ROLE_PERMISSION
     <set>
       <if test="record.id != null">
-        ID = #{record.id,jdbcType=DECIMAL},
+        ID = #{record.id,jdbcType=NUMERIC},
       </if>
       <if test="record.roleId != null">
-        ROLE_ID = #{record.roleId,jdbcType=DECIMAL},
+        ROLE_ID = #{record.roleId,jdbcType=NUMERIC},
       </if>
       <if test="record.permissionId != null">
-        PERMISSION_ID = #{record.permissionId,jdbcType=DECIMAL},
+        PERMISSION_ID = #{record.permissionId,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -153,9 +153,9 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update ROLE_PERMISSION
-    set ID = #{record.id,jdbcType=DECIMAL},
-      ROLE_ID = #{record.roleId,jdbcType=DECIMAL},
-      PERMISSION_ID = #{record.permissionId,jdbcType=DECIMAL}
+    set ID = #{record.id,jdbcType=NUMERIC},
+      ROLE_ID = #{record.roleId,jdbcType=NUMERIC},
+      PERMISSION_ID = #{record.permissionId,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -164,18 +164,18 @@
     update ROLE_PERMISSION
     <set>
       <if test="roleId != null">
-        ROLE_ID = #{roleId,jdbcType=DECIMAL},
+        ROLE_ID = #{roleId,jdbcType=NUMERIC},
       </if>
       <if test="permissionId != null">
-        PERMISSION_ID = #{permissionId,jdbcType=DECIMAL},
+        PERMISSION_ID = #{permissionId,jdbcType=NUMERIC},
       </if>
     </set>
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.RolePermission">
     update ROLE_PERMISSION
-    set ROLE_ID = #{roleId,jdbcType=DECIMAL},
-      PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+    set ROLE_ID = #{roleId,jdbcType=NUMERIC},
+      PERMISSION_ID = #{permissionId,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
 </mapper>

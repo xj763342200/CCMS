@@ -116,52 +116,52 @@ public class RepaymentDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdEqualTo(Long value) {
+        public Criteria andRepaymentDetailIdEqualTo(Integer value) {
             addCriterion("REPAYMENT_DETAIL_ID =", value, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdNotEqualTo(Long value) {
+        public Criteria andRepaymentDetailIdNotEqualTo(Integer value) {
             addCriterion("REPAYMENT_DETAIL_ID <>", value, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdGreaterThan(Long value) {
+        public Criteria andRepaymentDetailIdGreaterThan(Integer value) {
             addCriterion("REPAYMENT_DETAIL_ID >", value, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andRepaymentDetailIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("REPAYMENT_DETAIL_ID >=", value, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdLessThan(Long value) {
+        public Criteria andRepaymentDetailIdLessThan(Integer value) {
             addCriterion("REPAYMENT_DETAIL_ID <", value, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdLessThanOrEqualTo(Long value) {
+        public Criteria andRepaymentDetailIdLessThanOrEqualTo(Integer value) {
             addCriterion("REPAYMENT_DETAIL_ID <=", value, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdIn(List<Long> values) {
+        public Criteria andRepaymentDetailIdIn(List<Integer> values) {
             addCriterion("REPAYMENT_DETAIL_ID in", values, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdNotIn(List<Long> values) {
+        public Criteria andRepaymentDetailIdNotIn(List<Integer> values) {
             addCriterion("REPAYMENT_DETAIL_ID not in", values, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdBetween(Long value1, Long value2) {
+        public Criteria andRepaymentDetailIdBetween(Integer value1, Integer value2) {
             addCriterion("REPAYMENT_DETAIL_ID between", value1, value2, "repaymentDetailId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdNotBetween(Long value1, Long value2) {
+        public Criteria andRepaymentDetailIdNotBetween(Integer value1, Integer value2) {
             addCriterion("REPAYMENT_DETAIL_ID not between", value1, value2, "repaymentDetailId");
             return (Criteria) this;
         }
@@ -176,52 +176,62 @@ public class RepaymentDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberEqualTo(Long value) {
+        public Criteria andCardNumberEqualTo(String value) {
             addCriterion("CARD_NUMBER =", value, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberNotEqualTo(Long value) {
+        public Criteria andCardNumberNotEqualTo(String value) {
             addCriterion("CARD_NUMBER <>", value, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberGreaterThan(Long value) {
+        public Criteria andCardNumberGreaterThan(String value) {
             addCriterion("CARD_NUMBER >", value, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberGreaterThanOrEqualTo(Long value) {
+        public Criteria andCardNumberGreaterThanOrEqualTo(String value) {
             addCriterion("CARD_NUMBER >=", value, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberLessThan(Long value) {
+        public Criteria andCardNumberLessThan(String value) {
             addCriterion("CARD_NUMBER <", value, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberLessThanOrEqualTo(Long value) {
+        public Criteria andCardNumberLessThanOrEqualTo(String value) {
             addCriterion("CARD_NUMBER <=", value, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberIn(List<Long> values) {
+        public Criteria andCardNumberLike(String value) {
+            addCriterion("CARD_NUMBER like", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberNotLike(String value) {
+            addCriterion("CARD_NUMBER not like", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberIn(List<String> values) {
             addCriterion("CARD_NUMBER in", values, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberNotIn(List<Long> values) {
+        public Criteria andCardNumberNotIn(List<String> values) {
             addCriterion("CARD_NUMBER not in", values, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberBetween(Long value1, Long value2) {
+        public Criteria andCardNumberBetween(String value1, String value2) {
             addCriterion("CARD_NUMBER between", value1, value2, "cardNumber");
             return (Criteria) this;
         }
 
-        public Criteria andCardNumberNotBetween(Long value1, Long value2) {
+        public Criteria andCardNumberNotBetween(String value1, String value2) {
             addCriterion("CARD_NUMBER not between", value1, value2, "cardNumber");
             return (Criteria) this;
         }

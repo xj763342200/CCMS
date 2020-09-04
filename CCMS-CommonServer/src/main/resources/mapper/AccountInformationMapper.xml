@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.AccountInformationMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.AccountInformation">
-    <id column="ACCOUNT_ID" jdbcType="DECIMAL" property="accountId" />
+    <id column="ACCOUNT_ID" jdbcType="NUMERIC" property="accountId" />
     <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
-    <result column="CREDIT_TOTAL" jdbcType="DECIMAL" property="creditTotal" />
-    <result column="CREDITABLE" jdbcType="DECIMAL" property="creditable" />
-    <result column="CASH_AVAILABILITY" jdbcType="DECIMAL" property="cashAvailability" />
-    <result column="MONTHLY_BILLS" jdbcType="VARCHAR" property="monthlyBills" />
-    <result column="NOWACCOUNTDATE" jdbcType="TIMESTAMP" property="nowaccountdate" />
-    <result column="CARD_ID" jdbcType="DECIMAL" property="cardId" />
-    <result column="PAYMENT_TYPE" jdbcType="DECIMAL" property="paymentType" />
+    <result column="CREDIT_TOTAL" jdbcType="NUMERIC" property="creditTotal" />
+    <result column="CREDITABLE" jdbcType="NUMERIC" property="creditable" />
+    <result column="CASH_AVAILABILITY" jdbcType="NUMERIC" property="cashAvailability" />
+    <result column="BILL_ID" jdbcType="NUMERIC" property="billId" />
+    <result column="NOWACCOUNTDATE" jdbcType="NUMERIC" property="nowaccountdate" />
+    <result column="CARD_ID" jdbcType="VARCHAR" property="cardId" />
+    <result column="PAYMENT_TYPE" jdbcType="NUMERIC" property="paymentType" />
     <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -72,8 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ACCOUNT_ID, CURRENCY, CREDIT_TOTAL, CREDITABLE, CASH_AVAILABILITY, MONTHLY_BILLS, 
-    NOWACCOUNTDATE, CARD_ID, PAYMENT_TYPE, ID_NUMBER
+    ACCOUNT_ID, CURRENCY, CREDIT_TOTAL, CREDITABLE, CASH_AVAILABILITY, BILL_ID, NOWACCOUNTDATE, 
+    CARD_ID, PAYMENT_TYPE, ID_NUMBER
   </sql>
   <select id="selectByExample" parameterType="com.zl.domain.AccountInformationExample" resultMap="BaseResultMap">
     select
@@ -93,11 +93,11 @@
     select 
     <include refid="Base_Column_List" />
     from ACCOUNT_INFORMATION
-    where ACCOUNT_ID = #{accountId,jdbcType=DECIMAL}
+    where ACCOUNT_ID = #{accountId,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ACCOUNT_INFORMATION
-    where ACCOUNT_ID = #{accountId,jdbcType=DECIMAL}
+    where ACCOUNT_ID = #{accountId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.AccountInformationExample">
     delete from ACCOUNT_INFORMATION
@@ -107,12 +107,12 @@
   </delete>
   <insert id="insert" parameterType="com.zl.domain.AccountInformation">
     insert into ACCOUNT_INFORMATION (ACCOUNT_ID, CURRENCY, CREDIT_TOTAL, 
-      CREDITABLE, CASH_AVAILABILITY, MONTHLY_BILLS, 
+      CREDITABLE, CASH_AVAILABILITY, BILL_ID, 
       NOWACCOUNTDATE, CARD_ID, PAYMENT_TYPE, 
       ID_NUMBER)
-    values (#{accountId,jdbcType=DECIMAL}, #{currency,jdbcType=VARCHAR}, #{creditTotal,jdbcType=DECIMAL}, 
-      #{creditable,jdbcType=DECIMAL}, #{cashAvailability,jdbcType=DECIMAL}, #{monthlyBills,jdbcType=VARCHAR}, 
-      #{nowaccountdate,jdbcType=TIMESTAMP}, #{cardId,jdbcType=DECIMAL}, #{paymentType,jdbcType=DECIMAL}, 
+    values (#{accountId,jdbcType=NUMERIC}, #{currency,jdbcType=VARCHAR}, #{creditTotal,jdbcType=NUMERIC}, 
+      #{creditable,jdbcType=NUMERIC}, #{cashAvailability,jdbcType=NUMERIC}, #{billId,jdbcType=NUMERIC}, 
+      #{nowaccountdate,jdbcType=NUMERIC}, #{cardId,jdbcType=VARCHAR}, #{paymentType,jdbcType=NUMERIC}, 
       #{idNumber,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.AccountInformation">
@@ -133,8 +133,8 @@
       <if test="cashAvailability != null">
         CASH_AVAILABILITY,
       </if>
-      <if test="monthlyBills != null">
-        MONTHLY_BILLS,
+      <if test="billId != null">
+        BILL_ID,
       </if>
       <if test="nowaccountdate != null">
         NOWACCOUNTDATE,
@@ -151,31 +151,31 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="accountId != null">
-        #{accountId,jdbcType=DECIMAL},
+        #{accountId,jdbcType=NUMERIC},
       </if>
       <if test="currency != null">
         #{currency,jdbcType=VARCHAR},
       </if>
       <if test="creditTotal != null">
-        #{creditTotal,jdbcType=DECIMAL},
+        #{creditTotal,jdbcType=NUMERIC},
       </if>
       <if test="creditable != null">
-        #{creditable,jdbcType=DECIMAL},
+        #{creditable,jdbcType=NUMERIC},
       </if>
       <if test="cashAvailability != null">
-        #{cashAvailability,jdbcType=DECIMAL},
+        #{cashAvailability,jdbcType=NUMERIC},
       </if>
-      <if test="monthlyBills != null">
-        #{monthlyBills,jdbcType=VARCHAR},
+      <if test="billId != null">
+        #{billId,jdbcType=NUMERIC},
       </if>
       <if test="nowaccountdate != null">
-        #{nowaccountdate,jdbcType=TIMESTAMP},
+        #{nowaccountdate,jdbcType=NUMERIC},
       </if>
       <if test="cardId != null">
-        #{cardId,jdbcType=DECIMAL},
+        #{cardId,jdbcType=VARCHAR},
       </if>
       <if test="paymentType != null">
-        #{paymentType,jdbcType=DECIMAL},
+        #{paymentType,jdbcType=NUMERIC},
       </if>
       <if test="idNumber != null">
         #{idNumber,jdbcType=VARCHAR},
@@ -192,31 +192,31 @@
     update ACCOUNT_INFORMATION
     <set>
       <if test="record.accountId != null">
-        ACCOUNT_ID = #{record.accountId,jdbcType=DECIMAL},
+        ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
       </if>
       <if test="record.currency != null">
         CURRENCY = #{record.currency,jdbcType=VARCHAR},
       </if>
       <if test="record.creditTotal != null">
-        CREDIT_TOTAL = #{record.creditTotal,jdbcType=DECIMAL},
+        CREDIT_TOTAL = #{record.creditTotal,jdbcType=NUMERIC},
       </if>
       <if test="record.creditable != null">
-        CREDITABLE = #{record.creditable,jdbcType=DECIMAL},
+        CREDITABLE = #{record.creditable,jdbcType=NUMERIC},
       </if>
       <if test="record.cashAvailability != null">
-        CASH_AVAILABILITY = #{record.cashAvailability,jdbcType=DECIMAL},
+        CASH_AVAILABILITY = #{record.cashAvailability,jdbcType=NUMERIC},
       </if>
-      <if test="record.monthlyBills != null">
-        MONTHLY_BILLS = #{record.monthlyBills,jdbcType=VARCHAR},
+      <if test="record.billId != null">
+        BILL_ID = #{record.billId,jdbcType=NUMERIC},
       </if>
       <if test="record.nowaccountdate != null">
-        NOWACCOUNTDATE = #{record.nowaccountdate,jdbcType=TIMESTAMP},
+        NOWACCOUNTDATE = #{record.nowaccountdate,jdbcType=NUMERIC},
       </if>
       <if test="record.cardId != null">
-        CARD_ID = #{record.cardId,jdbcType=DECIMAL},
+        CARD_ID = #{record.cardId,jdbcType=VARCHAR},
       </if>
       <if test="record.paymentType != null">
-        PAYMENT_TYPE = #{record.paymentType,jdbcType=DECIMAL},
+        PAYMENT_TYPE = #{record.paymentType,jdbcType=NUMERIC},
       </if>
       <if test="record.idNumber != null">
         ID_NUMBER = #{record.idNumber,jdbcType=VARCHAR},
@@ -228,15 +228,15 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update ACCOUNT_INFORMATION
-    set ACCOUNT_ID = #{record.accountId,jdbcType=DECIMAL},
+    set ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
       CURRENCY = #{record.currency,jdbcType=VARCHAR},
-      CREDIT_TOTAL = #{record.creditTotal,jdbcType=DECIMAL},
-      CREDITABLE = #{record.creditable,jdbcType=DECIMAL},
-      CASH_AVAILABILITY = #{record.cashAvailability,jdbcType=DECIMAL},
-      MONTHLY_BILLS = #{record.monthlyBills,jdbcType=VARCHAR},
-      NOWACCOUNTDATE = #{record.nowaccountdate,jdbcType=TIMESTAMP},
-      CARD_ID = #{record.cardId,jdbcType=DECIMAL},
-      PAYMENT_TYPE = #{record.paymentType,jdbcType=DECIMAL},
+      CREDIT_TOTAL = #{record.creditTotal,jdbcType=NUMERIC},
+      CREDITABLE = #{record.creditable,jdbcType=NUMERIC},
+      CASH_AVAILABILITY = #{record.cashAvailability,jdbcType=NUMERIC},
+      BILL_ID = #{record.billId,jdbcType=NUMERIC},
+      NOWACCOUNTDATE = #{record.nowaccountdate,jdbcType=NUMERIC},
+      CARD_ID = #{record.cardId,jdbcType=VARCHAR},
+      PAYMENT_TYPE = #{record.paymentType,jdbcType=NUMERIC},
       ID_NUMBER = #{record.idNumber,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -249,43 +249,43 @@
         CURRENCY = #{currency,jdbcType=VARCHAR},
       </if>
       <if test="creditTotal != null">
-        CREDIT_TOTAL = #{creditTotal,jdbcType=DECIMAL},
+        CREDIT_TOTAL = #{creditTotal,jdbcType=NUMERIC},
       </if>
       <if test="creditable != null">
-        CREDITABLE = #{creditable,jdbcType=DECIMAL},
+        CREDITABLE = #{creditable,jdbcType=NUMERIC},
       </if>
       <if test="cashAvailability != null">
-        CASH_AVAILABILITY = #{cashAvailability,jdbcType=DECIMAL},
+        CASH_AVAILABILITY = #{cashAvailability,jdbcType=NUMERIC},
       </if>
-      <if test="monthlyBills != null">
-        MONTHLY_BILLS = #{monthlyBills,jdbcType=VARCHAR},
+      <if test="billId != null">
+        BILL_ID = #{billId,jdbcType=NUMERIC},
       </if>
       <if test="nowaccountdate != null">
-        NOWACCOUNTDATE = #{nowaccountdate,jdbcType=TIMESTAMP},
+        NOWACCOUNTDATE = #{nowaccountdate,jdbcType=NUMERIC},
       </if>
       <if test="cardId != null">
-        CARD_ID = #{cardId,jdbcType=DECIMAL},
+        CARD_ID = #{cardId,jdbcType=VARCHAR},
       </if>
       <if test="paymentType != null">
-        PAYMENT_TYPE = #{paymentType,jdbcType=DECIMAL},
+        PAYMENT_TYPE = #{paymentType,jdbcType=NUMERIC},
       </if>
       <if test="idNumber != null">
         ID_NUMBER = #{idNumber,jdbcType=VARCHAR},
       </if>
     </set>
-    where ACCOUNT_ID = #{accountId,jdbcType=DECIMAL}
+    where ACCOUNT_ID = #{accountId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.AccountInformation">
     update ACCOUNT_INFORMATION
     set CURRENCY = #{currency,jdbcType=VARCHAR},
-      CREDIT_TOTAL = #{creditTotal,jdbcType=DECIMAL},
-      CREDITABLE = #{creditable,jdbcType=DECIMAL},
-      CASH_AVAILABILITY = #{cashAvailability,jdbcType=DECIMAL},
-      MONTHLY_BILLS = #{monthlyBills,jdbcType=VARCHAR},
-      NOWACCOUNTDATE = #{nowaccountdate,jdbcType=TIMESTAMP},
-      CARD_ID = #{cardId,jdbcType=DECIMAL},
-      PAYMENT_TYPE = #{paymentType,jdbcType=DECIMAL},
+      CREDIT_TOTAL = #{creditTotal,jdbcType=NUMERIC},
+      CREDITABLE = #{creditable,jdbcType=NUMERIC},
+      CASH_AVAILABILITY = #{cashAvailability,jdbcType=NUMERIC},
+      BILL_ID = #{billId,jdbcType=NUMERIC},
+      NOWACCOUNTDATE = #{nowaccountdate,jdbcType=NUMERIC},
+      CARD_ID = #{cardId,jdbcType=VARCHAR},
+      PAYMENT_TYPE = #{paymentType,jdbcType=NUMERIC},
       ID_NUMBER = #{idNumber,jdbcType=VARCHAR}
-    where ACCOUNT_ID = #{accountId,jdbcType=DECIMAL}
+    where ACCOUNT_ID = #{accountId,jdbcType=NUMERIC}
   </update>
 </mapper>

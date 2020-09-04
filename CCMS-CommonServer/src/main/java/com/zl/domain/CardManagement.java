@@ -10,7 +10,7 @@ public class CardManagement implements Serializable {
 
     private String cardNumber;
 
-    private Long phone;
+    private String phone;
 
     private String password;
 
@@ -54,12 +54,12 @@ public class CardManagement implements Serializable {
         this.cardNumber = cardNumber == null ? null : cardNumber.trim();
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
-        this.phone = phone;
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public String getPassword() {
