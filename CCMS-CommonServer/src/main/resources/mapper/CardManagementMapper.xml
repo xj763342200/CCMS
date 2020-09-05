@@ -101,6 +101,23 @@
     from CARD_MANAGEMENT
     where CARD_ID = #{cardId,jdbcType=NUMERIC}
   </select>
+
+  <!--根据用户id查询账户下的卡号-->
+  <select id="selectByPrimaryKeyList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from CARD_MANAGEMENT
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </select>
+
+  <select id="queryCardManagement" parameterType="com.zl.domain.CardManagement" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from CARD_MANAGEMENT
+    where ID_NUMBER = #{idNumber,jdbcType=DECIMAL} and name = #{name,jdbcType=VARCHAR} and CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR}
+    and PASSWORD = #{password,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from CARD_MANAGEMENT
     where CARD_ID = #{cardId,jdbcType=NUMERIC}

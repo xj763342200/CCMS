@@ -20,6 +20,10 @@ public interface CardManagementMapper {
 
     CardManagement selectByPrimaryKey(Integer cardId);
 
+    List<CardManagement> selectByPrimaryKeyList(Integer userId);
+
+    CardManagement queryCardManagement(CardManagement cardManagement);
+
     int updateByExampleSelective(@Param("record") CardManagement record, @Param("example") CardManagementExample example);
 
     int updateByExample(@Param("record") CardManagement record, @Param("example") CardManagementExample example);
