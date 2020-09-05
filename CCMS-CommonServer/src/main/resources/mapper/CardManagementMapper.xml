@@ -14,6 +14,9 @@
     <result column="KIND" jdbcType="NUMERIC" property="kind" />
     <result column="CARD_STATE" jdbcType="NUMERIC" property="cardState" />
     <result column="ACTIVATE" jdbcType="NUMERIC" property="activate" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber" />
+    <result column="BILL_DATE" jdbcType="NUMERIC" property="billDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -75,7 +78,8 @@
   </sql>
   <sql id="Base_Column_List">
     CARD_ID, USER_ID, CARD_NUMBER, PHONE, PASSWORD, TEMPORARY, RESIDUE_TEMPORARY_LINES, 
-    FACILITY_EXTENT, RESIDUE_FACILITY_EXTENT, KIND, CARD_STATE, ACTIVATE
+    FACILITY_EXTENT, RESIDUE_FACILITY_EXTENT, KIND, CARD_STATE, ACTIVATE, NAME, ID_NUMBER, 
+    BILL_DATE
   </sql>
   <select id="selectByExample" parameterType="com.zl.domain.CardManagementExample" resultMap="BaseResultMap">
     select
@@ -112,12 +116,14 @@
       PHONE, PASSWORD, TEMPORARY, 
       RESIDUE_TEMPORARY_LINES, FACILITY_EXTENT, 
       RESIDUE_FACILITY_EXTENT, KIND, CARD_STATE, 
-      ACTIVATE)
+      ACTIVATE, NAME, ID_NUMBER, 
+      BILL_DATE)
     values (#{cardId,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{temporary,jdbcType=NUMERIC}, 
       #{residueTemporaryLines,jdbcType=NUMERIC}, #{facilityExtent,jdbcType=NUMERIC}, 
       #{residueFacilityExtent,jdbcType=NUMERIC}, #{kind,jdbcType=NUMERIC}, #{cardState,jdbcType=NUMERIC}, 
-      #{activate,jdbcType=NUMERIC})
+      #{activate,jdbcType=NUMERIC}, #{name,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{billDate,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.CardManagement">
     insert into CARD_MANAGEMENT
@@ -158,6 +164,15 @@
       <if test="activate != null">
         ACTIVATE,
       </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="idNumber != null">
+        ID_NUMBER,
+      </if>
+      <if test="billDate != null">
+        BILL_DATE,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="cardId != null">
@@ -195,6 +210,15 @@
       </if>
       <if test="activate != null">
         #{activate,jdbcType=NUMERIC},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="billDate != null">
+        #{billDate,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -243,6 +267,15 @@
       <if test="record.activate != null">
         ACTIVATE = #{record.activate,jdbcType=NUMERIC},
       </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idNumber != null">
+        ID_NUMBER = #{record.idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billDate != null">
+        BILL_DATE = #{record.billDate,jdbcType=NUMERIC},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -261,7 +294,10 @@
       RESIDUE_FACILITY_EXTENT = #{record.residueFacilityExtent,jdbcType=NUMERIC},
       KIND = #{record.kind,jdbcType=NUMERIC},
       CARD_STATE = #{record.cardState,jdbcType=NUMERIC},
-      ACTIVATE = #{record.activate,jdbcType=NUMERIC}
+      ACTIVATE = #{record.activate,jdbcType=NUMERIC},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      ID_NUMBER = #{record.idNumber,jdbcType=VARCHAR},
+      BILL_DATE = #{record.billDate,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -302,6 +338,15 @@
       <if test="activate != null">
         ACTIVATE = #{activate,jdbcType=NUMERIC},
       </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        ID_NUMBER = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="billDate != null">
+        BILL_DATE = #{billDate,jdbcType=NUMERIC},
+      </if>
     </set>
     where CARD_ID = #{cardId,jdbcType=NUMERIC}
   </update>
@@ -317,7 +362,10 @@
       RESIDUE_FACILITY_EXTENT = #{residueFacilityExtent,jdbcType=NUMERIC},
       KIND = #{kind,jdbcType=NUMERIC},
       CARD_STATE = #{cardState,jdbcType=NUMERIC},
-      ACTIVATE = #{activate,jdbcType=NUMERIC}
+      ACTIVATE = #{activate,jdbcType=NUMERIC},
+      NAME = #{name,jdbcType=VARCHAR},
+      ID_NUMBER = #{idNumber,jdbcType=VARCHAR},
+      BILL_DATE = #{billDate,jdbcType=NUMERIC}
     where CARD_ID = #{cardId,jdbcType=NUMERIC}
   </update>
 </mapper>

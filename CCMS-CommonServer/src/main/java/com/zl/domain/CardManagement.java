@@ -28,6 +28,12 @@ public class CardManagement implements Serializable {
 
     private Short activate;
 
+    private String name;
+
+    private String idNumber;
+
+    private Integer billDate;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getCardId() {
@@ -126,6 +132,30 @@ public class CardManagement implements Serializable {
         this.activate = activate;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber == null ? null : idNumber.trim();
+    }
+
+    public Integer getBillDate() {
+        return billDate;
+    }
+
+    public void setBillDate(Integer billDate) {
+        this.billDate = billDate;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -144,6 +174,9 @@ public class CardManagement implements Serializable {
         sb.append(", kind=").append(kind);
         sb.append(", cardState=").append(cardState);
         sb.append(", activate=").append(activate);
+        sb.append(", name=").append(name);
+        sb.append(", idNumber=").append(idNumber);
+        sb.append(", billDate=").append(billDate);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

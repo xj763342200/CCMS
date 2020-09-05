@@ -116,52 +116,52 @@ public class stagingExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(BigDecimal value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(BigDecimal value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(BigDecimal value) {
+        public Criteria andIdGreaterThan(Long value) {
             addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(BigDecimal value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<BigDecimal> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<BigDecimal> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -236,52 +236,52 @@ public class stagingExample {
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthEqualTo(Long value) {
+        public Criteria andTotalmonthEqualTo(Short value) {
             addCriterion("TOTALMONTH =", value, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthNotEqualTo(Long value) {
+        public Criteria andTotalmonthNotEqualTo(Short value) {
             addCriterion("TOTALMONTH <>", value, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthGreaterThan(Long value) {
+        public Criteria andTotalmonthGreaterThan(Short value) {
             addCriterion("TOTALMONTH >", value, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthGreaterThanOrEqualTo(Long value) {
+        public Criteria andTotalmonthGreaterThanOrEqualTo(Short value) {
             addCriterion("TOTALMONTH >=", value, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthLessThan(Long value) {
+        public Criteria andTotalmonthLessThan(Short value) {
             addCriterion("TOTALMONTH <", value, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthLessThanOrEqualTo(Long value) {
+        public Criteria andTotalmonthLessThanOrEqualTo(Short value) {
             addCriterion("TOTALMONTH <=", value, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthIn(List<Long> values) {
+        public Criteria andTotalmonthIn(List<Short> values) {
             addCriterion("TOTALMONTH in", values, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthNotIn(List<Long> values) {
+        public Criteria andTotalmonthNotIn(List<Short> values) {
             addCriterion("TOTALMONTH not in", values, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthBetween(Long value1, Long value2) {
+        public Criteria andTotalmonthBetween(Short value1, Short value2) {
             addCriterion("TOTALMONTH between", value1, value2, "totalmonth");
             return (Criteria) this;
         }
 
-        public Criteria andTotalmonthNotBetween(Long value1, Long value2) {
+        public Criteria andTotalmonthNotBetween(Short value1, Short value2) {
             addCriterion("TOTALMONTH not between", value1, value2, "totalmonth");
             return (Criteria) this;
         }
@@ -416,52 +416,52 @@ public class stagingExample {
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumEqualTo(Long value) {
+        public Criteria andEndsendMonthnumEqualTo(Short value) {
             addCriterion("ENDSEND_MONTHNUM =", value, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumNotEqualTo(Long value) {
+        public Criteria andEndsendMonthnumNotEqualTo(Short value) {
             addCriterion("ENDSEND_MONTHNUM <>", value, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumGreaterThan(Long value) {
+        public Criteria andEndsendMonthnumGreaterThan(Short value) {
             addCriterion("ENDSEND_MONTHNUM >", value, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumGreaterThanOrEqualTo(Long value) {
+        public Criteria andEndsendMonthnumGreaterThanOrEqualTo(Short value) {
             addCriterion("ENDSEND_MONTHNUM >=", value, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumLessThan(Long value) {
+        public Criteria andEndsendMonthnumLessThan(Short value) {
             addCriterion("ENDSEND_MONTHNUM <", value, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumLessThanOrEqualTo(Long value) {
+        public Criteria andEndsendMonthnumLessThanOrEqualTo(Short value) {
             addCriterion("ENDSEND_MONTHNUM <=", value, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumIn(List<Long> values) {
+        public Criteria andEndsendMonthnumIn(List<Short> values) {
             addCriterion("ENDSEND_MONTHNUM in", values, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumNotIn(List<Long> values) {
+        public Criteria andEndsendMonthnumNotIn(List<Short> values) {
             addCriterion("ENDSEND_MONTHNUM not in", values, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumBetween(Long value1, Long value2) {
+        public Criteria andEndsendMonthnumBetween(Short value1, Short value2) {
             addCriterion("ENDSEND_MONTHNUM between", value1, value2, "endsendMonthnum");
             return (Criteria) this;
         }
 
-        public Criteria andEndsendMonthnumNotBetween(Long value1, Long value2) {
+        public Criteria andEndsendMonthnumNotBetween(Short value1, Short value2) {
             addCriterion("ENDSEND_MONTHNUM not between", value1, value2, "endsendMonthnum");
             return (Criteria) this;
         }
@@ -476,52 +476,52 @@ public class stagingExample {
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumEqualTo(Long value) {
+        public Criteria andRemindnumEqualTo(Short value) {
             addCriterion("REMINDNUM =", value, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumNotEqualTo(Long value) {
+        public Criteria andRemindnumNotEqualTo(Short value) {
             addCriterion("REMINDNUM <>", value, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumGreaterThan(Long value) {
+        public Criteria andRemindnumGreaterThan(Short value) {
             addCriterion("REMINDNUM >", value, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumGreaterThanOrEqualTo(Long value) {
+        public Criteria andRemindnumGreaterThanOrEqualTo(Short value) {
             addCriterion("REMINDNUM >=", value, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumLessThan(Long value) {
+        public Criteria andRemindnumLessThan(Short value) {
             addCriterion("REMINDNUM <", value, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumLessThanOrEqualTo(Long value) {
+        public Criteria andRemindnumLessThanOrEqualTo(Short value) {
             addCriterion("REMINDNUM <=", value, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumIn(List<Long> values) {
+        public Criteria andRemindnumIn(List<Short> values) {
             addCriterion("REMINDNUM in", values, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumNotIn(List<Long> values) {
+        public Criteria andRemindnumNotIn(List<Short> values) {
             addCriterion("REMINDNUM not in", values, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumBetween(Long value1, Long value2) {
+        public Criteria andRemindnumBetween(Short value1, Short value2) {
             addCriterion("REMINDNUM between", value1, value2, "remindnum");
             return (Criteria) this;
         }
 
-        public Criteria andRemindnumNotBetween(Long value1, Long value2) {
+        public Criteria andRemindnumNotBetween(Short value1, Short value2) {
             addCriterion("REMINDNUM not between", value1, value2, "remindnum");
             return (Criteria) this;
         }
@@ -716,52 +716,52 @@ public class stagingExample {
             return (Criteria) this;
         }
 
-        public Criteria andCredIdEqualTo(Long value) {
+        public Criteria andCredIdEqualTo(Integer value) {
             addCriterion("CRED_ID =", value, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdNotEqualTo(Long value) {
+        public Criteria andCredIdNotEqualTo(Integer value) {
             addCriterion("CRED_ID <>", value, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdGreaterThan(Long value) {
+        public Criteria andCredIdGreaterThan(Integer value) {
             addCriterion("CRED_ID >", value, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andCredIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("CRED_ID >=", value, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdLessThan(Long value) {
+        public Criteria andCredIdLessThan(Integer value) {
             addCriterion("CRED_ID <", value, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdLessThanOrEqualTo(Long value) {
+        public Criteria andCredIdLessThanOrEqualTo(Integer value) {
             addCriterion("CRED_ID <=", value, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdIn(List<Long> values) {
+        public Criteria andCredIdIn(List<Integer> values) {
             addCriterion("CRED_ID in", values, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdNotIn(List<Long> values) {
+        public Criteria andCredIdNotIn(List<Integer> values) {
             addCriterion("CRED_ID not in", values, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdBetween(Long value1, Long value2) {
+        public Criteria andCredIdBetween(Integer value1, Integer value2) {
             addCriterion("CRED_ID between", value1, value2, "credId");
             return (Criteria) this;
         }
 
-        public Criteria andCredIdNotBetween(Long value1, Long value2) {
+        public Criteria andCredIdNotBetween(Integer value1, Integer value2) {
             addCriterion("CRED_ID not between", value1, value2, "credId");
             return (Criteria) this;
         }
