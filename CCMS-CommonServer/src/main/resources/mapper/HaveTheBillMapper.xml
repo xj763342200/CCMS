@@ -11,6 +11,7 @@
     <result column="BILL_STATE" jdbcType="NUMERIC" property="billState" />
     <result column="BILL_DETAILS_ID" jdbcType="NUMERIC" property="billDetailsId" />
     <result column="ACCOUNT_ID" jdbcType="NUMERIC" property="accountId" />
+    <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,7 +73,7 @@
   </sql>
   <sql id="Base_Column_List">
     BILL_ID, NOWMONTH, ALLPAYMONEY, NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, BILL_STATE, 
-    BILL_DETAILS_ID, ACCOUNT_ID
+    BILL_DETAILS_ID, ACCOUNT_ID, CARD_NUMBER
   </sql>
   <select id="selectByExample" parameterType="com.zl.domain.HaveTheBillExample" resultMap="BaseResultMap">
     select
@@ -107,12 +108,12 @@
   <insert id="insert" parameterType="com.zl.domain.HaveTheBill">
     insert into HAVE_THE_BILL (BILL_ID, NOWMONTH, ALLPAYMONEY, 
       NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, 
-      BILL_STATE, BILL_DETAILS_ID, ACCOUNT_ID
-      )
+      BILL_STATE, BILL_DETAILS_ID, ACCOUNT_ID, 
+      CARD_NUMBER)
     values (#{billId,jdbcType=NUMERIC}, #{nowmonth,jdbcType=VARCHAR}, #{allpaymoney,jdbcType=NUMERIC}, 
       #{nowlowpayment,jdbcType=NUMERIC}, #{monthlyBillDay,jdbcType=NUMERIC}, #{billType,jdbcType=NUMERIC}, 
-      #{billState,jdbcType=NUMERIC}, #{billDetailsId,jdbcType=NUMERIC}, #{accountId,jdbcType=NUMERIC}
-      )
+      #{billState,jdbcType=NUMERIC}, #{billDetailsId,jdbcType=NUMERIC}, #{accountId,jdbcType=NUMERIC}, 
+      #{cardNumber,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.HaveTheBill">
     insert into HAVE_THE_BILL
@@ -144,6 +145,9 @@
       <if test="accountId != null">
         ACCOUNT_ID,
       </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="billId != null">
@@ -172,6 +176,9 @@
       </if>
       <if test="accountId != null">
         #{accountId,jdbcType=NUMERIC},
+      </if>
+      <if test="cardNumber != null">
+        #{cardNumber,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -211,6 +218,9 @@
       <if test="record.accountId != null">
         ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
       </if>
+      <if test="record.cardNumber != null">
+        CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -226,7 +236,8 @@
       BILL_TYPE = #{record.billType,jdbcType=NUMERIC},
       BILL_STATE = #{record.billState,jdbcType=NUMERIC},
       BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=NUMERIC},
-      ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC}
+      ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -258,6 +269,9 @@
       <if test="accountId != null">
         ACCOUNT_ID = #{accountId,jdbcType=NUMERIC},
       </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
+      </if>
     </set>
     where BILL_ID = #{billId,jdbcType=NUMERIC}
   </update>
@@ -270,7 +284,8 @@
       BILL_TYPE = #{billType,jdbcType=NUMERIC},
       BILL_STATE = #{billState,jdbcType=NUMERIC},
       BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC},
-      ACCOUNT_ID = #{accountId,jdbcType=NUMERIC}
+      ACCOUNT_ID = #{accountId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR}
     where BILL_ID = #{billId,jdbcType=NUMERIC}
   </update>
 </mapper>

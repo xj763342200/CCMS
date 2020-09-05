@@ -654,6 +654,76 @@ public class HaveTheBillExample {
             addCriterion("ACCOUNT_ID not between", value1, value2, "accountId");
             return (Criteria) this;
         }
+
+        public Criteria andCardNumberIsNull() {
+            addCriterion("CARD_NUMBER is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberIsNotNull() {
+            addCriterion("CARD_NUMBER is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberEqualTo(String value) {
+            addCriterion("CARD_NUMBER =", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberNotEqualTo(String value) {
+            addCriterion("CARD_NUMBER <>", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberGreaterThan(String value) {
+            addCriterion("CARD_NUMBER >", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("CARD_NUMBER >=", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberLessThan(String value) {
+            addCriterion("CARD_NUMBER <", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberLessThanOrEqualTo(String value) {
+            addCriterion("CARD_NUMBER <=", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberLike(String value) {
+            addCriterion("CARD_NUMBER like", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberNotLike(String value) {
+            addCriterion("CARD_NUMBER not like", value, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberIn(List<String> values) {
+            addCriterion("CARD_NUMBER in", values, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberNotIn(List<String> values) {
+            addCriterion("CARD_NUMBER not in", values, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberBetween(String value1, String value2) {
+            addCriterion("CARD_NUMBER between", value1, value2, "cardNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andCardNumberNotBetween(String value1, String value2) {
+            addCriterion("CARD_NUMBER not between", value1, value2, "cardNumber");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

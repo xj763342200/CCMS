@@ -22,6 +22,8 @@ public class HaveTheBill implements Serializable {
 
     private Integer accountId;
 
+    private String cardNumber;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getBillId() {
@@ -96,6 +98,14 @@ public class HaveTheBill implements Serializable {
         this.accountId = accountId;
     }
 
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber == null ? null : cardNumber.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -111,6 +121,7 @@ public class HaveTheBill implements Serializable {
         sb.append(", billState=").append(billState);
         sb.append(", billDetailsId=").append(billDetailsId);
         sb.append(", accountId=").append(accountId);
+        sb.append(", cardNumber=").append(cardNumber);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
