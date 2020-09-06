@@ -10,7 +10,7 @@ public class CardManagement implements Serializable {
 
     private String cardNumber;
 
-    private Long phone;
+    private String phone;
 
     private String password;
 
@@ -27,6 +27,12 @@ public class CardManagement implements Serializable {
     private Short cardState;
 
     private Short activate;
+
+    private String name;
+
+    private String idNumber;
+
+    private Integer billDate;
 
     private static final long serialVersionUID = 1L;
 
@@ -54,12 +60,12 @@ public class CardManagement implements Serializable {
         this.cardNumber = cardNumber == null ? null : cardNumber.trim();
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
-        this.phone = phone;
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public String getPassword() {
@@ -126,6 +132,30 @@ public class CardManagement implements Serializable {
         this.activate = activate;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber == null ? null : idNumber.trim();
+    }
+
+    public Integer getBillDate() {
+        return billDate;
+    }
+
+    public void setBillDate(Integer billDate) {
+        this.billDate = billDate;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -144,6 +174,9 @@ public class CardManagement implements Serializable {
         sb.append(", kind=").append(kind);
         sb.append(", cardState=").append(cardState);
         sb.append(", activate=").append(activate);
+        sb.append(", name=").append(name);
+        sb.append(", idNumber=").append(idNumber);
+        sb.append(", billDate=").append(billDate);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

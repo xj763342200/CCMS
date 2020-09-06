@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.CUserMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.CUser">
-    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <id column="USER_ID" jdbcType="NUMERIC" property="userId" />
     <result column="USERNAME" jdbcType="VARCHAR" property="username" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="PHONE" jdbcType="VARCHAR" property="phone" />
@@ -11,9 +11,9 @@
     <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
     <result column="RECENTLY_LANDED" jdbcType="TIMESTAMP" property="recentlyLanded" />
     <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime" />
-    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="STATUS" jdbcType="NUMERIC" property="status" />
     <result column="FACE" jdbcType="VARCHAR" property="face" />
-    <result column="TYPE" jdbcType="DECIMAL" property="type" />
+    <result column="TYPE" jdbcType="NUMERIC" property="type" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -95,11 +95,11 @@
     select 
     <include refid="Base_Column_List" />
     from C_USER
-    where USER_ID = #{userId,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from C_USER
-    where USER_ID = #{userId,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.CUserExample">
     delete from C_USER
@@ -112,10 +112,10 @@
       PHONE, EMAIL, REAL_NAME, 
       BIRTHDAY, RECENTLY_LANDED, REGISTER_TIME, 
       STATUS, FACE, TYPE)
-    values (#{userId,jdbcType=DECIMAL}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=NUMERIC}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
       #{birthday,jdbcType=TIMESTAMP}, #{recentlyLanded,jdbcType=TIMESTAMP}, #{registerTime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=DECIMAL}, #{face,jdbcType=VARCHAR}, #{type,jdbcType=DECIMAL})
+      #{status,jdbcType=NUMERIC}, #{face,jdbcType=VARCHAR}, #{type,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.CUser">
     insert into C_USER
@@ -159,7 +159,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -186,13 +186,13 @@
         #{registerTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
-        #{status,jdbcType=DECIMAL},
+        #{status,jdbcType=NUMERIC},
       </if>
       <if test="face != null">
         #{face,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        #{type,jdbcType=DECIMAL},
+        #{type,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -206,7 +206,7 @@
     update C_USER
     <set>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
       <if test="record.username != null">
         USERNAME = #{record.username,jdbcType=VARCHAR},
@@ -233,13 +233,13 @@
         REGISTER_TIME = #{record.registerTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null">
-        STATUS = #{record.status,jdbcType=DECIMAL},
+        STATUS = #{record.status,jdbcType=NUMERIC},
       </if>
       <if test="record.face != null">
         FACE = #{record.face,jdbcType=VARCHAR},
       </if>
       <if test="record.type != null">
-        TYPE = #{record.type,jdbcType=DECIMAL},
+        TYPE = #{record.type,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -248,7 +248,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update C_USER
-    set USER_ID = #{record.userId,jdbcType=DECIMAL},
+    set USER_ID = #{record.userId,jdbcType=NUMERIC},
       USERNAME = #{record.username,jdbcType=VARCHAR},
       PASSWORD = #{record.password,jdbcType=VARCHAR},
       PHONE = #{record.phone,jdbcType=VARCHAR},
@@ -257,9 +257,9 @@
       BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
       RECENTLY_LANDED = #{record.recentlyLanded,jdbcType=TIMESTAMP},
       REGISTER_TIME = #{record.registerTime,jdbcType=TIMESTAMP},
-      STATUS = #{record.status,jdbcType=DECIMAL},
+      STATUS = #{record.status,jdbcType=NUMERIC},
       FACE = #{record.face,jdbcType=VARCHAR},
-      TYPE = #{record.type,jdbcType=DECIMAL}
+      TYPE = #{record.type,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -292,16 +292,16 @@
         REGISTER_TIME = #{registerTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
-        STATUS = #{status,jdbcType=DECIMAL},
+        STATUS = #{status,jdbcType=NUMERIC},
       </if>
       <if test="face != null">
         FACE = #{face,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        TYPE = #{type,jdbcType=DECIMAL},
+        TYPE = #{type,jdbcType=NUMERIC},
       </if>
     </set>
-    where USER_ID = #{userId,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.CUser">
     update C_USER
@@ -313,9 +313,9 @@
       BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
       RECENTLY_LANDED = #{recentlyLanded,jdbcType=TIMESTAMP},
       REGISTER_TIME = #{registerTime,jdbcType=TIMESTAMP},
-      STATUS = #{status,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=NUMERIC},
       FACE = #{face,jdbcType=VARCHAR},
-      TYPE = #{type,jdbcType=DECIMAL}
-    where USER_ID = #{userId,jdbcType=DECIMAL}
+      TYPE = #{type,jdbcType=NUMERIC}
+    where USER_ID = #{userId,jdbcType=NUMERIC}
   </update>
 </mapper>

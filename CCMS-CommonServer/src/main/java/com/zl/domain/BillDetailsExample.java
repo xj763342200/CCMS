@@ -116,52 +116,52 @@ public class BillDetailsExample {
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdEqualTo(Long value) {
+        public Criteria andBillDetailsIdEqualTo(Integer value) {
             addCriterion("BILL_DETAILS_ID =", value, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdNotEqualTo(Long value) {
+        public Criteria andBillDetailsIdNotEqualTo(Integer value) {
             addCriterion("BILL_DETAILS_ID <>", value, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdGreaterThan(Long value) {
+        public Criteria andBillDetailsIdGreaterThan(Integer value) {
             addCriterion("BILL_DETAILS_ID >", value, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andBillDetailsIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("BILL_DETAILS_ID >=", value, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdLessThan(Long value) {
+        public Criteria andBillDetailsIdLessThan(Integer value) {
             addCriterion("BILL_DETAILS_ID <", value, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdLessThanOrEqualTo(Long value) {
+        public Criteria andBillDetailsIdLessThanOrEqualTo(Integer value) {
             addCriterion("BILL_DETAILS_ID <=", value, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdIn(List<Long> values) {
+        public Criteria andBillDetailsIdIn(List<Integer> values) {
             addCriterion("BILL_DETAILS_ID in", values, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdNotIn(List<Long> values) {
+        public Criteria andBillDetailsIdNotIn(List<Integer> values) {
             addCriterion("BILL_DETAILS_ID not in", values, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdBetween(Long value1, Long value2) {
+        public Criteria andBillDetailsIdBetween(Integer value1, Integer value2) {
             addCriterion("BILL_DETAILS_ID between", value1, value2, "billDetailsId");
             return (Criteria) this;
         }
 
-        public Criteria andBillDetailsIdNotBetween(Long value1, Long value2) {
+        public Criteria andBillDetailsIdNotBetween(Integer value1, Integer value2) {
             addCriterion("BILL_DETAILS_ID not between", value1, value2, "billDetailsId");
             return (Criteria) this;
         }

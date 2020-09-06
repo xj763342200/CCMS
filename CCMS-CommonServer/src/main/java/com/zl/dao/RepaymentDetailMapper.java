@@ -3,16 +3,14 @@ package com.zl.dao;
 import com.zl.domain.RepaymentDetail;
 import com.zl.domain.RepaymentDetailExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface RepaymentDetailMapper {
     long countByExample(RepaymentDetailExample example);
 
     int deleteByExample(RepaymentDetailExample example);
 
-    int deleteByPrimaryKey(Long repaymentDetailId);
+    int deleteByPrimaryKey(Integer repaymentDetailId);
 
     int insert(RepaymentDetail record);
 
@@ -20,7 +18,7 @@ public interface RepaymentDetailMapper {
 
     List<RepaymentDetail> selectByExample(RepaymentDetailExample example);
 
-    RepaymentDetail selectByPrimaryKey(Long repaymentDetailId);
+    RepaymentDetail selectByPrimaryKey(Integer repaymentDetailId);
 
     int updateByExampleSelective(@Param("record") RepaymentDetail record, @Param("example") RepaymentDetailExample example);
 

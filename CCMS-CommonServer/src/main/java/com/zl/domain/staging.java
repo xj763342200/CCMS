@@ -5,19 +5,19 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class staging implements Serializable {
-    private BigDecimal id;
+    private Long id;
 
     private BigDecimal totalmoney;
 
-    private Long totalmonth;
+    private Short totalmonth;
 
     private BigDecimal rate;
 
     private BigDecimal monthsend;
 
-    private Long endsendMonthnum;
+    private Short endsendMonthnum;
 
-    private Long remindnum;
+    private Short remindnum;
 
     private Date createtime;
 
@@ -25,7 +25,7 @@ public class staging implements Serializable {
 
     private Short ifDelete;
 
-    private Long credId;
+    private Integer credId;
 
     private BigDecimal surplusmoney;
 
@@ -33,11 +33,11 @@ public class staging implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,11 +49,11 @@ public class staging implements Serializable {
         this.totalmoney = totalmoney;
     }
 
-    public Long getTotalmonth() {
+    public Short getTotalmonth() {
         return totalmonth;
     }
 
-    public void setTotalmonth(Long totalmonth) {
+    public void setTotalmonth(Short totalmonth) {
         this.totalmonth = totalmonth;
     }
 
@@ -73,19 +73,19 @@ public class staging implements Serializable {
         this.monthsend = monthsend;
     }
 
-    public Long getEndsendMonthnum() {
+    public Short getEndsendMonthnum() {
         return endsendMonthnum;
     }
 
-    public void setEndsendMonthnum(Long endsendMonthnum) {
+    public void setEndsendMonthnum(Short endsendMonthnum) {
         this.endsendMonthnum = endsendMonthnum;
     }
 
-    public Long getRemindnum() {
+    public Short getRemindnum() {
         return remindnum;
     }
 
-    public void setRemindnum(Long remindnum) {
+    public void setRemindnum(Short remindnum) {
         this.remindnum = remindnum;
     }
 
@@ -113,11 +113,11 @@ public class staging implements Serializable {
         this.ifDelete = ifDelete;
     }
 
-    public Long getCredId() {
+    public Integer getCredId() {
         return credId;
     }
 
-    public void setCredId(Long credId) {
+    public void setCredId(Integer credId) {
         this.credId = credId;
     }
 

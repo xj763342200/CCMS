@@ -2,14 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.HaveTheBillMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.HaveTheBill">
-    <id column="BILL_ID" jdbcType="DECIMAL" property="billId" />
-    <result column="NOWMONTH" jdbcType="TIMESTAMP" property="nowmonth" />
-    <result column="ALLPAYMONEY" jdbcType="DECIMAL" property="allpaymoney" />
-    <result column="NOWLOWPAYMENT" jdbcType="DECIMAL" property="nowlowpayment" />
-    <result column="MONTHLY_BILL_DAY" jdbcType="TIMESTAMP" property="monthlyBillDay" />
-    <result column="BILL_TYPE" jdbcType="DECIMAL" property="billType" />
-    <result column="BILL_STATE" jdbcType="DECIMAL" property="billState" />
-    <result column="BILL_DETAILS_ID" jdbcType="DECIMAL" property="billDetailsId" />
+    <id column="BILL_ID" jdbcType="NUMERIC" property="billId" />
+    <result column="NOWMONTH" jdbcType="VARCHAR" property="nowmonth" />
+    <result column="ALLPAYMONEY" jdbcType="NUMERIC" property="allpaymoney" />
+    <result column="NOWLOWPAYMENT" jdbcType="NUMERIC" property="nowlowpayment" />
+    <result column="MONTHLY_BILL_DAY" jdbcType="NUMERIC" property="monthlyBillDay" />
+    <result column="BILL_TYPE" jdbcType="NUMERIC" property="billType" />
+    <result column="BILL_STATE" jdbcType="NUMERIC" property="billState" />
+    <result column="BILL_DETAILS_ID" jdbcType="NUMERIC" property="billDetailsId" />
+    <result column="ACCOUNT_ID" jdbcType="NUMERIC" property="accountId" />
+    <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +73,7 @@
   </sql>
   <sql id="Base_Column_List">
     BILL_ID, NOWMONTH, ALLPAYMONEY, NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, BILL_STATE, 
-    BILL_DETAILS_ID
+    BILL_DETAILS_ID, ACCOUNT_ID, CARD_NUMBER
   </sql>
   <select id="selectByExample" parameterType="com.zl.domain.HaveTheBillExample" resultMap="BaseResultMap">
     select
@@ -87,15 +89,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from HAVE_THE_BILL
-    where BILL_ID = #{billId,jdbcType=DECIMAL}
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from HAVE_THE_BILL
-    where BILL_ID = #{billId,jdbcType=DECIMAL}
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.HaveTheBillExample">
     delete from HAVE_THE_BILL
@@ -106,10 +108,12 @@
   <insert id="insert" parameterType="com.zl.domain.HaveTheBill">
     insert into HAVE_THE_BILL (BILL_ID, NOWMONTH, ALLPAYMONEY, 
       NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, 
-      BILL_STATE, BILL_DETAILS_ID)
-    values (#{billId,jdbcType=DECIMAL}, #{nowmonth,jdbcType=TIMESTAMP}, #{allpaymoney,jdbcType=DECIMAL}, 
-      #{nowlowpayment,jdbcType=DECIMAL}, #{monthlyBillDay,jdbcType=TIMESTAMP}, #{billType,jdbcType=DECIMAL}, 
-      #{billState,jdbcType=DECIMAL}, #{billDetailsId,jdbcType=DECIMAL})
+      BILL_STATE, BILL_DETAILS_ID, ACCOUNT_ID, 
+      CARD_NUMBER)
+    values (#{billId,jdbcType=NUMERIC}, #{nowmonth,jdbcType=VARCHAR}, #{allpaymoney,jdbcType=NUMERIC}, 
+      #{nowlowpayment,jdbcType=NUMERIC}, #{monthlyBillDay,jdbcType=NUMERIC}, #{billType,jdbcType=NUMERIC}, 
+      #{billState,jdbcType=NUMERIC}, #{billDetailsId,jdbcType=NUMERIC}, #{accountId,jdbcType=NUMERIC}, 
+      #{cardNumber,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.HaveTheBill">
     insert into HAVE_THE_BILL
@@ -138,31 +142,43 @@
       <if test="billDetailsId != null">
         BILL_DETAILS_ID,
       </if>
+      <if test="accountId != null">
+        ACCOUNT_ID,
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="billId != null">
-        #{billId,jdbcType=DECIMAL},
+        #{billId,jdbcType=NUMERIC},
       </if>
       <if test="nowmonth != null">
-        #{nowmonth,jdbcType=TIMESTAMP},
+        #{nowmonth,jdbcType=VARCHAR},
       </if>
       <if test="allpaymoney != null">
-        #{allpaymoney,jdbcType=DECIMAL},
+        #{allpaymoney,jdbcType=NUMERIC},
       </if>
       <if test="nowlowpayment != null">
-        #{nowlowpayment,jdbcType=DECIMAL},
+        #{nowlowpayment,jdbcType=NUMERIC},
       </if>
       <if test="monthlyBillDay != null">
-        #{monthlyBillDay,jdbcType=TIMESTAMP},
+        #{monthlyBillDay,jdbcType=NUMERIC},
       </if>
       <if test="billType != null">
-        #{billType,jdbcType=DECIMAL},
+        #{billType,jdbcType=NUMERIC},
       </if>
       <if test="billState != null">
-        #{billState,jdbcType=DECIMAL},
+        #{billState,jdbcType=NUMERIC},
       </if>
       <if test="billDetailsId != null">
-        #{billDetailsId,jdbcType=DECIMAL},
+        #{billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=NUMERIC},
+      </if>
+      <if test="cardNumber != null">
+        #{cardNumber,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,28 +192,34 @@
     update HAVE_THE_BILL
     <set>
       <if test="record.billId != null">
-        BILL_ID = #{record.billId,jdbcType=DECIMAL},
+        BILL_ID = #{record.billId,jdbcType=NUMERIC},
       </if>
       <if test="record.nowmonth != null">
-        NOWMONTH = #{record.nowmonth,jdbcType=TIMESTAMP},
+        NOWMONTH = #{record.nowmonth,jdbcType=VARCHAR},
       </if>
       <if test="record.allpaymoney != null">
-        ALLPAYMONEY = #{record.allpaymoney,jdbcType=DECIMAL},
+        ALLPAYMONEY = #{record.allpaymoney,jdbcType=NUMERIC},
       </if>
       <if test="record.nowlowpayment != null">
-        NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=DECIMAL},
+        NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=NUMERIC},
       </if>
       <if test="record.monthlyBillDay != null">
-        MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=TIMESTAMP},
+        MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=NUMERIC},
       </if>
       <if test="record.billType != null">
-        BILL_TYPE = #{record.billType,jdbcType=DECIMAL},
+        BILL_TYPE = #{record.billType,jdbcType=NUMERIC},
       </if>
       <if test="record.billState != null">
-        BILL_STATE = #{record.billState,jdbcType=DECIMAL},
+        BILL_STATE = #{record.billState,jdbcType=NUMERIC},
       </if>
       <if test="record.billDetailsId != null">
-        BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=DECIMAL},
+        BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.accountId != null">
+        ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.cardNumber != null">
+        CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -206,14 +228,16 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update HAVE_THE_BILL
-    set BILL_ID = #{record.billId,jdbcType=DECIMAL},
-      NOWMONTH = #{record.nowmonth,jdbcType=TIMESTAMP},
-      ALLPAYMONEY = #{record.allpaymoney,jdbcType=DECIMAL},
-      NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=DECIMAL},
-      MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=TIMESTAMP},
-      BILL_TYPE = #{record.billType,jdbcType=DECIMAL},
-      BILL_STATE = #{record.billState,jdbcType=DECIMAL},
-      BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=DECIMAL}
+    set BILL_ID = #{record.billId,jdbcType=NUMERIC},
+      NOWMONTH = #{record.nowmonth,jdbcType=VARCHAR},
+      ALLPAYMONEY = #{record.allpaymoney,jdbcType=NUMERIC},
+      NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=NUMERIC},
+      MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=NUMERIC},
+      BILL_TYPE = #{record.billType,jdbcType=NUMERIC},
+      BILL_STATE = #{record.billState,jdbcType=NUMERIC},
+      BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=NUMERIC},
+      ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -222,38 +246,46 @@
     update HAVE_THE_BILL
     <set>
       <if test="nowmonth != null">
-        NOWMONTH = #{nowmonth,jdbcType=TIMESTAMP},
+        NOWMONTH = #{nowmonth,jdbcType=VARCHAR},
       </if>
       <if test="allpaymoney != null">
-        ALLPAYMONEY = #{allpaymoney,jdbcType=DECIMAL},
+        ALLPAYMONEY = #{allpaymoney,jdbcType=NUMERIC},
       </if>
       <if test="nowlowpayment != null">
-        NOWLOWPAYMENT = #{nowlowpayment,jdbcType=DECIMAL},
+        NOWLOWPAYMENT = #{nowlowpayment,jdbcType=NUMERIC},
       </if>
       <if test="monthlyBillDay != null">
-        MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=TIMESTAMP},
+        MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=NUMERIC},
       </if>
       <if test="billType != null">
-        BILL_TYPE = #{billType,jdbcType=DECIMAL},
+        BILL_TYPE = #{billType,jdbcType=NUMERIC},
       </if>
       <if test="billState != null">
-        BILL_STATE = #{billState,jdbcType=DECIMAL},
+        BILL_STATE = #{billState,jdbcType=NUMERIC},
       </if>
       <if test="billDetailsId != null">
-        BILL_DETAILS_ID = #{billDetailsId,jdbcType=DECIMAL},
+        BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="accountId != null">
+        ACCOUNT_ID = #{accountId,jdbcType=NUMERIC},
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
       </if>
     </set>
-    where BILL_ID = #{billId,jdbcType=DECIMAL}
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.HaveTheBill">
     update HAVE_THE_BILL
-    set NOWMONTH = #{nowmonth,jdbcType=TIMESTAMP},
-      ALLPAYMONEY = #{allpaymoney,jdbcType=DECIMAL},
-      NOWLOWPAYMENT = #{nowlowpayment,jdbcType=DECIMAL},
-      MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=TIMESTAMP},
-      BILL_TYPE = #{billType,jdbcType=DECIMAL},
-      BILL_STATE = #{billState,jdbcType=DECIMAL},
-      BILL_DETAILS_ID = #{billDetailsId,jdbcType=DECIMAL}
-    where BILL_ID = #{billId,jdbcType=DECIMAL}
+    set NOWMONTH = #{nowmonth,jdbcType=VARCHAR},
+      ALLPAYMONEY = #{allpaymoney,jdbcType=NUMERIC},
+      NOWLOWPAYMENT = #{nowlowpayment,jdbcType=NUMERIC},
+      MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=NUMERIC},
+      BILL_TYPE = #{billType,jdbcType=NUMERIC},
+      BILL_STATE = #{billState,jdbcType=NUMERIC},
+      BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC},
+      ACCOUNT_ID = #{accountId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR}
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
   </update>
 </mapper>

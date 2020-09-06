@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.FreezeRecordMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.FreezeRecord">
-    <id column="FREEZE_ID" jdbcType="DECIMAL" property="freezeId" />
-    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <id column="FREEZE_ID" jdbcType="NUMERIC" property="freezeId" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
     <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
     <result column="FREEZE_DATE" jdbcType="TIMESTAMP" property="freezeDate" />
     <result column="REMARK" jdbcType="VARCHAR" property="remark" />
@@ -87,11 +87,11 @@
     select 
     <include refid="Base_Column_List" />
     from FREEZE_RECORD
-    where FREEZE_ID = #{freezeId,jdbcType=DECIMAL}
+    where FREEZE_ID = #{freezeId,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from FREEZE_RECORD
-    where FREEZE_ID = #{freezeId,jdbcType=DECIMAL}
+    where FREEZE_ID = #{freezeId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.FreezeRecordExample">
     delete from FREEZE_RECORD
@@ -102,7 +102,7 @@
   <insert id="insert" parameterType="com.zl.domain.FreezeRecord">
     insert into FREEZE_RECORD (FREEZE_ID, USER_ID, CARD_NUMBER, 
       FREEZE_DATE, REMARK)
-    values (#{freezeId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{cardNumber,jdbcType=VARCHAR}, 
+    values (#{freezeId,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, 
       #{freezeDate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.FreezeRecord">
@@ -126,10 +126,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="freezeId != null">
-        #{freezeId,jdbcType=DECIMAL},
+        #{freezeId,jdbcType=NUMERIC},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         #{cardNumber,jdbcType=VARCHAR},
@@ -152,10 +152,10 @@
     update FREEZE_RECORD
     <set>
       <if test="record.freezeId != null">
-        FREEZE_ID = #{record.freezeId,jdbcType=DECIMAL},
+        FREEZE_ID = #{record.freezeId,jdbcType=NUMERIC},
       </if>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
       <if test="record.cardNumber != null">
         CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
@@ -173,8 +173,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update FREEZE_RECORD
-    set FREEZE_ID = #{record.freezeId,jdbcType=DECIMAL},
-      USER_ID = #{record.userId,jdbcType=DECIMAL},
+    set FREEZE_ID = #{record.freezeId,jdbcType=NUMERIC},
+      USER_ID = #{record.userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
       FREEZE_DATE = #{record.freezeDate,jdbcType=TIMESTAMP},
       REMARK = #{record.remark,jdbcType=VARCHAR}
@@ -186,7 +186,7 @@
     update FREEZE_RECORD
     <set>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=DECIMAL},
+        USER_ID = #{userId,jdbcType=NUMERIC},
       </if>
       <if test="cardNumber != null">
         CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
@@ -198,14 +198,14 @@
         REMARK = #{remark,jdbcType=VARCHAR},
       </if>
     </set>
-    where FREEZE_ID = #{freezeId,jdbcType=DECIMAL}
+    where FREEZE_ID = #{freezeId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.FreezeRecord">
     update FREEZE_RECORD
-    set USER_ID = #{userId,jdbcType=DECIMAL},
+    set USER_ID = #{userId,jdbcType=NUMERIC},
       CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
       FREEZE_DATE = #{freezeDate,jdbcType=TIMESTAMP},
       REMARK = #{remark,jdbcType=VARCHAR}
-    where FREEZE_ID = #{freezeId,jdbcType=DECIMAL}
+    where FREEZE_ID = #{freezeId,jdbcType=NUMERIC}
   </update>
 </mapper>

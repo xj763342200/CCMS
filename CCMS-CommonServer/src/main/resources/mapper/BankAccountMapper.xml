@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.BankAccountMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.BankAccount">
-    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <id column="BANK_ACCOUNT_ID" jdbcType="NUMERIC" property="bankAccountId" />
     <result column="REALNAME" jdbcType="VARCHAR" property="realname" />
-    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
+    <result column="BALANCE" jdbcType="NUMERIC" property="balance" />
     <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
     <result column="BANK_CARD_NUMBER" jdbcType="VARCHAR" property="bankCardNumber" />
     <result column="PHONE" jdbcType="VARCHAR" property="phone" />
     <result column="PWD" jdbcType="VARCHAR" property="pwd" />
     <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
     <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
-    <result column="IF_DELETE" jdbcType="DECIMAL" property="ifDelete" />
+    <result column="IF_DELETE" jdbcType="NUMERIC" property="ifDelete" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,8 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, REALNAME, BALANCE, ID_CARD, BANK_CARD_NUMBER, PHONE, PWD, CREATETIME, UPDATETIME, 
-    IF_DELETE
+    BANK_ACCOUNT_ID, REALNAME, BALANCE, ID_CARD, BANK_CARD_NUMBER, PHONE, PWD, CREATETIME, 
+    UPDATETIME, IF_DELETE
   </sql>
   <select id="selectByExample" parameterType="com.zl.domain.BankAccountExample" resultMap="BaseResultMap">
     select
@@ -89,15 +89,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from BANK_ACCOUNT
-    where ID = #{id,jdbcType=DECIMAL}
+    where BANK_ACCOUNT_ID = #{bankAccountId,jdbcType=NUMERIC}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from BANK_ACCOUNT
-    where ID = #{id,jdbcType=DECIMAL}
+    where BANK_ACCOUNT_ID = #{bankAccountId,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.BankAccountExample">
     delete from BANK_ACCOUNT
@@ -106,20 +106,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.zl.domain.BankAccount">
-    insert into BANK_ACCOUNT (ID, REALNAME, BALANCE, 
+    insert into BANK_ACCOUNT (BANK_ACCOUNT_ID, REALNAME, BALANCE, 
       ID_CARD, BANK_CARD_NUMBER, PHONE, 
       PWD, CREATETIME, UPDATETIME, 
       IF_DELETE)
-    values (#{id,jdbcType=DECIMAL}, #{realname,jdbcType=VARCHAR}, #{balance,jdbcType=DECIMAL}, 
+    values (#{bankAccountId,jdbcType=NUMERIC}, #{realname,jdbcType=VARCHAR}, #{balance,jdbcType=NUMERIC}, 
       #{idCard,jdbcType=VARCHAR}, #{bankCardNumber,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{pwd,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
-      #{ifDelete,jdbcType=DECIMAL})
+      #{ifDelete,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.BankAccount">
     insert into BANK_ACCOUNT
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        ID,
+      <if test="bankAccountId != null">
+        BANK_ACCOUNT_ID,
       </if>
       <if test="realname != null">
         REALNAME,
@@ -150,14 +150,14 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=DECIMAL},
+      <if test="bankAccountId != null">
+        #{bankAccountId,jdbcType=NUMERIC},
       </if>
       <if test="realname != null">
         #{realname,jdbcType=VARCHAR},
       </if>
       <if test="balance != null">
-        #{balance,jdbcType=DECIMAL},
+        #{balance,jdbcType=NUMERIC},
       </if>
       <if test="idCard != null">
         #{idCard,jdbcType=VARCHAR},
@@ -178,7 +178,7 @@
         #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="ifDelete != null">
-        #{ifDelete,jdbcType=DECIMAL},
+        #{ifDelete,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -191,14 +191,14 @@
   <update id="updateByExampleSelective" parameterType="map">
     update BANK_ACCOUNT
     <set>
-      <if test="record.id != null">
-        ID = #{record.id,jdbcType=DECIMAL},
+      <if test="record.bankAccountId != null">
+        BANK_ACCOUNT_ID = #{record.bankAccountId,jdbcType=NUMERIC},
       </if>
       <if test="record.realname != null">
         REALNAME = #{record.realname,jdbcType=VARCHAR},
       </if>
       <if test="record.balance != null">
-        BALANCE = #{record.balance,jdbcType=DECIMAL},
+        BALANCE = #{record.balance,jdbcType=NUMERIC},
       </if>
       <if test="record.idCard != null">
         ID_CARD = #{record.idCard,jdbcType=VARCHAR},
@@ -219,7 +219,7 @@
         UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.ifDelete != null">
-        IF_DELETE = #{record.ifDelete,jdbcType=DECIMAL},
+        IF_DELETE = #{record.ifDelete,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -228,16 +228,16 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update BANK_ACCOUNT
-    set ID = #{record.id,jdbcType=DECIMAL},
+    set BANK_ACCOUNT_ID = #{record.bankAccountId,jdbcType=NUMERIC},
       REALNAME = #{record.realname,jdbcType=VARCHAR},
-      BALANCE = #{record.balance,jdbcType=DECIMAL},
+      BALANCE = #{record.balance,jdbcType=NUMERIC},
       ID_CARD = #{record.idCard,jdbcType=VARCHAR},
       BANK_CARD_NUMBER = #{record.bankCardNumber,jdbcType=VARCHAR},
       PHONE = #{record.phone,jdbcType=VARCHAR},
       PWD = #{record.pwd,jdbcType=VARCHAR},
       CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
       UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
-      IF_DELETE = #{record.ifDelete,jdbcType=DECIMAL}
+      IF_DELETE = #{record.ifDelete,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -249,7 +249,7 @@
         REALNAME = #{realname,jdbcType=VARCHAR},
       </if>
       <if test="balance != null">
-        BALANCE = #{balance,jdbcType=DECIMAL},
+        BALANCE = #{balance,jdbcType=NUMERIC},
       </if>
       <if test="idCard != null">
         ID_CARD = #{idCard,jdbcType=VARCHAR},
@@ -270,22 +270,22 @@
         UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="ifDelete != null">
-        IF_DELETE = #{ifDelete,jdbcType=DECIMAL},
+        IF_DELETE = #{ifDelete,jdbcType=NUMERIC},
       </if>
     </set>
-    where ID = #{id,jdbcType=DECIMAL}
+    where BANK_ACCOUNT_ID = #{bankAccountId,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.BankAccount">
     update BANK_ACCOUNT
     set REALNAME = #{realname,jdbcType=VARCHAR},
-      BALANCE = #{balance,jdbcType=DECIMAL},
+      BALANCE = #{balance,jdbcType=NUMERIC},
       ID_CARD = #{idCard,jdbcType=VARCHAR},
       BANK_CARD_NUMBER = #{bankCardNumber,jdbcType=VARCHAR},
       PHONE = #{phone,jdbcType=VARCHAR},
       PWD = #{pwd,jdbcType=VARCHAR},
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      IF_DELETE = #{ifDelete,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+      IF_DELETE = #{ifDelete,jdbcType=NUMERIC}
+    where BANK_ACCOUNT_ID = #{bankAccountId,jdbcType=NUMERIC}
   </update>
 </mapper>

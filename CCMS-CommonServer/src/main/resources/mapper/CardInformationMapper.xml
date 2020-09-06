@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.CardInformationMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.CardInformation">
-    <id column="ID" jdbcType="DECIMAL" property="id" />
-    <result column="CARD_ID" jdbcType="DECIMAL" property="cardId" />
-    <result column="CARD_STATE" jdbcType="DECIMAL" property="cardState" />
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="CARD_ID" jdbcType="NUMERIC" property="cardId" />
+    <result column="CARD_STATE" jdbcType="NUMERIC" property="cardState" />
     <result column="CARDHOLDER" jdbcType="VARCHAR" property="cardholder" />
-    <result column="CARD_KIND" jdbcType="DECIMAL" property="cardKind" />
-    <result column="LORD_VICE" jdbcType="DECIMAL" property="lordVice" />
-    <result column="ACCOUNT_ID" jdbcType="DECIMAL" property="accountId" />
+    <result column="CARD_KIND" jdbcType="NUMERIC" property="cardKind" />
+    <result column="LORD_VICE" jdbcType="NUMERIC" property="lordVice" />
+    <result column="ACCOUNT_ID" jdbcType="NUMERIC" property="accountId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -89,11 +89,11 @@
     select 
     <include refid="Base_Column_List" />
     from CARD_INFORMATION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from CARD_INFORMATION
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.CardInformationExample">
     delete from CARD_INFORMATION
@@ -105,9 +105,9 @@
     insert into CARD_INFORMATION (ID, CARD_ID, CARD_STATE, 
       CARDHOLDER, CARD_KIND, LORD_VICE, 
       ACCOUNT_ID)
-    values (#{id,jdbcType=DECIMAL}, #{cardId,jdbcType=DECIMAL}, #{cardState,jdbcType=DECIMAL}, 
-      #{cardholder,jdbcType=VARCHAR}, #{cardKind,jdbcType=DECIMAL}, #{lordVice,jdbcType=DECIMAL}, 
-      #{accountId,jdbcType=DECIMAL})
+    values (#{id,jdbcType=NUMERIC}, #{cardId,jdbcType=NUMERIC}, #{cardState,jdbcType=NUMERIC}, 
+      #{cardholder,jdbcType=VARCHAR}, #{cardKind,jdbcType=NUMERIC}, #{lordVice,jdbcType=NUMERIC}, 
+      #{accountId,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.CardInformation">
     insert into CARD_INFORMATION
@@ -136,25 +136,25 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=DECIMAL},
+        #{id,jdbcType=NUMERIC},
       </if>
       <if test="cardId != null">
-        #{cardId,jdbcType=DECIMAL},
+        #{cardId,jdbcType=NUMERIC},
       </if>
       <if test="cardState != null">
-        #{cardState,jdbcType=DECIMAL},
+        #{cardState,jdbcType=NUMERIC},
       </if>
       <if test="cardholder != null">
         #{cardholder,jdbcType=VARCHAR},
       </if>
       <if test="cardKind != null">
-        #{cardKind,jdbcType=DECIMAL},
+        #{cardKind,jdbcType=NUMERIC},
       </if>
       <if test="lordVice != null">
-        #{lordVice,jdbcType=DECIMAL},
+        #{lordVice,jdbcType=NUMERIC},
       </if>
       <if test="accountId != null">
-        #{accountId,jdbcType=DECIMAL},
+        #{accountId,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -168,25 +168,25 @@
     update CARD_INFORMATION
     <set>
       <if test="record.id != null">
-        ID = #{record.id,jdbcType=DECIMAL},
+        ID = #{record.id,jdbcType=NUMERIC},
       </if>
       <if test="record.cardId != null">
-        CARD_ID = #{record.cardId,jdbcType=DECIMAL},
+        CARD_ID = #{record.cardId,jdbcType=NUMERIC},
       </if>
       <if test="record.cardState != null">
-        CARD_STATE = #{record.cardState,jdbcType=DECIMAL},
+        CARD_STATE = #{record.cardState,jdbcType=NUMERIC},
       </if>
       <if test="record.cardholder != null">
         CARDHOLDER = #{record.cardholder,jdbcType=VARCHAR},
       </if>
       <if test="record.cardKind != null">
-        CARD_KIND = #{record.cardKind,jdbcType=DECIMAL},
+        CARD_KIND = #{record.cardKind,jdbcType=NUMERIC},
       </if>
       <if test="record.lordVice != null">
-        LORD_VICE = #{record.lordVice,jdbcType=DECIMAL},
+        LORD_VICE = #{record.lordVice,jdbcType=NUMERIC},
       </if>
       <if test="record.accountId != null">
-        ACCOUNT_ID = #{record.accountId,jdbcType=DECIMAL},
+        ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -195,13 +195,13 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update CARD_INFORMATION
-    set ID = #{record.id,jdbcType=DECIMAL},
-      CARD_ID = #{record.cardId,jdbcType=DECIMAL},
-      CARD_STATE = #{record.cardState,jdbcType=DECIMAL},
+    set ID = #{record.id,jdbcType=NUMERIC},
+      CARD_ID = #{record.cardId,jdbcType=NUMERIC},
+      CARD_STATE = #{record.cardState,jdbcType=NUMERIC},
       CARDHOLDER = #{record.cardholder,jdbcType=VARCHAR},
-      CARD_KIND = #{record.cardKind,jdbcType=DECIMAL},
-      LORD_VICE = #{record.lordVice,jdbcType=DECIMAL},
-      ACCOUNT_ID = #{record.accountId,jdbcType=DECIMAL}
+      CARD_KIND = #{record.cardKind,jdbcType=NUMERIC},
+      LORD_VICE = #{record.lordVice,jdbcType=NUMERIC},
+      ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -210,34 +210,34 @@
     update CARD_INFORMATION
     <set>
       <if test="cardId != null">
-        CARD_ID = #{cardId,jdbcType=DECIMAL},
+        CARD_ID = #{cardId,jdbcType=NUMERIC},
       </if>
       <if test="cardState != null">
-        CARD_STATE = #{cardState,jdbcType=DECIMAL},
+        CARD_STATE = #{cardState,jdbcType=NUMERIC},
       </if>
       <if test="cardholder != null">
         CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
       </if>
       <if test="cardKind != null">
-        CARD_KIND = #{cardKind,jdbcType=DECIMAL},
+        CARD_KIND = #{cardKind,jdbcType=NUMERIC},
       </if>
       <if test="lordVice != null">
-        LORD_VICE = #{lordVice,jdbcType=DECIMAL},
+        LORD_VICE = #{lordVice,jdbcType=NUMERIC},
       </if>
       <if test="accountId != null">
-        ACCOUNT_ID = #{accountId,jdbcType=DECIMAL},
+        ACCOUNT_ID = #{accountId,jdbcType=NUMERIC},
       </if>
     </set>
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.CardInformation">
     update CARD_INFORMATION
-    set CARD_ID = #{cardId,jdbcType=DECIMAL},
-      CARD_STATE = #{cardState,jdbcType=DECIMAL},
+    set CARD_ID = #{cardId,jdbcType=NUMERIC},
+      CARD_STATE = #{cardState,jdbcType=NUMERIC},
       CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
-      CARD_KIND = #{cardKind,jdbcType=DECIMAL},
-      LORD_VICE = #{lordVice,jdbcType=DECIMAL},
-      ACCOUNT_ID = #{accountId,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+      CARD_KIND = #{cardKind,jdbcType=NUMERIC},
+      LORD_VICE = #{lordVice,jdbcType=NUMERIC},
+      ACCOUNT_ID = #{accountId,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
 </mapper>

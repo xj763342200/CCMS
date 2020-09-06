@@ -1,18 +1,17 @@
 package com.zl.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RepaymentDetailExample {
+public class ReportRecordExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public RepaymentDetailExample() {
+    public ReportRecordExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -106,63 +105,123 @@ public class RepaymentDetailExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andRepaymentDetailIdIsNull() {
-            addCriterion("REPAYMENT_DETAIL_ID is null");
+        public Criteria andReportIdIsNull() {
+            addCriterion("REPORT_ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdIsNotNull() {
-            addCriterion("REPAYMENT_DETAIL_ID is not null");
+        public Criteria andReportIdIsNotNull() {
+            addCriterion("REPORT_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdEqualTo(Integer value) {
-            addCriterion("REPAYMENT_DETAIL_ID =", value, "repaymentDetailId");
+        public Criteria andReportIdEqualTo(Integer value) {
+            addCriterion("REPORT_ID =", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdNotEqualTo(Integer value) {
-            addCriterion("REPAYMENT_DETAIL_ID <>", value, "repaymentDetailId");
+        public Criteria andReportIdNotEqualTo(Integer value) {
+            addCriterion("REPORT_ID <>", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdGreaterThan(Integer value) {
-            addCriterion("REPAYMENT_DETAIL_ID >", value, "repaymentDetailId");
+        public Criteria andReportIdGreaterThan(Integer value) {
+            addCriterion("REPORT_ID >", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("REPAYMENT_DETAIL_ID >=", value, "repaymentDetailId");
+        public Criteria andReportIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("REPORT_ID >=", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdLessThan(Integer value) {
-            addCriterion("REPAYMENT_DETAIL_ID <", value, "repaymentDetailId");
+        public Criteria andReportIdLessThan(Integer value) {
+            addCriterion("REPORT_ID <", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdLessThanOrEqualTo(Integer value) {
-            addCriterion("REPAYMENT_DETAIL_ID <=", value, "repaymentDetailId");
+        public Criteria andReportIdLessThanOrEqualTo(Integer value) {
+            addCriterion("REPORT_ID <=", value, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdIn(List<Integer> values) {
-            addCriterion("REPAYMENT_DETAIL_ID in", values, "repaymentDetailId");
+        public Criteria andReportIdIn(List<Integer> values) {
+            addCriterion("REPORT_ID in", values, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdNotIn(List<Integer> values) {
-            addCriterion("REPAYMENT_DETAIL_ID not in", values, "repaymentDetailId");
+        public Criteria andReportIdNotIn(List<Integer> values) {
+            addCriterion("REPORT_ID not in", values, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdBetween(Integer value1, Integer value2) {
-            addCriterion("REPAYMENT_DETAIL_ID between", value1, value2, "repaymentDetailId");
+        public Criteria andReportIdBetween(Integer value1, Integer value2) {
+            addCriterion("REPORT_ID between", value1, value2, "reportId");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDetailIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("REPAYMENT_DETAIL_ID not between", value1, value2, "repaymentDetailId");
+        public Criteria andReportIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("REPORT_ID not between", value1, value2, "reportId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIsNull() {
+            addCriterion("USER_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("USER_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdEqualTo(Integer value) {
+            addCriterion("USER_ID =", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotEqualTo(Integer value) {
+            addCriterion("USER_ID <>", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThan(Integer value) {
+            addCriterion("USER_ID >", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("USER_ID >=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThan(Integer value) {
+            addCriterion("USER_ID <", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("USER_ID <=", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIn(List<Integer> values) {
+            addCriterion("USER_ID in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotIn(List<Integer> values) {
+            addCriterion("USER_ID not in", values, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("USER_ID between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("USER_ID not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
@@ -236,123 +295,133 @@ public class RepaymentDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyIsNull() {
-            addCriterion("REPAYMENT_MONEY is null");
+        public Criteria andFreezeDateIsNull() {
+            addCriterion("FREEZE_DATE is null");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyIsNotNull() {
-            addCriterion("REPAYMENT_MONEY is not null");
+        public Criteria andFreezeDateIsNotNull() {
+            addCriterion("FREEZE_DATE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyEqualTo(BigDecimal value) {
-            addCriterion("REPAYMENT_MONEY =", value, "repaymentMoney");
+        public Criteria andFreezeDateEqualTo(Date value) {
+            addCriterion("FREEZE_DATE =", value, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyNotEqualTo(BigDecimal value) {
-            addCriterion("REPAYMENT_MONEY <>", value, "repaymentMoney");
+        public Criteria andFreezeDateNotEqualTo(Date value) {
+            addCriterion("FREEZE_DATE <>", value, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyGreaterThan(BigDecimal value) {
-            addCriterion("REPAYMENT_MONEY >", value, "repaymentMoney");
+        public Criteria andFreezeDateGreaterThan(Date value) {
+            addCriterion("FREEZE_DATE >", value, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("REPAYMENT_MONEY >=", value, "repaymentMoney");
+        public Criteria andFreezeDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("FREEZE_DATE >=", value, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyLessThan(BigDecimal value) {
-            addCriterion("REPAYMENT_MONEY <", value, "repaymentMoney");
+        public Criteria andFreezeDateLessThan(Date value) {
+            addCriterion("FREEZE_DATE <", value, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("REPAYMENT_MONEY <=", value, "repaymentMoney");
+        public Criteria andFreezeDateLessThanOrEqualTo(Date value) {
+            addCriterion("FREEZE_DATE <=", value, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyIn(List<BigDecimal> values) {
-            addCriterion("REPAYMENT_MONEY in", values, "repaymentMoney");
+        public Criteria andFreezeDateIn(List<Date> values) {
+            addCriterion("FREEZE_DATE in", values, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyNotIn(List<BigDecimal> values) {
-            addCriterion("REPAYMENT_MONEY not in", values, "repaymentMoney");
+        public Criteria andFreezeDateNotIn(List<Date> values) {
+            addCriterion("FREEZE_DATE not in", values, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("REPAYMENT_MONEY between", value1, value2, "repaymentMoney");
+        public Criteria andFreezeDateBetween(Date value1, Date value2) {
+            addCriterion("FREEZE_DATE between", value1, value2, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentMoneyNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("REPAYMENT_MONEY not between", value1, value2, "repaymentMoney");
+        public Criteria andFreezeDateNotBetween(Date value1, Date value2) {
+            addCriterion("FREEZE_DATE not between", value1, value2, "freezeDate");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateIsNull() {
-            addCriterion("REPAYMENT_DATE is null");
+        public Criteria andRemarkIsNull() {
+            addCriterion("REMARK is null");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateIsNotNull() {
-            addCriterion("REPAYMENT_DATE is not null");
+        public Criteria andRemarkIsNotNull() {
+            addCriterion("REMARK is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateEqualTo(Date value) {
-            addCriterion("REPAYMENT_DATE =", value, "repaymentDate");
+        public Criteria andRemarkEqualTo(String value) {
+            addCriterion("REMARK =", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateNotEqualTo(Date value) {
-            addCriterion("REPAYMENT_DATE <>", value, "repaymentDate");
+        public Criteria andRemarkNotEqualTo(String value) {
+            addCriterion("REMARK <>", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateGreaterThan(Date value) {
-            addCriterion("REPAYMENT_DATE >", value, "repaymentDate");
+        public Criteria andRemarkGreaterThan(String value) {
+            addCriterion("REMARK >", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateGreaterThanOrEqualTo(Date value) {
-            addCriterion("REPAYMENT_DATE >=", value, "repaymentDate");
+        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("REMARK >=", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateLessThan(Date value) {
-            addCriterion("REPAYMENT_DATE <", value, "repaymentDate");
+        public Criteria andRemarkLessThan(String value) {
+            addCriterion("REMARK <", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateLessThanOrEqualTo(Date value) {
-            addCriterion("REPAYMENT_DATE <=", value, "repaymentDate");
+        public Criteria andRemarkLessThanOrEqualTo(String value) {
+            addCriterion("REMARK <=", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateIn(List<Date> values) {
-            addCriterion("REPAYMENT_DATE in", values, "repaymentDate");
+        public Criteria andRemarkLike(String value) {
+            addCriterion("REMARK like", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateNotIn(List<Date> values) {
-            addCriterion("REPAYMENT_DATE not in", values, "repaymentDate");
+        public Criteria andRemarkNotLike(String value) {
+            addCriterion("REMARK not like", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateBetween(Date value1, Date value2) {
-            addCriterion("REPAYMENT_DATE between", value1, value2, "repaymentDate");
+        public Criteria andRemarkIn(List<String> values) {
+            addCriterion("REMARK in", values, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andRepaymentDateNotBetween(Date value1, Date value2) {
-            addCriterion("REPAYMENT_DATE not between", value1, value2, "repaymentDate");
+        public Criteria andRemarkNotIn(List<String> values) {
+            addCriterion("REMARK not in", values, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkBetween(String value1, String value2) {
+            addCriterion("REMARK between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andRemarkNotBetween(String value1, String value2) {
+            addCriterion("REMARK not between", value1, value2, "remark");
             return (Criteria) this;
         }
     }

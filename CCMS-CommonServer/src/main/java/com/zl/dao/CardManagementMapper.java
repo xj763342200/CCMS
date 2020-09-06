@@ -3,10 +3,8 @@ package com.zl.dao;
 import com.zl.domain.CardManagement;
 import com.zl.domain.CardManagementExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface CardManagementMapper {
     long countByExample(CardManagementExample example);
 
@@ -23,6 +21,8 @@ public interface CardManagementMapper {
     CardManagement selectByPrimaryKey(Integer cardId);
 
     List<CardManagement> selectByPrimaryKeyList(Integer userId);
+
+    CardManagement queryCardManagement(CardManagement cardManagement);
 
     int updateByExampleSelective(@Param("record") CardManagement record, @Param("example") CardManagementExample example);
 

@@ -3,16 +3,14 @@ package com.zl.dao;
 import com.zl.domain.HaveTheBill;
 import com.zl.domain.HaveTheBillExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface HaveTheBillMapper {
     long countByExample(HaveTheBillExample example);
 
     int deleteByExample(HaveTheBillExample example);
 
-    int deleteByPrimaryKey(Long billId);
+    int deleteByPrimaryKey(Integer billId);
 
     int insert(HaveTheBill record);
 
@@ -20,7 +18,7 @@ public interface HaveTheBillMapper {
 
     List<HaveTheBill> selectByExample(HaveTheBillExample example);
 
-    HaveTheBill selectByPrimaryKey(Long billId);
+    HaveTheBill selectByPrimaryKey(Integer billId);
 
     int updateByExampleSelective(@Param("record") HaveTheBill record, @Param("example") HaveTheBillExample example);
 

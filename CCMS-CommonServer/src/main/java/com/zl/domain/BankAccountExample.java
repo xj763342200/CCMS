@@ -106,63 +106,63 @@ public class BankAccountExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("ID is null");
+        public Criteria andBankAccountIdIsNull() {
+            addCriterion("BANK_ACCOUNT_ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("ID is not null");
+        public Criteria andBankAccountIdIsNotNull() {
+            addCriterion("BANK_ACCOUNT_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
-            addCriterion("ID =", value, "id");
+        public Criteria andBankAccountIdEqualTo(Integer value) {
+            addCriterion("BANK_ACCOUNT_ID =", value, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("ID <>", value, "id");
+        public Criteria andBankAccountIdNotEqualTo(Integer value) {
+            addCriterion("BANK_ACCOUNT_ID <>", value, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Long value) {
-            addCriterion("ID >", value, "id");
+        public Criteria andBankAccountIdGreaterThan(Integer value) {
+            addCriterion("BANK_ACCOUNT_ID >", value, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("ID >=", value, "id");
+        public Criteria andBankAccountIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("BANK_ACCOUNT_ID >=", value, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Long value) {
-            addCriterion("ID <", value, "id");
+        public Criteria andBankAccountIdLessThan(Integer value) {
+            addCriterion("BANK_ACCOUNT_ID <", value, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("ID <=", value, "id");
+        public Criteria andBankAccountIdLessThanOrEqualTo(Integer value) {
+            addCriterion("BANK_ACCOUNT_ID <=", value, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Long> values) {
-            addCriterion("ID in", values, "id");
+        public Criteria andBankAccountIdIn(List<Integer> values) {
+            addCriterion("BANK_ACCOUNT_ID in", values, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("ID not in", values, "id");
+        public Criteria andBankAccountIdNotIn(List<Integer> values) {
+            addCriterion("BANK_ACCOUNT_ID not in", values, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("ID between", value1, value2, "id");
+        public Criteria andBankAccountIdBetween(Integer value1, Integer value2) {
+            addCriterion("BANK_ACCOUNT_ID between", value1, value2, "bankAccountId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("ID not between", value1, value2, "id");
+        public Criteria andBankAccountIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("BANK_ACCOUNT_ID not between", value1, value2, "bankAccountId");
             return (Criteria) this;
         }
 

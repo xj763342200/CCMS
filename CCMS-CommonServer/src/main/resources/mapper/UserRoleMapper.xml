@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zl.dao.UserRoleMapper">
   <resultMap id="BaseResultMap" type="com.zl.domain.UserRole">
-    <id column="ID" jdbcType="DECIMAL" property="id" />
-    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
-    <result column="ROLE_ID" jdbcType="DECIMAL" property="roleId" />
+    <id column="ID" jdbcType="NUMERIC" property="id" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
+    <result column="ROLE_ID" jdbcType="NUMERIC" property="roleId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,11 +85,11 @@
     select 
     <include refid="Base_Column_List" />
     from USER_ROLE
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from USER_ROLE
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </delete>
   <delete id="deleteByExample" parameterType="com.zl.domain.UserRoleExample">
     delete from USER_ROLE
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.zl.domain.UserRole">
     insert into USER_ROLE (ID, USER_ID, ROLE_ID
       )
-    values (#{id,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{roleId,jdbcType=DECIMAL}
+    values (#{id,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{roleId,jdbcType=NUMERIC}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.UserRole">
@@ -118,13 +118,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=DECIMAL},
+        #{id,jdbcType=NUMERIC},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
       <if test="roleId != null">
-        #{roleId,jdbcType=DECIMAL},
+        #{roleId,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -138,13 +138,13 @@
     update USER_ROLE
     <set>
       <if test="record.id != null">
-        ID = #{record.id,jdbcType=DECIMAL},
+        ID = #{record.id,jdbcType=NUMERIC},
       </if>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
       <if test="record.roleId != null">
-        ROLE_ID = #{record.roleId,jdbcType=DECIMAL},
+        ROLE_ID = #{record.roleId,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -153,9 +153,9 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update USER_ROLE
-    set ID = #{record.id,jdbcType=DECIMAL},
-      USER_ID = #{record.userId,jdbcType=DECIMAL},
-      ROLE_ID = #{record.roleId,jdbcType=DECIMAL}
+    set ID = #{record.id,jdbcType=NUMERIC},
+      USER_ID = #{record.userId,jdbcType=NUMERIC},
+      ROLE_ID = #{record.roleId,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -164,18 +164,18 @@
     update USER_ROLE
     <set>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=DECIMAL},
+        USER_ID = #{userId,jdbcType=NUMERIC},
       </if>
       <if test="roleId != null">
-        ROLE_ID = #{roleId,jdbcType=DECIMAL},
+        ROLE_ID = #{roleId,jdbcType=NUMERIC},
       </if>
     </set>
-    where ID = #{id,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zl.domain.UserRole">
     update USER_ROLE
-    set USER_ID = #{userId,jdbcType=DECIMAL},
-      ROLE_ID = #{roleId,jdbcType=DECIMAL}
-    where ID = #{id,jdbcType=DECIMAL}
+    set USER_ID = #{userId,jdbcType=NUMERIC},
+      ROLE_ID = #{roleId,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=NUMERIC}
   </update>
 </mapper>

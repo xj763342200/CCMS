@@ -7,11 +7,11 @@
     <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber" />
     <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
     <result column="NATION" jdbcType="VARCHAR" property="nation" />
-    <result column="AGE" jdbcType="DECIMAL" property="age" />
+    <result column="AGE" jdbcType="NUMERIC" property="age" />
     <result column="CIVIL_STATE" jdbcType="VARCHAR" property="civilState" />
     <result column="IDENTITY_INDATE" jdbcType="TIMESTAMP" property="identityIndate" />
     <result column="EDUCATION" jdbcType="VARCHAR" property="education" />
-    <result column="PASS_WORD" jdbcType="DECIMAL" property="passWord" />
+    <result column="PASS_WORD" jdbcType="NUMERIC" property="passWord" />
     <result column="SECURITY_QUESTION" jdbcType="VARCHAR" property="securityQuestion" />
     <result column="SECRYTY_ANSWERS" jdbcType="VARCHAR" property="secrytyAnswers" />
     <result column="PRESENT_ADDRESS" jdbcType="VARCHAR" property="presentAddress" />
@@ -24,13 +24,13 @@
     <result column="COMPANY_PHONE" jdbcType="VARCHAR" property="companyPhone" />
     <result column="COMPANY_ADDRESS" jdbcType="VARCHAR" property="companyAddress" />
     <result column="POSITION" jdbcType="VARCHAR" property="position" />
-    <result column="YEAR_INCOME" jdbcType="DECIMAL" property="yearIncome" />
+    <result column="YEAR_INCOME" jdbcType="NUMERIC" property="yearIncome" />
     <result column="POSTAL_CODE" jdbcType="VARCHAR" property="postalCode" />
     <result column="CONTACTS_NAME" jdbcType="VARCHAR" property="contactsName" />
     <result column="CONTACTS_PHONE" jdbcType="VARCHAR" property="contactsPhone" />
     <result column="CONTACTS_EMAIL" jdbcType="VARCHAR" property="contactsEmail" />
     <result column="REPAYMENT_SCCOUNT" jdbcType="VARCHAR" property="repaymentSccount" />
-    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -139,15 +139,15 @@
       CONTACTS_NAME, CONTACTS_PHONE, CONTACTS_EMAIL, 
       REPAYMENT_SCCOUNT, USER_ID)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
-      #{phoneNumber,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{age,jdbcType=DECIMAL}, 
+      #{phoneNumber,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{age,jdbcType=NUMERIC}, 
       #{civilState,jdbcType=VARCHAR}, #{identityIndate,jdbcType=TIMESTAMP}, #{education,jdbcType=VARCHAR}, 
-      #{passWord,jdbcType=DECIMAL}, #{securityQuestion,jdbcType=VARCHAR}, #{secrytyAnswers,jdbcType=VARCHAR}, 
+      #{passWord,jdbcType=NUMERIC}, #{securityQuestion,jdbcType=VARCHAR}, #{secrytyAnswers,jdbcType=VARCHAR}, 
       #{presentAddress,jdbcType=VARCHAR}, #{houseSituation,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{cardType,jdbcType=VARCHAR}, #{cardNumber,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
       #{companyType,jdbcType=VARCHAR}, #{companyPhone,jdbcType=VARCHAR}, #{companyAddress,jdbcType=VARCHAR}, 
-      #{position,jdbcType=VARCHAR}, #{yearIncome,jdbcType=DECIMAL}, #{postalCode,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{yearIncome,jdbcType=NUMERIC}, #{postalCode,jdbcType=VARCHAR}, 
       #{contactsName,jdbcType=VARCHAR}, #{contactsPhone,jdbcType=VARCHAR}, #{contactsEmail,jdbcType=VARCHAR}, 
-      #{repaymentSccount,jdbcType=VARCHAR}, #{userId,jdbcType=DECIMAL})
+      #{repaymentSccount,jdbcType=VARCHAR}, #{userId,jdbcType=NUMERIC})
   </insert>
   <insert id="insertSelective" parameterType="com.zl.domain.CreditCard">
     insert into CREDIT_CARD
@@ -257,7 +257,7 @@
         #{nation,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
-        #{age,jdbcType=DECIMAL},
+        #{age,jdbcType=NUMERIC},
       </if>
       <if test="civilState != null">
         #{civilState,jdbcType=VARCHAR},
@@ -269,7 +269,7 @@
         #{education,jdbcType=VARCHAR},
       </if>
       <if test="passWord != null">
-        #{passWord,jdbcType=DECIMAL},
+        #{passWord,jdbcType=NUMERIC},
       </if>
       <if test="securityQuestion != null">
         #{securityQuestion,jdbcType=VARCHAR},
@@ -308,7 +308,7 @@
         #{position,jdbcType=VARCHAR},
       </if>
       <if test="yearIncome != null">
-        #{yearIncome,jdbcType=DECIMAL},
+        #{yearIncome,jdbcType=NUMERIC},
       </if>
       <if test="postalCode != null">
         #{postalCode,jdbcType=VARCHAR},
@@ -326,7 +326,7 @@
         #{repaymentSccount,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=DECIMAL},
+        #{userId,jdbcType=NUMERIC},
       </if>
     </trim>
   </insert>
@@ -355,7 +355,7 @@
         NATION = #{record.nation,jdbcType=VARCHAR},
       </if>
       <if test="record.age != null">
-        AGE = #{record.age,jdbcType=DECIMAL},
+        AGE = #{record.age,jdbcType=NUMERIC},
       </if>
       <if test="record.civilState != null">
         CIVIL_STATE = #{record.civilState,jdbcType=VARCHAR},
@@ -367,7 +367,7 @@
         EDUCATION = #{record.education,jdbcType=VARCHAR},
       </if>
       <if test="record.passWord != null">
-        PASS_WORD = #{record.passWord,jdbcType=DECIMAL},
+        PASS_WORD = #{record.passWord,jdbcType=NUMERIC},
       </if>
       <if test="record.securityQuestion != null">
         SECURITY_QUESTION = #{record.securityQuestion,jdbcType=VARCHAR},
@@ -406,7 +406,7 @@
         POSITION = #{record.position,jdbcType=VARCHAR},
       </if>
       <if test="record.yearIncome != null">
-        YEAR_INCOME = #{record.yearIncome,jdbcType=DECIMAL},
+        YEAR_INCOME = #{record.yearIncome,jdbcType=NUMERIC},
       </if>
       <if test="record.postalCode != null">
         POSTAL_CODE = #{record.postalCode,jdbcType=VARCHAR},
@@ -424,7 +424,7 @@
         REPAYMENT_SCCOUNT = #{record.repaymentSccount,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        USER_ID = #{record.userId,jdbcType=DECIMAL},
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
       </if>
     </set>
     <if test="_parameter != null">
@@ -438,11 +438,11 @@
       ID_NUMBER = #{record.idNumber,jdbcType=VARCHAR},
       PHONE_NUMBER = #{record.phoneNumber,jdbcType=VARCHAR},
       NATION = #{record.nation,jdbcType=VARCHAR},
-      AGE = #{record.age,jdbcType=DECIMAL},
+      AGE = #{record.age,jdbcType=NUMERIC},
       CIVIL_STATE = #{record.civilState,jdbcType=VARCHAR},
       IDENTITY_INDATE = #{record.identityIndate,jdbcType=TIMESTAMP},
       EDUCATION = #{record.education,jdbcType=VARCHAR},
-      PASS_WORD = #{record.passWord,jdbcType=DECIMAL},
+      PASS_WORD = #{record.passWord,jdbcType=NUMERIC},
       SECURITY_QUESTION = #{record.securityQuestion,jdbcType=VARCHAR},
       SECRYTY_ANSWERS = #{record.secrytyAnswers,jdbcType=VARCHAR},
       PRESENT_ADDRESS = #{record.presentAddress,jdbcType=VARCHAR},
@@ -455,13 +455,13 @@
       COMPANY_PHONE = #{record.companyPhone,jdbcType=VARCHAR},
       COMPANY_ADDRESS = #{record.companyAddress,jdbcType=VARCHAR},
       POSITION = #{record.position,jdbcType=VARCHAR},
-      YEAR_INCOME = #{record.yearIncome,jdbcType=DECIMAL},
+      YEAR_INCOME = #{record.yearIncome,jdbcType=NUMERIC},
       POSTAL_CODE = #{record.postalCode,jdbcType=VARCHAR},
       CONTACTS_NAME = #{record.contactsName,jdbcType=VARCHAR},
       CONTACTS_PHONE = #{record.contactsPhone,jdbcType=VARCHAR},
       CONTACTS_EMAIL = #{record.contactsEmail,jdbcType=VARCHAR},
       REPAYMENT_SCCOUNT = #{record.repaymentSccount,jdbcType=VARCHAR},
-      USER_ID = #{record.userId,jdbcType=DECIMAL}
+      USER_ID = #{record.userId,jdbcType=NUMERIC}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -482,7 +482,7 @@
         NATION = #{nation,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
-        AGE = #{age,jdbcType=DECIMAL},
+        AGE = #{age,jdbcType=NUMERIC},
       </if>
       <if test="civilState != null">
         CIVIL_STATE = #{civilState,jdbcType=VARCHAR},
@@ -494,7 +494,7 @@
         EDUCATION = #{education,jdbcType=VARCHAR},
       </if>
       <if test="passWord != null">
-        PASS_WORD = #{passWord,jdbcType=DECIMAL},
+        PASS_WORD = #{passWord,jdbcType=NUMERIC},
       </if>
       <if test="securityQuestion != null">
         SECURITY_QUESTION = #{securityQuestion,jdbcType=VARCHAR},
@@ -533,7 +533,7 @@
         POSITION = #{position,jdbcType=VARCHAR},
       </if>
       <if test="yearIncome != null">
-        YEAR_INCOME = #{yearIncome,jdbcType=DECIMAL},
+        YEAR_INCOME = #{yearIncome,jdbcType=NUMERIC},
       </if>
       <if test="postalCode != null">
         POSTAL_CODE = #{postalCode,jdbcType=VARCHAR},
@@ -551,7 +551,7 @@
         REPAYMENT_SCCOUNT = #{repaymentSccount,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=DECIMAL},
+        USER_ID = #{userId,jdbcType=NUMERIC},
       </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
@@ -562,11 +562,11 @@
       ID_NUMBER = #{idNumber,jdbcType=VARCHAR},
       PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
       NATION = #{nation,jdbcType=VARCHAR},
-      AGE = #{age,jdbcType=DECIMAL},
+      AGE = #{age,jdbcType=NUMERIC},
       CIVIL_STATE = #{civilState,jdbcType=VARCHAR},
       IDENTITY_INDATE = #{identityIndate,jdbcType=TIMESTAMP},
       EDUCATION = #{education,jdbcType=VARCHAR},
-      PASS_WORD = #{passWord,jdbcType=DECIMAL},
+      PASS_WORD = #{passWord,jdbcType=NUMERIC},
       SECURITY_QUESTION = #{securityQuestion,jdbcType=VARCHAR},
       SECRYTY_ANSWERS = #{secrytyAnswers,jdbcType=VARCHAR},
       PRESENT_ADDRESS = #{presentAddress,jdbcType=VARCHAR},
@@ -579,13 +579,13 @@
       COMPANY_PHONE = #{companyPhone,jdbcType=VARCHAR},
       COMPANY_ADDRESS = #{companyAddress,jdbcType=VARCHAR},
       POSITION = #{position,jdbcType=VARCHAR},
-      YEAR_INCOME = #{yearIncome,jdbcType=DECIMAL},
+      YEAR_INCOME = #{yearIncome,jdbcType=NUMERIC},
       POSTAL_CODE = #{postalCode,jdbcType=VARCHAR},
       CONTACTS_NAME = #{contactsName,jdbcType=VARCHAR},
       CONTACTS_PHONE = #{contactsPhone,jdbcType=VARCHAR},
       CONTACTS_EMAIL = #{contactsEmail,jdbcType=VARCHAR},
       REPAYMENT_SCCOUNT = #{repaymentSccount,jdbcType=VARCHAR},
-      USER_ID = #{userId,jdbcType=DECIMAL}
+      USER_ID = #{userId,jdbcType=NUMERIC}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
