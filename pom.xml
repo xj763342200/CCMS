@@ -13,6 +13,7 @@
         <module>CCMS-ClientServer</module>
         <module>CCMS-CommonServer</module>
         <module>CCMS-StagingServer</module>
+        <module>CCMS-OpenAccountServer</module>
     </modules>
 
     <dependencyManagement>
