@@ -5,87 +5,87 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class staging implements Serializable {
-    private Long id;
+    private Integer id;
 
-    private BigDecimal totalmoney;
+    private Double totalmoney;
 
-    private Short totalmonth;
+    private Integer totalmonth;
 
-    private BigDecimal rate;
+    private Double rate;
 
-    private BigDecimal monthsend;
+    private Double monthsend;
 
-    private Short endsendMonthnum;
+    private Integer endsendMonthnum;
 
-    private Short remindnum;
+    private Integer remindnum;
 
     private Date createtime;
 
     private Date updatetime;
 
-    private Short ifDelete;
+    private Integer ifDelete;
 
     private Integer credId;
 
-    private BigDecimal surplusmoney;
+    private Double surplusmoney;
 
-    private Short surplusmonth;
+    private Integer surplusmonth;
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public BigDecimal getTotalmoney() {
+    public Double getTotalmoney() {
         return totalmoney;
     }
 
-    public void setTotalmoney(BigDecimal totalmoney) {
+    public void setTotalmoney(Double totalmoney) {
         this.totalmoney = totalmoney;
     }
 
-    public Short getTotalmonth() {
+    public Integer getTotalmonth() {
         return totalmonth;
     }
 
-    public void setTotalmonth(Short totalmonth) {
+    public void setTotalmonth(Integer totalmonth) {
         this.totalmonth = totalmonth;
     }
 
-    public BigDecimal getRate() {
+    public Double getRate() {
         return rate;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(Double rate) {
         this.rate = rate;
     }
 
-    public BigDecimal getMonthsend() {
+    public Double getMonthsend() {
         return monthsend;
     }
 
-    public void setMonthsend(BigDecimal monthsend) {
+    public void setMonthsend(Double monthsend) {
         this.monthsend = monthsend;
     }
 
-    public Short getEndsendMonthnum() {
+    public Integer getEndsendMonthnum() {
         return endsendMonthnum;
     }
 
-    public void setEndsendMonthnum(Short endsendMonthnum) {
+    public void setEndsendMonthnum(Integer endsendMonthnum) {
         this.endsendMonthnum = endsendMonthnum;
     }
 
-    public Short getRemindnum() {
+    public Integer getRemindnum() {
         return remindnum;
     }
 
-    public void setRemindnum(Short remindnum) {
+    public void setRemindnum(Integer remindnum) {
         this.remindnum = remindnum;
     }
 
@@ -105,11 +105,11 @@ public class staging implements Serializable {
         this.updatetime = updatetime;
     }
 
-    public Short getIfDelete() {
+    public Integer getIfDelete() {
         return ifDelete;
     }
 
-    public void setIfDelete(Short ifDelete) {
+    public void setIfDelete(Integer ifDelete) {
         this.ifDelete = ifDelete;
     }
 
@@ -121,19 +121,19 @@ public class staging implements Serializable {
         this.credId = credId;
     }
 
-    public BigDecimal getSurplusmoney() {
+    public Double getSurplusmoney() {
         return surplusmoney;
     }
 
-    public void setSurplusmoney(BigDecimal surplusmoney) {
+    public void setSurplusmoney(Double surplusmoney) {
         this.surplusmoney = surplusmoney;
     }
 
-    public Short getSurplusmonth() {
+    public Integer getSurplusmonth() {
         return surplusmonth;
     }
 
-    public void setSurplusmonth(Short surplusmonth) {
+    public void setSurplusmonth(Integer surplusmonth) {
         this.surplusmonth = surplusmonth;
     }
 

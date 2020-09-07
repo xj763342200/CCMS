@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.HaveTheBillMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.HaveTheBill">
+    <id column="BILL_ID" jdbcType="NUMERIC" property="billId" />
+    <result column="NOWMONTH" jdbcType="VARCHAR" property="nowmonth" />
+    <result column="ALLPAYMONEY" jdbcType="NUMERIC" property="allpaymoney" />
+    <result column="NOWLOWPAYMENT" jdbcType="NUMERIC" property="nowlowpayment" />
+    <result column="MONTHLY_BILL_DAY" jdbcType="NUMERIC" property="monthlyBillDay" />
+    <result column="BILL_TYPE" jdbcType="NUMERIC" property="billType" />
+    <result column="BILL_STATE" jdbcType="NUMERIC" property="billState" />
+    <result column="BILL_DETAILS_ID" jdbcType="NUMERIC" property="billDetailsId" />
+    <result column="ACCOUNT_ID" jdbcType="NUMERIC" property="accountId" />
+    <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    BILL_ID, NOWMONTH, ALLPAYMONEY, NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, BILL_STATE, 
+    BILL_DETAILS_ID, ACCOUNT_ID, CARD_NUMBER
+  </sql>
+  <select id="selectByExample" parameterType="com.zl.domain.HaveTheBillExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from HAVE_THE_BILL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HAVE_THE_BILL
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from HAVE_THE_BILL
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.domain.HaveTheBillExample">
+    delete from HAVE_THE_BILL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.HaveTheBill">
+    insert into HAVE_THE_BILL (BILL_ID, NOWMONTH, ALLPAYMONEY, 
+      NOWLOWPAYMENT, MONTHLY_BILL_DAY, BILL_TYPE, 
+      BILL_STATE, BILL_DETAILS_ID, ACCOUNT_ID, 
+      CARD_NUMBER)
+    values (#{billId,jdbcType=NUMERIC}, #{nowmonth,jdbcType=VARCHAR}, #{allpaymoney,jdbcType=NUMERIC}, 
+      #{nowlowpayment,jdbcType=NUMERIC}, #{monthlyBillDay,jdbcType=NUMERIC}, #{billType,jdbcType=NUMERIC}, 
+      #{billState,jdbcType=NUMERIC}, #{billDetailsId,jdbcType=NUMERIC}, #{accountId,jdbcType=NUMERIC}, 
+      #{cardNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.HaveTheBill">
+    insert into HAVE_THE_BILL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        BILL_ID,
+      </if>
+      <if test="nowmonth != null">
+        NOWMONTH,
+      </if>
+      <if test="allpaymoney != null">
+        ALLPAYMONEY,
+      </if>
+      <if test="nowlowpayment != null">
+        NOWLOWPAYMENT,
+      </if>
+      <if test="monthlyBillDay != null">
+        MONTHLY_BILL_DAY,
+      </if>
+      <if test="billType != null">
+        BILL_TYPE,
+      </if>
+      <if test="billState != null">
+        BILL_STATE,
+      </if>
+      <if test="billDetailsId != null">
+        BILL_DETAILS_ID,
+      </if>
+      <if test="accountId != null">
+        ACCOUNT_ID,
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billId != null">
+        #{billId,jdbcType=NUMERIC},
+      </if>
+      <if test="nowmonth != null">
+        #{nowmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="allpaymoney != null">
+        #{allpaymoney,jdbcType=NUMERIC},
+      </if>
+      <if test="nowlowpayment != null">
+        #{nowlowpayment,jdbcType=NUMERIC},
+      </if>
+      <if test="monthlyBillDay != null">
+        #{monthlyBillDay,jdbcType=NUMERIC},
+      </if>
+      <if test="billType != null">
+        #{billType,jdbcType=NUMERIC},
+      </if>
+      <if test="billState != null">
+        #{billState,jdbcType=NUMERIC},
+      </if>
+      <if test="billDetailsId != null">
+        #{billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=NUMERIC},
+      </if>
+      <if test="cardNumber != null">
+        #{cardNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.domain.HaveTheBillExample" resultType="java.lang.Long">
+    select count(*) from HAVE_THE_BILL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update HAVE_THE_BILL
+    <set>
+      <if test="record.billId != null">
+        BILL_ID = #{record.billId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.nowmonth != null">
+        NOWMONTH = #{record.nowmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allpaymoney != null">
+        ALLPAYMONEY = #{record.allpaymoney,jdbcType=NUMERIC},
+      </if>
+      <if test="record.nowlowpayment != null">
+        NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=NUMERIC},
+      </if>
+      <if test="record.monthlyBillDay != null">
+        MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=NUMERIC},
+      </if>
+      <if test="record.billType != null">
+        BILL_TYPE = #{record.billType,jdbcType=NUMERIC},
+      </if>
+      <if test="record.billState != null">
+        BILL_STATE = #{record.billState,jdbcType=NUMERIC},
+      </if>
+      <if test="record.billDetailsId != null">
+        BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.accountId != null">
+        ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.cardNumber != null">
+        CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update HAVE_THE_BILL
+    set BILL_ID = #{record.billId,jdbcType=NUMERIC},
+      NOWMONTH = #{record.nowmonth,jdbcType=VARCHAR},
+      ALLPAYMONEY = #{record.allpaymoney,jdbcType=NUMERIC},
+      NOWLOWPAYMENT = #{record.nowlowpayment,jdbcType=NUMERIC},
+      MONTHLY_BILL_DAY = #{record.monthlyBillDay,jdbcType=NUMERIC},
+      BILL_TYPE = #{record.billType,jdbcType=NUMERIC},
+      BILL_STATE = #{record.billState,jdbcType=NUMERIC},
+      BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=NUMERIC},
+      ACCOUNT_ID = #{record.accountId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.HaveTheBill">
+    update HAVE_THE_BILL
+    <set>
+      <if test="nowmonth != null">
+        NOWMONTH = #{nowmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="allpaymoney != null">
+        ALLPAYMONEY = #{allpaymoney,jdbcType=NUMERIC},
+      </if>
+      <if test="nowlowpayment != null">
+        NOWLOWPAYMENT = #{nowlowpayment,jdbcType=NUMERIC},
+      </if>
+      <if test="monthlyBillDay != null">
+        MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=NUMERIC},
+      </if>
+      <if test="billType != null">
+        BILL_TYPE = #{billType,jdbcType=NUMERIC},
+      </if>
+      <if test="billState != null">
+        BILL_STATE = #{billState,jdbcType=NUMERIC},
+      </if>
+      <if test="billDetailsId != null">
+        BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="accountId != null">
+        ACCOUNT_ID = #{accountId,jdbcType=NUMERIC},
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.HaveTheBill">
+    update HAVE_THE_BILL
+    set NOWMONTH = #{nowmonth,jdbcType=VARCHAR},
+      ALLPAYMONEY = #{allpaymoney,jdbcType=NUMERIC},
+      NOWLOWPAYMENT = #{nowlowpayment,jdbcType=NUMERIC},
+      MONTHLY_BILL_DAY = #{monthlyBillDay,jdbcType=NUMERIC},
+      BILL_TYPE = #{billType,jdbcType=NUMERIC},
+      BILL_STATE = #{billState,jdbcType=NUMERIC},
+      BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC},
+      ACCOUNT_ID = #{accountId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR}
+    where BILL_ID = #{billId,jdbcType=NUMERIC}
+  </update>
+</mapper>
