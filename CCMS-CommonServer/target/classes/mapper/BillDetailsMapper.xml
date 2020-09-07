@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.BillDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.BillDetails">
+    <id column="BILL_DETAILS_ID" jdbcType="NUMERIC" property="billDetailsId" />
+    <result column="TRADE_DATE" jdbcType="TIMESTAMP" property="tradeDate" />
+    <result column="ACCOUNTING_DATE" jdbcType="TIMESTAMP" property="accountingDate" />
+    <result column="TRADE_SUMMARY" jdbcType="VARCHAR" property="tradeSummary" />
+    <result column="TRADE_PLACE" jdbcType="VARCHAR" property="tradePlace" />
+    <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
+    <result column="RMB_AMOUNT" jdbcType="NUMERIC" property="rmbAmount" />
+    <result column="TRADE_AMOUNT" jdbcType="NUMERIC" property="tradeAmount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    BILL_DETAILS_ID, TRADE_DATE, ACCOUNTING_DATE, TRADE_SUMMARY, TRADE_PLACE, CARD_NUMBER, 
+    RMB_AMOUNT, TRADE_AMOUNT
+  </sql>
+  <select id="selectByExample" parameterType="com.zl.domain.BillDetailsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from BILL_DETAILS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BILL_DETAILS
+    where BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from BILL_DETAILS
+    where BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.domain.BillDetailsExample">
+    delete from BILL_DETAILS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.BillDetails">
+    insert into BILL_DETAILS (BILL_DETAILS_ID, TRADE_DATE, ACCOUNTING_DATE, 
+      TRADE_SUMMARY, TRADE_PLACE, CARD_NUMBER, 
+      RMB_AMOUNT, TRADE_AMOUNT)
+    values (#{billDetailsId,jdbcType=NUMERIC}, #{tradeDate,jdbcType=TIMESTAMP}, #{accountingDate,jdbcType=TIMESTAMP}, 
+      #{tradeSummary,jdbcType=VARCHAR}, #{tradePlace,jdbcType=VARCHAR}, #{cardNumber,jdbcType=VARCHAR}, 
+      #{rmbAmount,jdbcType=NUMERIC}, #{tradeAmount,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.BillDetails">
+    insert into BILL_DETAILS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="billDetailsId != null">
+        BILL_DETAILS_ID,
+      </if>
+      <if test="tradeDate != null">
+        TRADE_DATE,
+      </if>
+      <if test="accountingDate != null">
+        ACCOUNTING_DATE,
+      </if>
+      <if test="tradeSummary != null">
+        TRADE_SUMMARY,
+      </if>
+      <if test="tradePlace != null">
+        TRADE_PLACE,
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER,
+      </if>
+      <if test="rmbAmount != null">
+        RMB_AMOUNT,
+      </if>
+      <if test="tradeAmount != null">
+        TRADE_AMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="billDetailsId != null">
+        #{billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="tradeDate != null">
+        #{tradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountingDate != null">
+        #{accountingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradeSummary != null">
+        #{tradeSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="tradePlace != null">
+        #{tradePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNumber != null">
+        #{cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rmbAmount != null">
+        #{rmbAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="tradeAmount != null">
+        #{tradeAmount,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.domain.BillDetailsExample" resultType="java.lang.Long">
+    select count(*) from BILL_DETAILS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update BILL_DETAILS
+    <set>
+      <if test="record.billDetailsId != null">
+        BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.tradeDate != null">
+        TRADE_DATE = #{record.tradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.accountingDate != null">
+        ACCOUNTING_DATE = #{record.accountingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tradeSummary != null">
+        TRADE_SUMMARY = #{record.tradeSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tradePlace != null">
+        TRADE_PLACE = #{record.tradePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardNumber != null">
+        CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rmbAmount != null">
+        RMB_AMOUNT = #{record.rmbAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.tradeAmount != null">
+        TRADE_AMOUNT = #{record.tradeAmount,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update BILL_DETAILS
+    set BILL_DETAILS_ID = #{record.billDetailsId,jdbcType=NUMERIC},
+      TRADE_DATE = #{record.tradeDate,jdbcType=TIMESTAMP},
+      ACCOUNTING_DATE = #{record.accountingDate,jdbcType=TIMESTAMP},
+      TRADE_SUMMARY = #{record.tradeSummary,jdbcType=VARCHAR},
+      TRADE_PLACE = #{record.tradePlace,jdbcType=VARCHAR},
+      CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
+      RMB_AMOUNT = #{record.rmbAmount,jdbcType=NUMERIC},
+      TRADE_AMOUNT = #{record.tradeAmount,jdbcType=NUMERIC}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.BillDetails">
+    update BILL_DETAILS
+    <set>
+      <if test="tradeDate != null">
+        TRADE_DATE = #{tradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountingDate != null">
+        ACCOUNTING_DATE = #{accountingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tradeSummary != null">
+        TRADE_SUMMARY = #{tradeSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="tradePlace != null">
+        TRADE_PLACE = #{tradePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rmbAmount != null">
+        RMB_AMOUNT = #{rmbAmount,jdbcType=NUMERIC},
+      </if>
+      <if test="tradeAmount != null">
+        TRADE_AMOUNT = #{tradeAmount,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.BillDetails">
+    update BILL_DETAILS
+    set TRADE_DATE = #{tradeDate,jdbcType=TIMESTAMP},
+      ACCOUNTING_DATE = #{accountingDate,jdbcType=TIMESTAMP},
+      TRADE_SUMMARY = #{tradeSummary,jdbcType=VARCHAR},
+      TRADE_PLACE = #{tradePlace,jdbcType=VARCHAR},
+      CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
+      RMB_AMOUNT = #{rmbAmount,jdbcType=NUMERIC},
+      TRADE_AMOUNT = #{tradeAmount,jdbcType=NUMERIC}
+    where BILL_DETAILS_ID = #{billDetailsId,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -3,9 +3,12 @@ package com.zl.dao;
 import com.zl.domain.staging;
 import com.zl.domain.stagingExample;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface stagingMapper {
     long countByExample(stagingExample example);
 
@@ -18,6 +21,12 @@ public interface stagingMapper {
     int insertSelective(staging record);
 
     List<staging> selectByExample(stagingExample example);
+
+    List<staging> selectAllStagingByDateY();
+
+    List<staging> selectAllStagingByDateN();
+
+    staging staginginfo(Integer id);
 
     staging selectByPrimaryKey(BigDecimal id);
 

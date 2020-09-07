@@ -10,7 +10,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.zl</groupId>
     <artifactId>CCMS-CommonServer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -30,7 +33,7 @@
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>10.2.0.4.0</version>
+            <version>11.2.0.3</version>
         </dependency>
     </dependencies>
 

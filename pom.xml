@@ -12,6 +12,7 @@
         <module>CCMS-EurekaServer</module>
         <module>CCMS-ClientServer</module>
         <module>CCMS-CommonServer</module>
+        <module>CCMS-StagingServer</module>
     </modules>
 
     <dependencyManagement>

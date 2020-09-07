@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.CardManagementMapper">
+  <resultMap id="BaseResultMap" type="com.zl.domain.CardManagement">
+    <id column="CARD_ID" jdbcType="NUMERIC" property="cardId" />
+    <result column="USER_ID" jdbcType="NUMERIC" property="userId" />
+    <result column="CARD_NUMBER" jdbcType="VARCHAR" property="cardNumber" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="TEMPORARY" jdbcType="NUMERIC" property="temporary" />
+    <result column="RESIDUE_TEMPORARY_LINES" jdbcType="NUMERIC" property="residueTemporaryLines" />
+    <result column="FACILITY_EXTENT" jdbcType="NUMERIC" property="facilityExtent" />
+    <result column="RESIDUE_FACILITY_EXTENT" jdbcType="NUMERIC" property="residueFacilityExtent" />
+    <result column="KIND" jdbcType="NUMERIC" property="kind" />
+    <result column="CARD_STATE" jdbcType="NUMERIC" property="cardState" />
+    <result column="ACTIVATE" jdbcType="NUMERIC" property="activate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    CARD_ID, USER_ID, CARD_NUMBER, PHONE, PASSWORD, TEMPORARY, RESIDUE_TEMPORARY_LINES, 
+    FACILITY_EXTENT, RESIDUE_FACILITY_EXTENT, KIND, CARD_STATE, ACTIVATE
+  </sql>
+  <select id="selectByExample" parameterType="com.zl.domain.CardManagementExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CARD_MANAGEMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CARD_MANAGEMENT
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from CARD_MANAGEMENT
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zl.domain.CardManagementExample">
+    delete from CARD_MANAGEMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zl.domain.CardManagement">
+    insert into CARD_MANAGEMENT (CARD_ID, USER_ID, CARD_NUMBER, 
+      PHONE, PASSWORD, TEMPORARY, 
+      RESIDUE_TEMPORARY_LINES, FACILITY_EXTENT, 
+      RESIDUE_FACILITY_EXTENT, KIND, CARD_STATE, 
+      ACTIVATE)
+    values (#{cardId,jdbcType=NUMERIC}, #{userId,jdbcType=NUMERIC}, #{cardNumber,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{temporary,jdbcType=NUMERIC}, 
+      #{residueTemporaryLines,jdbcType=NUMERIC}, #{facilityExtent,jdbcType=NUMERIC}, 
+      #{residueFacilityExtent,jdbcType=NUMERIC}, #{kind,jdbcType=NUMERIC}, #{cardState,jdbcType=NUMERIC}, 
+      #{activate,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.domain.CardManagement">
+    insert into CARD_MANAGEMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        CARD_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="temporary != null">
+        TEMPORARY,
+      </if>
+      <if test="residueTemporaryLines != null">
+        RESIDUE_TEMPORARY_LINES,
+      </if>
+      <if test="facilityExtent != null">
+        FACILITY_EXTENT,
+      </if>
+      <if test="residueFacilityExtent != null">
+        RESIDUE_FACILITY_EXTENT,
+      </if>
+      <if test="kind != null">
+        KIND,
+      </if>
+      <if test="cardState != null">
+        CARD_STATE,
+      </if>
+      <if test="activate != null">
+        ACTIVATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        #{cardId,jdbcType=NUMERIC},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=NUMERIC},
+      </if>
+      <if test="cardNumber != null">
+        #{cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="temporary != null">
+        #{temporary,jdbcType=NUMERIC},
+      </if>
+      <if test="residueTemporaryLines != null">
+        #{residueTemporaryLines,jdbcType=NUMERIC},
+      </if>
+      <if test="facilityExtent != null">
+        #{facilityExtent,jdbcType=NUMERIC},
+      </if>
+      <if test="residueFacilityExtent != null">
+        #{residueFacilityExtent,jdbcType=NUMERIC},
+      </if>
+      <if test="kind != null">
+        #{kind,jdbcType=NUMERIC},
+      </if>
+      <if test="cardState != null">
+        #{cardState,jdbcType=NUMERIC},
+      </if>
+      <if test="activate != null">
+        #{activate,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zl.domain.CardManagementExample" resultType="java.lang.Long">
+    select count(*) from CARD_MANAGEMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CARD_MANAGEMENT
+    <set>
+      <if test="record.cardId != null">
+        CARD_ID = #{record.cardId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.cardNumber != null">
+        CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.temporary != null">
+        TEMPORARY = #{record.temporary,jdbcType=NUMERIC},
+      </if>
+      <if test="record.residueTemporaryLines != null">
+        RESIDUE_TEMPORARY_LINES = #{record.residueTemporaryLines,jdbcType=NUMERIC},
+      </if>
+      <if test="record.facilityExtent != null">
+        FACILITY_EXTENT = #{record.facilityExtent,jdbcType=NUMERIC},
+      </if>
+      <if test="record.residueFacilityExtent != null">
+        RESIDUE_FACILITY_EXTENT = #{record.residueFacilityExtent,jdbcType=NUMERIC},
+      </if>
+      <if test="record.kind != null">
+        KIND = #{record.kind,jdbcType=NUMERIC},
+      </if>
+      <if test="record.cardState != null">
+        CARD_STATE = #{record.cardState,jdbcType=NUMERIC},
+      </if>
+      <if test="record.activate != null">
+        ACTIVATE = #{record.activate,jdbcType=NUMERIC},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CARD_MANAGEMENT
+    set CARD_ID = #{record.cardId,jdbcType=NUMERIC},
+      USER_ID = #{record.userId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{record.cardNumber,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      TEMPORARY = #{record.temporary,jdbcType=NUMERIC},
+      RESIDUE_TEMPORARY_LINES = #{record.residueTemporaryLines,jdbcType=NUMERIC},
+      FACILITY_EXTENT = #{record.facilityExtent,jdbcType=NUMERIC},
+      RESIDUE_FACILITY_EXTENT = #{record.residueFacilityExtent,jdbcType=NUMERIC},
+      KIND = #{record.kind,jdbcType=NUMERIC},
+      CARD_STATE = #{record.cardState,jdbcType=NUMERIC},
+      ACTIVATE = #{record.activate,jdbcType=NUMERIC}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.domain.CardManagement">
+    update CARD_MANAGEMENT
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=NUMERIC},
+      </if>
+      <if test="cardNumber != null">
+        CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="temporary != null">
+        TEMPORARY = #{temporary,jdbcType=NUMERIC},
+      </if>
+      <if test="residueTemporaryLines != null">
+        RESIDUE_TEMPORARY_LINES = #{residueTemporaryLines,jdbcType=NUMERIC},
+      </if>
+      <if test="facilityExtent != null">
+        FACILITY_EXTENT = #{facilityExtent,jdbcType=NUMERIC},
+      </if>
+      <if test="residueFacilityExtent != null">
+        RESIDUE_FACILITY_EXTENT = #{residueFacilityExtent,jdbcType=NUMERIC},
+      </if>
+      <if test="kind != null">
+        KIND = #{kind,jdbcType=NUMERIC},
+      </if>
+      <if test="cardState != null">
+        CARD_STATE = #{cardState,jdbcType=NUMERIC},
+      </if>
+      <if test="activate != null">
+        ACTIVATE = #{activate,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.domain.CardManagement">
+    update CARD_MANAGEMENT
+    set USER_ID = #{userId,jdbcType=NUMERIC},
+      CARD_NUMBER = #{cardNumber,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      TEMPORARY = #{temporary,jdbcType=NUMERIC},
+      RESIDUE_TEMPORARY_LINES = #{residueTemporaryLines,jdbcType=NUMERIC},
+      FACILITY_EXTENT = #{facilityExtent,jdbcType=NUMERIC},
+      RESIDUE_FACILITY_EXTENT = #{residueFacilityExtent,jdbcType=NUMERIC},
+      KIND = #{kind,jdbcType=NUMERIC},
+      CARD_STATE = #{cardState,jdbcType=NUMERIC},
+      ACTIVATE = #{activate,jdbcType=NUMERIC}
+    where CARD_ID = #{cardId,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CCMSCommonServer" />
+        <module name="CCMSStagingServer" />
         <module name="CCMSEurekaServer" />
         <module name="CCMSClientServer" />
         <module name="CreditCardManagementSystem_EurekaServer" />
@@ -15,14 +16,17 @@
     <bytecodeTargetLevel target="8">
       <module name="CCMS" target="1.5" />
       <module name="CCMSClientServer" target="1.8" />
-      <module name="CCMSCommonServer" target="1.5" />
+      <module name="CCMSCommonServer" target="1.8" />
       <module name="CCMSEurekaServer" target="8" />
+      <module name="CCMSStagingServer" target="1.8" />
       <module name="CreditCardManagementSystem_EurekaServer" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CCMSClientServer" options="-parameters" />
+      <module name="CCMSCommonServer" options="-parameters" />
+      <module name="CCMSStagingServer" options="-parameters" />
       <module name="CreditCardManagementSystem_EurekaServer" options="-parameters" />
     </option>
   </component>
